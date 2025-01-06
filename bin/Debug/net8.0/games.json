@@ -1,0 +1,17 @@
+[
+	{
+	  "Id": "c5b9a1a6-bc6d-4d19-bf93-734ae9d9b36a",
+	  "BoardStateFEN": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+	  "CurrentTurn": "White",
+	  "CreatedAt": "2024-12-28T10:00:00Z",
+	  "IsFinished": false
+	},
+	{
+	  "Id": "5d67aefa-2b88-4bd1-8827-6f87e282da47",
+	  "BoardStateFEN": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+	  "CurrentTurn": "Black",
+	  "CreatedAt": "2024-12-27T15:00:00Z",
+	  "IsFinished": false
+	}
+  ]
+  

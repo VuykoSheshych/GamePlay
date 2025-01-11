@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GamePlayService.Migrations
 {
     [DbContext(typeof(ChessDbContext))]
-    [Migration("20250106020709_InitialCreate")]
+    [Migration("20250111114252_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

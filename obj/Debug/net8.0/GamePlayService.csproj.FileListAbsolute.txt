@@ -136,3 +136,4 @@ E:\Arbeiten\Chess\GamePlayService\bin\Debug\net8.0\Newtonsoft.Json.dll
 E:\Arbeiten\Chess\GamePlayService\bin\Debug\net8.0\games.json
 E:\Arbeiten\Chess\GamePlayService\bin\Debug\net8.0\moves.json
 E:\Arbeiten\Chess\GamePlayService\obj\Debug\net8.0\GamePlay.C329F27A.Up2Date
+E:\Arbeiten\Chess\GamePlayService\obj\Debug\net8.0\GamePlayService.sourcelink.json

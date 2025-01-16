@@ -17,6 +17,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
 	var dbContext = scope.ServiceProvider.GetRequiredService<ChessDbContext>();
+	await dbContext.Database.MigrateAsync();
 	await dbContext.SeedDataAsync();
 }
 

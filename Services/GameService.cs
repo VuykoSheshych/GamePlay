@@ -12,17 +12,17 @@ namespace GamePlayService.Services
 		public async Task<GameRecord> CreateGameAsync()
 		{
 			var newGame = new GameRecord();
-			_context.Games.Add(newGame);
+			_context.GameRecords.Add(newGame);
 			await _context.SaveChangesAsync();
 			return newGame;
 		}
 		public async Task<GameRecord?> GetGameByIdAsync(Guid id)
 		{
-			return await _context.Games.FindAsync(id);
+			return await _context.GameRecords.FindAsync(id);
 		}
 		public async Task<List<GameRecord>?> GetAllGamesAsync()
 		{
-			return await _context.Games.ToListAsync();
+			return await _context.GameRecords.ToListAsync();
 		}
 		// public async Task<MoveResult> MakeMoveAsync(Guid gameId, MoveDto moveDto)
 		// {

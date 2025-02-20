@@ -1,32 +1,69 @@
 using System.Text;
 
 namespace GamePlayService.Models;
-
 public class BoardState
 {
-	public string FEN { get; set; }
+	public char[,] Board { get; private set; } = new char[8, 8]; // Матричне представлення дошки
+	public string ActiveColor { get; private set; } = "w"; // "w" або "b"
+	public string CastlingRights { get; private set; } = "KQkq"; // Дозволені рокіровки
+	public string EnPassant { get; private set; } = "-"; // Поле для ен-пассан (або "-")
+	public int HalfmoveClock { get; private set; } = 0; // Лічильник півходів
+	public int FullmoveNumber { get; private set; } = 1; // Номер повного ходу
+
+	public string FEN => GenerateFEN(); // Генерація FEN при запиті
 
 	public BoardState()
 	{
-		FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+		LoadFromFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 	}
 
 	public BoardState(string fen)
 	{
-		FEN = fen;
+		LoadFromFEN(fen);
 	}
 
-	public void BoardToFEN(string[,] board)
+	private void LoadFromFEN(string fen)
+	{
+		var parts = fen.Split(' ');
+
+		// Завантаження дошки
+		var rows = parts[0].Split('/');
+		for (int rank = 0; rank < 8; rank++)
+		{
+			int file = 0;
+			foreach (var symbol in rows[rank])
+			{
+				if (char.IsDigit(symbol))
+				{
+					file += symbol - '0';
+				}
+				else
+				{
+					Board[rank, file++] = symbol;
+				}
+			}
+		}
+
+		// Завантаження інших параметрів
+		ActiveColor = parts[1];
+		CastlingRights = parts[2];
+		EnPassant = parts[3];
+		HalfmoveClock = int.Parse(parts[4]);
+		FullmoveNumber = int.Parse(parts[5]);
+	}
+
+	private string GenerateFEN()
 	{
 		StringBuilder fenBuilder = new();
 
-		for (int i = 0; i < 8; i++)
+		// Генерація позиції
+		for (int rank = 0; rank < 8; rank++)
 		{
 			int emptyCount = 0;
-			for (int j = 0; j < 8; j++)
+			for (int file = 0; file < 8; file++)
 			{
-				var cell = board[i, j];
-				if (string.IsNullOrEmpty(cell))
+				char piece = Board[rank, file];
+				if (piece == '\0')
 				{
 					emptyCount++;
 				}
@@ -34,53 +71,30 @@ public class BoardState
 				{
 					if (emptyCount > 0)
 					{
-						fenBuilder.Append(emptyCount.ToString());
+						fenBuilder.Append(emptyCount);
 						emptyCount = 0;
 					}
-					fenBuilder.Append(cell);
+					fenBuilder.Append(piece);
 				}
 			}
 			if (emptyCount > 0)
 			{
-				fenBuilder.Append(emptyCount.ToString());
+				fenBuilder.Append(emptyCount);
 			}
-			if (i < 7)
+			if (rank < 7)
 			{
-				fenBuilder.Append("/");
+				fenBuilder.Append('/');
 			}
 		}
 
-		// Додаткові дані в FEN (потрібно буде дописати відповідно до стану гри)
-		FEN = fenBuilder.ToString() + " w KQkq - 0 1";
+		// Додавання решти параметрів
+		fenBuilder.Append($" {ActiveColor} {CastlingRights} {EnPassant} {HalfmoveClock} {FullmoveNumber}");
+
+		return fenBuilder.ToString();
 	}
 
-	public string[,] GetBoardFromFEN()
+	public static (int Rank, int File) ConvertToBoardIndex(string position)
 	{
-		string[,] board = new string[8, 8];
-
-		var rows = FEN.Split(' ')[0].Split('/');
-		for (int i = 0; i < 8; i++)
-		{
-			int col = 0;
-			foreach (var c in rows[i])
-			{
-				if (char.IsDigit(c))
-				{
-					col += int.Parse(c.ToString());
-				}
-				else
-				{
-					board[i, col] = c.ToString();
-					col++;
-				}
-			}
-		}
-		return board;
-	}
-	public (int Rank, int File) ConvertToBoardIndex(string position)
-	{
-		int rank = 8 - int.Parse(position[1].ToString()); // Рядок (інвертуємо, бо шахівниця йде знизу вгору)
-		int file = position[0] - 'a'; // Стовпець (a = 0, b = 1, ..., h = 7)
-		return (rank, file);
+		return (8 - (position[1] - '0'), position[0] - 'a');
 	}
 }

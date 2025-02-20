@@ -1,8 +1,6 @@
 using GamePlayService.Data;
 using GamePlayService.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GameDbContext>(options =>
@@ -16,7 +14,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<GameService>();
 
-
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("AllowFrontend", policy =>
@@ -27,17 +24,6 @@ builder.Services.AddCors(options =>
 	});
 });
 
-builder.Services.AddAuthentication("Bearer")
-	.AddJwtBearer("Bearer", options =>
-	{
-		options.Authority = "https://localhost:5001";
-		options.Audience = "api1.read"; // Это должен быть API Scope, который ты задал в IdentityServer
-		options.RequireHttpsMetadata = false;
-		options.TokenValidationParameters = new TokenValidationParameters
-		{
-			ValidateAudience = false // Если ты не используешь аудиторию (aud), можно отключить
-		};
-	});
 
 builder.Services.AddAuthorization();
 

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "36umB1IkitG6OJaa4M0ljN4Cf2OowEJA0ze3R3aCsmo=",
+  "Source": "GamePlayService",
+  "BasePath": "_content/GamePlayService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

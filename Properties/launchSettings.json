@@ -9,22 +9,12 @@
     }
   },
   "profiles": {
-    "http": {
+    "GamePlayService": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:5288",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "https": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7251;http://localhost:5288",
+      "applicationUrl": "https://localhost:7251;http://localhost:5003",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -36,14 +26,6 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    },
-	"GamePlayService": {
-		"commandName": "Project",
-		"dotnetRunMessages": true,
-		"applicationUrl": "http://localhost:5003",
-		"environmentVariables": {
-		  "ASPNETCORE_ENVIRONMENT": "Development"
-		}
-	  }
+    }
   }
 }

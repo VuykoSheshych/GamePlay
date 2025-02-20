@@ -5,97 +5,101 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamePlayService.Services
 {
-	public class GameService(ChessDbContext context)
+	public class GameService(GameDbContext context)
 	{
-		private readonly ChessDbContext _context = context;
+		private readonly GameDbContext _context = context;
 
-		public async Task<Game> CreateGameAsync()
+		public async Task<GameRecord> CreateGameAsync()
 		{
-			var newGame = new Game();
+			var newGame = new GameRecord();
 			_context.Games.Add(newGame);
 			await _context.SaveChangesAsync();
 			return newGame;
 		}
-		public async Task<Game?> GetGameByIdAsync(Guid id)
+		public async Task<GameRecord?> GetGameByIdAsync(Guid id)
 		{
 			return await _context.Games.FindAsync(id);
 		}
-		public async Task<MoveResult> MakeMoveAsync(Guid gameId, MoveDto moveDto)
+		public async Task<List<GameRecord>?> GetAllGamesAsync()
 		{
-			var game = await _context.Games
-				.Include(g => g.Moves)
-				.FirstOrDefaultAsync(g => g.Id == gameId);
-
-			if (game == null)
-			{
-				return new MoveResult
-				{
-					IsSuccess = false,
-					ErrorMessage = "Game not found."
-				};
-			}
-
-			if (!IsValidMove(game, moveDto))
-			{
-				return new MoveResult
-				{
-					IsSuccess = false,
-					ErrorMessage = "Invalid move."
-				};
-			}
-
-			var move = new Move
-			{
-				From = moveDto.From,
-				To = moveDto.To,
-				Promotion = moveDto.Promotion,
-				Timestamp = DateTime.UtcNow
-			};
-
-			game.Moves.Add(move);
-			game.BoardStateFEN = UpdateBoardState(new BoardState(game.BoardStateFEN), move);
-			game.CurrentTurn = game.CurrentTurn == "White" ? "Black" : "White";
-
-			await _context.SaveChangesAsync();
-
-			return new MoveResult
-			{
-				IsSuccess = true,
-				Move = move,
-				BoardStateFEN = game.BoardStateFEN,
-				CurrentTurn = game.CurrentTurn
-			};
+			return await _context.Games.ToListAsync();
 		}
+		// public async Task<MoveResult> MakeMoveAsync(Guid gameId, MoveDto moveDto)
+		// {
+		// 	var game = await _context.Games
+		// 		.Include(g => g.Moves)
+		// 		.FirstOrDefaultAsync(g => g.Id == gameId);
 
-		public string UpdateBoardState(BoardState boardState, Move move)
-		{
-			var newBoard = (string[,])boardState.GetBoardFromFEN().Clone();
+		// 	if (game == null)
+		// 	{
+		// 		return new MoveResult
+		// 		{
+		// 			IsSuccess = false,
+		// 			ErrorMessage = "Game not found."
+		// 		};
+		// 	}
 
-			var toPosition = boardState.ConvertToBoardIndex(move.To);
-			var fromPosition = boardState.ConvertToBoardIndex(move.From);
+		// 	if (!IsValidMove(game, moveDto))
+		// 	{
+		// 		return new MoveResult
+		// 		{
+		// 			IsSuccess = false,
+		// 			ErrorMessage = "Invalid move."
+		// 		};
+		// 	}
 
-			newBoard[toPosition.Rank, toPosition.File] = newBoard[fromPosition.Rank, fromPosition.File];
-			newBoard[fromPosition.Rank, fromPosition.File] = "";
+		// 	var move = new Move
+		// 	{
+		// 		From = moveDto.From,
+		// 		To = moveDto.To,
+		// 		Promotion = moveDto.Promotion,
+		// 		Timestamp = DateTime.UtcNow
+		// 	};
 
-			if (!string.IsNullOrEmpty(move.Promotion))
-			{
-				newBoard[toPosition.Rank, toPosition.File] = move.Promotion;
-			}
+		// 	game.Moves.Add(move);
+		// 	game.BoardStateFEN = UpdateBoardState(new BoardState(game.BoardStateFEN), move);
+		// 	game.CurrentTurn = game.CurrentTurn == "White" ? "Black" : "White";
 
-			boardState.BoardToFEN(newBoard);
+		// 	await _context.SaveChangesAsync();
 
-			return boardState.FEN;
-		}
+		// 	return new MoveResult
+		// 	{
+		// 		IsSuccess = true,
+		// 		Move = move,
+		// 		BoardStateFEN = game.BoardStateFEN,
+		// 		CurrentTurn = game.CurrentTurn
+		// 	};
+		// }
 
-		public bool IsValidMove(Game game, MoveDto moveDto)
-		{
-			// Логіка перевірки ходу:
-			// 1. Перевірити, чи гравець робить хід своєю фігурою.
-			// 2. Перевірити, чи хід відповідає правилам для даної фігури.
-			// 3. Перевірити, чи хід не суперечить поточному стану дошки.
-			// 4. Обробка спеціальних випадків (шах, мат, рокіровка тощо).
-			return true; // або false, якщо хід недійсний.
-		}
+		// public string UpdateBoardState(BoardState boardState, Move move)
+		// {
+		// 	var newBoard = (string[,])boardState.GetBoardFromFEN().Clone();
+
+		// 	var toPosition = boardState.ConvertToBoardIndex(move.To);
+		// 	var fromPosition = boardState.ConvertToBoardIndex(move.From);
+
+		// 	newBoard[toPosition.Rank, toPosition.File] = newBoard[fromPosition.Rank, fromPosition.File];
+		// 	newBoard[fromPosition.Rank, fromPosition.File] = "";
+
+		// 	if (!string.IsNullOrEmpty(move.Promotion))
+		// 	{
+		// 		newBoard[toPosition.Rank, toPosition.File] = move.Promotion;
+		// 	}
+
+		// 	boardState.BoardToFEN(newBoard);
+
+		// 	return boardState.FEN;
+		// }
+
+		// public bool IsValidMove(Game game, MoveDto moveDto)
+		// {
+		// 	// Логіка перевірки ходу:
+		// 	// 1. Перевірити, чи гравець робить хід своєю фігурою.
+		// 	// 2. Перевірити, чи хід відповідає правилам для даної фігури.
+		// 	// 3. Перевірити, чи хід не суперечить поточному стану дошки.
+		// 	// 4. Обробка спеціальних випадків (шах, мат, рокіровка тощо).
+		// 	return true; // або false, якщо хід недійсний.
+		// }
 
 		/* public bool IsKingInCheck(string kingPosition)
 		{

@@ -16,6 +16,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<GameService>();
 
+
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowFrontend", policy =>
+	{
+		policy.WithOrigins("https://localhost:7187") // URL твого Blazor WASM
+			  .AllowAnyHeader()
+			  .AllowAnyMethod();
+	});
+});
+
 builder.Services.AddAuthentication("Bearer")
 	.AddJwtBearer("Bearer", options =>
 	{
@@ -48,6 +59,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 

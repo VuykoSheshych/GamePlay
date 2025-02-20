@@ -6,8 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<GameDbContext>(options =>
 	options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped(sp =>
-	new HttpClient { BaseAddress = new Uri("https://localhost:5003/api/game/") });
+builder.Services.AddHealthChecks().AddDbContextCheck<GameDbContext>(); // Перевірка доступності БД
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -18,12 +17,11 @@ builder.Services.AddCors(options =>
 {
 	options.AddPolicy("AllowFrontend", policy =>
 	{
-		policy.WithOrigins("https://localhost:7187") // URL твого Blazor WASM
+		policy.WithOrigins("https://localhost:7187") // URL Blazor WASM
 			  .AllowAnyHeader()
 			  .AllowAnyMethod();
 	});
 });
-
 
 builder.Services.AddAuthorization();
 
@@ -36,6 +34,7 @@ using (var scope = app.Services.CreateScope())
 	await dbContext.SeedDataAsync();
 }
 
+// Middleware
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -50,5 +49,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHealthChecks("/health");
 
 app.Run();

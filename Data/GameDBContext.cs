@@ -4,7 +4,7 @@ using GamePlayService.Models;
 
 namespace GamePlayService.Data
 {
-	public class ChessDbContext(DbContextOptions<ChessDbContext> options) : DbContext(options)
+	public class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)
 	{
 		public DbSet<Game> Games { get; set; }
 		public DbSet<Move> Moves { get; set; }

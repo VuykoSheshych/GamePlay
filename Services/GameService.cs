@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamePlayService.Services
 {
-	public class GameService(ChessDbContext context)
+	public class GameService(GameDbContext context)
 	{
-		private readonly ChessDbContext _context = context;
+		private readonly GameDbContext _context = context;
 
 		public async Task<Game> CreateGameAsync()
 		{

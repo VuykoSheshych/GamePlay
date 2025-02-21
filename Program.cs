@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GameDbContext>(options =>
-	options.UseNpgsql(builder.Configuration.GetConnectionString("LocalhostConnection")));
+	options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("LocalhostConnection")));
 
 builder.Services.AddHealthChecks().AddDbContextCheck<GameDbContext>(); // Перевірка доступності БД
 

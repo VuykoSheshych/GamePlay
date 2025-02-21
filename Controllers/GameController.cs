@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using GamePlayService.Services;
-using GamePlayService.Dtos.Game;
 namespace GamePlayService.Controllers
 {
 	[ApiController]

@@ -1,64 +1,35 @@
-[
-	{
-	  "Id": "b1e7b3c5-8c3b-4f9b-9f0d-5e5b5cdd6f1a",
-	  "PlayerWhite": "Alice",
-	  "PlayerBlack": "Bob",
-	  "Moves": [
-		{
-		  "Id": "5d67aefa-2b88-4bd1-8827-6f87e282da47",
-		  "MoveNumber": 1,
-		  "Player": "White",
-		  "From": "e2",
-		  "To": "e4",
-		  "SanNotation": "e4",
-		  "FenBefore": "startpos",
-		  "FenAfter": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
-		  "Timestamp": "2025-02-20T10:00:00Z"
-		},
-		{
-		  "Id": "c5b9a1a6-bc6d-4d19-bf93-734ae9d9b36a",
-		  "MoveNumber": 2,
-		  "Player": "Black",
-		  "From": "e7",
-		  "To": "e5",
-		  "SanNotation": "e5",
-		  "FenBefore": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR",
-		  "FenAfter": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR",
-		  "Timestamp": "2025-02-20T10:00:05Z"
-		}
-	  ],
-	  "Result": "1-0",
-	  "Date": "2025-02-19T15:00:00Z"
-	},
-	{
-	  "Id": "a309d1ee-3527-4b33-814f-ec0c29ce85cf",
-	  "PlayerWhite": "Charlie",
-	  "PlayerBlack": "David",
-	  "Moves": [
-		{
-		  "Id": "b46446c5-dfec-4fc1-9e45-98310644bf52",
-		  "MoveNumber": 1,
-		  "Player": "White",
-		  "From": "d2",
-		  "To": "d4",
-		  "SanNotation": "d4",
-		  "FenBefore": "startpos",
-		  "FenAfter": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR",
-		  "Timestamp": "2025-02-18T14:30:00Z"
-		},
-		{
-		  "Id": "ca138435-866a-4952-a2b5-27b4884c5b60",
-		  "MoveNumber": 2,
-		  "Player": "Black",
-		  "From": "d7",
-		  "To": "d5",
-		  "SanNotation": "d5",
-		  "FenBefore": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR",
-		  "FenAfter": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR",
-		  "Timestamp": "2025-02-18T14:30:05Z"
-		}
-	  ],
-	  "Result": "0-1",
-	  "Date": "2025-02-18T14:00:00Z"
-	}
-]
+{
+	"Id": "a3c9a578-8411-48e9-bc22-b7cc129b92cd",
+	"PlayerWhite": "Alice",
+	"PlayerBlack": "Bob",
+	"Moves": [
+	  {
+		"Id": "f9e72c1c-d7db-4f3c-87d1-27956dd069ce",
+		"MoveNumber": 1,
+		"WhiteMoveFrom": "e2",
+		"WhiteMoveTo": "e4",
+		"WhiteSanNotation": "e4",
+		"BlackMoveFrom": "e7",
+		"BlackMoveTo": "e5",
+		"BlackSanNotation": "e5",
+		"FenBefore": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+		"FenAfter": "rnbqkbnr/pppp-ppp/8/8/8/8/PPP-PPPP/RNBQKBNR b KQkq - 0 1",
+		"Timestamp": "2025-02-21T00:00:00Z"
+	  },
+	  {
+		"Id": "67a916bc-b24a-4d59-a95d-95a260fc21e1",
+		"MoveNumber": 2,
+		"WhiteMoveFrom": "g1",
+		"WhiteMoveTo": "f3",
+		"WhiteSanNotation": "Nf3",
+		"BlackMoveFrom": "g8",
+		"BlackMoveTo": "f6",
+		"BlackSanNotation": "Nf6",
+		"FenBefore": "rnbqkb1r/pppppppp/8/8/8/8/PPP-PPPP/RNBQKBNR w KQkq - 1 2",
+		"FenAfter": "rnbqkb1r/pppp-ppp/8/8/8/8/PPP-PPPP/RNBQKBNR b KQkq - 1 2",
+		"Timestamp": "2025-02-21T00:01:00Z"
+	  }
+	],
+	"Result": "1-0",
+	"Date": "2025-02-21T00:00:00Z"
+}  

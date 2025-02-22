@@ -7,7 +7,7 @@ namespace GamePlayService.Data
 	public class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)
 	{
 		public DbSet<GameRecord> GameRecords { get; set; }
-		public DbSet<MovePair> Moves { get; set; }
+		public DbSet<Move> Moves { get; set; }
 		public async Task SeedDataAsync()
 		{
 			if (!GameRecords.Any())

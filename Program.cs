@@ -1,6 +1,7 @@
 using GamePlayService.Data;
 using GamePlayService.Services;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GameDbContext>(options =>
@@ -8,10 +9,16 @@ builder.Services.AddDbContext<GameDbContext>(options =>
 
 builder.Services.AddHealthChecks().AddDbContextCheck<GameDbContext>(); // Перевірка доступності БД
 
+builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
+	ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")));
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<GameService>();
+builder.Services.AddScoped<GameRecordsService>();
+builder.Services.AddScoped<ActiveGamesService>();
+
+builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
 {
@@ -49,6 +56,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<GameHub>("/gameHub");
 app.MapHealthChecks("/health");
 
 app.Run();

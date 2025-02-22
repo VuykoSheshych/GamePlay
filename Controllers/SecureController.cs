@@ -1,15 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using GamePlayService.Services;
+using GamePlayService.Models;
+using GamePlayService.Dtos.Game;
 namespace GamePlayService.Controllers;
 
 [Authorize]
 [ApiController]
-[Route("api/[controller]")]
-public class SecureController : ControllerBase
+[Route("api/secure")]
+public class SecureController() : ControllerBase
 {
-	[HttpGet("history")]
-	public IActionResult GetHistory()
-	{
-		return Ok("Данные доступны, потому что пользователь аутентифицирован");
-	}
+
 }

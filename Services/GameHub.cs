@@ -18,7 +18,7 @@ public class GameHub(ActiveGamesService activeGamesService) : Hub
 		var gameSession = await _activeGamesService.GetGameSessionAsync(gameId);
 		if (gameSession != null)
 		{
-			await Clients.Caller.SendAsync("ReceiveGameState", gameSession);
+			await Clients.Group(gameId).SendAsync("ReceiveGameState", gameSession);
 		}
 	}
 	public async Task MakeMove(string gameId, MoveDto moveDto)

@@ -6,9 +6,9 @@ public class GameHub(ActiveGamesService activeGamesService) : Hub
 {
 	private readonly ActiveGamesService _activeGamesService = activeGamesService;
 
-	public async Task<string> CreateGame()
+	public async Task<string> CreateGame(string player1, string player2)
 	{
-		var gameId = await _activeGamesService.CreateGameSessionAsync();
+		var gameId = await _activeGamesService.CreateGameSessionAsync(player1, player2);
 
 		return gameId.ToString();
 	}
@@ -26,7 +26,12 @@ public class GameHub(ActiveGamesService activeGamesService) : Hub
 		await _activeGamesService.MakeMoveAsync(gameId, moveDto);
 
 		var updatedGameSession = await _activeGamesService.GetGameSessionAsync(gameId);
-
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+	}
+	public async Task FinishGame(string gameId, string result)
+	{
+		var updatedGameSession = await _activeGamesService.GetGameSessionAsync(gameId);
+		await _activeGamesService.RemoveGameSessionAsync(gameId, result);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
 	}
 	public async Task LeaveGame(string gameId)

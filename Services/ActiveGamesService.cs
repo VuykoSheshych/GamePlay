@@ -15,16 +15,27 @@ public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
-	public async Task<Guid> CreateGameSessionAsync()
+	public async Task<Guid> CreateGameSessionAsync(string player1, string player2)
 	{
-		var newGame = new GameSession();
+		GameSession newGame = new()
+		{
+			PlayerWhite = player1,
+			PlayerBlack = player2
+		};
+
 		var json = JsonSerializer.Serialize(newGame);
 		await _db.StringSetAsync($"game:{newGame.Id}", json, _expiration);
 		return newGame.Id;
 	}
-	public async Task RemoveGameSessionAsync(string gameId)
+	public async Task RemoveGameSessionAsync(string gameId, string result)
 	{
-		await SaveGameRecordAsync(await GetGameSessionAsync(gameId));
+		var game = await GetGameSessionAsync(gameId);
+
+		if (game != null)
+		{
+			game.Result = result;
+			await SaveGameRecordAsync(game);
+		}
 		await _db.KeyDeleteAsync($"game:{gameId}");
 	}
 	public async Task SaveGameSessionAsync(GameSession gameSession)
@@ -70,17 +81,14 @@ public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService
 	{
 		return $"{moveDto.From}-{moveDto.To}";
 	}
-	public async Task SaveGameRecordAsync(GameSession? gameSession)
+	public async Task SaveGameRecordAsync(GameSession gameSession)
 	{
-		if (gameSession != null)
+		await _gameService.AddGameRecordAsync(new GameRecord()
 		{
-			await _gameService.AddGameRecordAsync(new GameRecord()
-			{
-				PlayerWhite = gameSession.PlayerWhite,
-				PlayerBlack = gameSession.PlayerBlack,
-				Moves = gameSession.Moves,
-				Result = gameSession.Result
-			});
-		}
+			PlayerWhite = gameSession.PlayerWhite,
+			PlayerBlack = gameSession.PlayerBlack,
+			Moves = gameSession.Moves,
+			Result = gameSession.Result
+		});
 	}
 }

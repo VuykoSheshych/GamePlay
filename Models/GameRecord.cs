@@ -1,7 +1,7 @@
 namespace GamePlayService.Models;
 public class GameRecord
 {
-	public Guid Id { get; set; } = new Guid();
+	public Guid Id { get; set; } = Guid.NewGuid();
 	public string PlayerWhite { get; set; } = string.Empty;
 	public string PlayerBlack { get; set; } = string.Empty;
 	public virtual List<Move> Moves { get; set; } = [];

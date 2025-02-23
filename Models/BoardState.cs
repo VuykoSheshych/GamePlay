@@ -1,4 +1,5 @@
 using System.Text;
+using GamePlayService.Dtos.Game;
 
 namespace GamePlayService.Models;
 public class BoardState
@@ -26,7 +27,6 @@ public class BoardState
 	{
 		var parts = fen.Split(' ');
 
-		// Завантаження дошки
 		var rows = parts[0].Split('/');
 		for (int rank = 0; rank < 8; rank++)
 		{
@@ -93,6 +93,41 @@ public class BoardState
 		return fenBuilder.ToString();
 	}
 
+	public void ApplyMove(MoveDto move)
+	{
+		var (fromRank, fromFile) = ConvertToBoardIndex(move.From);
+		var (toRank, toFile) = ConvertToBoardIndex(move.To);
+
+		char piece = Board[fromRank, fromFile];
+
+		// Переміщення фігури
+		Board[toRank, toFile] = piece;
+		Board[fromRank, fromFile] = '\0';
+
+		// Оновлення ен-пассан
+		EnPassant = "-";
+		if (char.ToLower(piece) == 'p' && Math.Abs(fromRank - toRank) == 2)
+		{
+			// Якщо пішак зробив подвійний крок, можливий ен-пассан
+			int enPassantRank = (fromRank + toRank) / 2;
+			EnPassant = $"{move.From[0]}{8 - enPassantRank}";
+		}
+
+		// Оновлення рокіровки (зняття прав)
+		if (piece == 'K') CastlingRights = CastlingRights.Replace("K", "").Replace("Q", "");
+		if (piece == 'k') CastlingRights = CastlingRights.Replace("k", "").Replace("q", "");
+		if (piece == 'R' && move.From == "h1") CastlingRights = CastlingRights.Replace("K", "");
+		if (piece == 'R' && move.From == "a1") CastlingRights = CastlingRights.Replace("Q", "");
+		if (piece == 'r' && move.From == "h8") CastlingRights = CastlingRights.Replace("k", "");
+		if (piece == 'r' && move.From == "a8") CastlingRights = CastlingRights.Replace("q", "");
+
+		// Оновлення активного кольору
+		ActiveColor = ActiveColor == "w" ? "b" : "w";
+
+		// Оновлення півходів і номеру повного ходу
+		HalfmoveClock = (piece == 'p' || Board[toRank, toFile] != '\0') ? 0 : HalfmoveClock + 1;
+		if (ActiveColor == "w") FullmoveNumber++;
+	}
 	public static (int Rank, int File) ConvertToBoardIndex(string position)
 	{
 		return (8 - (position[1] - '0'), position[0] - 'a');

@@ -15,11 +15,12 @@ public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
-	public async Task CreateGameSessionAsync()
+	public async Task<Guid> CreateGameSessionAsync()
 	{
 		var newGame = new GameSession();
 		var json = JsonSerializer.Serialize(newGame);
 		await _db.StringSetAsync($"game:{newGame.Id}", json, _expiration);
+		return newGame.Id;
 	}
 	public async Task RemoveGameSessionAsync(string gameId)
 	{
@@ -40,14 +41,14 @@ public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService
 		// 4. Обробка спеціальних випадків (шах, мат, рокіровка тощо).
 		return true; // або false, якщо хід недійсний.
 	}
-	public async Task<string> MakeMoveAsync(string gameId, MoveDto moveDto)
+	public async Task MakeMoveAsync(string gameId, MoveDto moveDto)
 	{
 		var game = await GetGameSessionAsync(gameId);
-		if (game == null) return "Game session not found!";
+		if (game == null) return;
 
 		var actualBoardState = new BoardState(game.CurrentFen);
 
-		if (!IsValidMove(actualBoardState, moveDto)) return "Wrong move!";
+		if (!IsValidMove(actualBoardState, moveDto)) return;
 
 		game.Moves.Add(new Move()
 		{
@@ -60,8 +61,10 @@ public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService
 			FenBefore = actualBoardState.FEN
 		});
 
+		actualBoardState.ApplyMove(moveDto);
+		game.CurrentFen = actualBoardState.FEN;
+
 		await SaveGameSessionAsync(game);
-		return "Move added!";
 	}
 	public string CreateMoveSanNotation(BoardState boardState, MoveDto moveDto)
 	{

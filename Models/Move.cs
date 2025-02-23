@@ -1,7 +1,7 @@
 namespace GamePlayService.Models;
 public class Move
 {
-	public Guid Id { get; set; } = new Guid();
+	public Guid Id { get; set; } = Guid.NewGuid();
 	public int MoveNumber { get; set; }
 	public string PlayerColor { get; set; } = string.Empty;
 	public string From { get; set; } = string.Empty;

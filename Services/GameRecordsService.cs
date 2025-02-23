@@ -18,6 +18,7 @@ namespace GamePlayService.Services
 		public async Task AddGameRecordAsync(GameRecord gameRecord)
 		{
 			await _context.AddAsync(gameRecord);
+			await _context.SaveChangesAsync();
 		}
 	}
 }

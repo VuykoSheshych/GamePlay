@@ -38,7 +38,7 @@ using (var scope = app.Services.CreateScope())
 {
 	var dbContext = scope.ServiceProvider.GetRequiredService<GameDbContext>();
 	await dbContext.Database.MigrateAsync();
-	await dbContext.SeedDataAsync();
+	//await dbContext.SeedDataAsync();
 }
 
 // Middleware

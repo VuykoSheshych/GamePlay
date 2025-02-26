@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GamePlayService.Services
 {
-	public class GameRecordsService(GameDbContext context)
+	public class GameRecordService(GameDbContext context)
 	{
 		private readonly GameDbContext _context = context;
 		public async Task<GameRecord?> GetGameRecordByIdAsync(Guid id)

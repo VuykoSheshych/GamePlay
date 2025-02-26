@@ -5,9 +5,9 @@ using StackExchange.Redis;
 
 namespace GamePlayService.Services;
 
-public class ActiveGamesService(IConnectionMultiplexer redis, GameRecordsService gameService)
+public class GameSessionService(IConnectionMultiplexer redis, GameRecordService gameService)
 {
-	private readonly GameRecordsService _gameService = gameService;
+	private readonly GameRecordService _gameService = gameService;
 	private readonly IDatabase _db = redis.GetDatabase();
 	private readonly TimeSpan _expiration = TimeSpan.FromHours(1);
 	public async Task<GameSession?> GetGameSessionAsync(string gameId)

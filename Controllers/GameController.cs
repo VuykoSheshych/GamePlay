@@ -4,9 +4,9 @@ namespace GamePlayService.Controllers
 {
 	[ApiController]
 	[Route("api/games")]
-	public class GameController(GameRecordsService gameService) : ControllerBase
+	public class GameController(GameRecordService gameService) : ControllerBase
 	{
-		private readonly GameRecordsService _gameService = gameService;
+		private readonly GameRecordService _gameService = gameService;
 
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetGame(Guid id)

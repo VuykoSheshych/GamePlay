@@ -15,8 +15,9 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<GameRecordsService>();
-builder.Services.AddScoped<ActiveGamesService>();
+builder.Services.AddScoped<GameRecordService>();
+builder.Services.AddScoped<GameSessionService>();
+builder.Services.AddScoped<GameSearchService>();
 
 builder.Services.AddSignalR();
 

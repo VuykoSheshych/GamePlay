@@ -64,7 +64,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		game.Moves.Add(new Move()
 		{
 			MoveNumber = actualBoardState.FullmoveNumber,
-			PlayerColor = moveDto.Player,
+			PlayerColor = actualBoardState.ActiveColor,
 			From = moveDto.From,
 			To = moveDto.To,
 			Promotion = moveDto.Promotion,

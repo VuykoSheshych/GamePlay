@@ -24,7 +24,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		{
 			await Groups.AddToGroupAsync(connectionId, gameId);
 			await Clients.Group(gameId).SendAsync("GameFound", gameId);
-			await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gamesSessionService.GetGameSessionAsync(gameId));
+			await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
 		}
 	}
 	public async Task StartGameSearch(string playerId)

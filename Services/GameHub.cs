@@ -7,7 +7,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 	private readonly GameSessionService _gamesSessionService = gamesSessionService;
 	private readonly GameSearchService _gameSearchService = gameSearchService;
 
-	public async Task<string> CreateGame(string player1, string player2)
+	public async Task<string> CreateGame(Dictionary<string, string> players)
 	{
 		var gameId = await _gamesSessionService.CreateGameSessionAsync(player1, player2);
 
@@ -34,7 +34,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		var playersWithConnectionIds = await _gameSearchService.FindPlayersForGame();
 		if (playersWithConnectionIds != null)
 		{
-			var gameId = await CreateGame(playersWithConnectionIds.Keys.First(), playersWithConnectionIds.Keys.Last());
+			var gameId = await CreateGame(playersWithConnectionIds);
 
 			await JoinGame(gameId, [playersWithConnectionIds.Values.First(), playersWithConnectionIds.Values.Last()]);
 		}

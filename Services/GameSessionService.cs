@@ -15,12 +15,14 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
-	public async Task<Guid> CreateGameSessionAsync(string player1, string player2)
+	public async Task<Guid> CreateGameSessionAsync(Dictionary<string, string> players)
 	{
 		GameSession newGame = new()
 		{
-			PlayerWhite = player1,
-			PlayerBlack = player2
+			PlayerWhite = players.Keys.First(),
+			PlayerWhiteConnectionId = players.Values.First(),
+			PlayerBlack = players.Keys.Last(),
+			PlayerBlackConnectionId = players.Values.Last()
 		};
 
 		var json = JsonSerializer.Serialize(newGame);

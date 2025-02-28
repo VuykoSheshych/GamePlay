@@ -7,7 +7,7 @@ namespace GamePlayService.Services;
 
 public class GameSessionService(IConnectionMultiplexer redis, GameRecordService gameService)
 {
-	private readonly GameRecordService _gameService = gameService;
+	private readonly GameRecordService _gameRecordService = gameService;
 	private readonly IDatabase _db = redis.GetDatabase();
 	private readonly TimeSpan _expiration = TimeSpan.FromHours(1);
 	public async Task<GameSession?> GetGameSessionAsync(string gameId)
@@ -85,7 +85,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 	}
 	public async Task SaveGameRecordAsync(GameSession gameSession)
 	{
-		await _gameService.AddGameRecordAsync(new GameRecord()
+		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{
 			PlayerWhite = gameSession.PlayerWhite,
 			PlayerBlack = gameSession.PlayerBlack,

@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.SignalR;
 namespace GamePlayService.Services;
 public class GameHub(GameSessionService gamesSessionService, GameSearchService gameSearchService) : Hub
 {
-	private readonly GameSessionService _gamesSessionService = gamesSessionService;
+	private readonly GameSessionService _gameSessionService = gamesSessionService;
 	private readonly GameSearchService _gameSearchService = gameSearchService;
 
 	public async Task<string> CreateGame(Dictionary<string, string> players)
 	{
-		var gameId = await _gamesSessionService.CreateGameSessionAsync(player1, player2);
+		var gameId = await _gameSessionService.CreateGameSessionAsync(players);
 
 		return gameId.ToString();
 	}
@@ -45,19 +45,21 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 	}
 	public async Task MakeMove(string gameId, MoveDto moveDto)
 	{
-		await _gamesSessionService.MakeMoveAsync(gameId, moveDto);
+		await _gameSessionService.MakeMoveAsync(gameId, moveDto);
 
-		var updatedGameSession = await _gamesSessionService.GetGameSessionAsync(gameId);
+		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
 	}
 	public async Task FinishGame(string gameId, string result)
 	{
-		var updatedGameSession = await _gamesSessionService.GetGameSessionAsync(gameId);
-		await _gamesSessionService.RemoveGameSessionAsync(gameId, result);
-		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
-	}
-	public async Task LeaveGame(string gameId)
-	{
-		await Groups.RemoveFromGroupAsync(Context.ConnectionId, gameId);
+		var gameSession = await _gameSessionService.GetGameSessionAsync(gameId);
+		if (gameSession != null)
+		{
+			await Clients.Group(gameId).SendAsync("GameFinished", result);
+			await Groups.RemoveFromGroupAsync(gameSession.PlayerBlackConnectionId, gameId);
+			await Groups.RemoveFromGroupAsync(gameSession.PlayerWhiteConnectionId, gameId);
+
+		}
+		await _gameSessionService.RemoveGameSessionAsync(gameId, result);
 	}
 }

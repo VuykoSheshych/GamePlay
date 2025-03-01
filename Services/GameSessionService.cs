@@ -87,6 +87,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 	{
 		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{
+			Id = gameSession.Id,
 			PlayerWhite = gameSession.PlayerWhite,
 			PlayerBlack = gameSession.PlayerBlack,
 			Moves = gameSession.Moves,

@@ -55,7 +55,12 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		var gameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		if (gameSession != null)
 		{
-			await Clients.Group(gameId).SendAsync("GameFinished", result);
+			string winner;
+			if (result == "Black") winner = gameSession.PlayerBlack;
+			else if (result == "White") winner = gameSession.PlayerWhite;
+			else winner = "Draw";
+
+			await Clients.Group(gameId).SendAsync("GameFinished", winner);
 			await Groups.RemoveFromGroupAsync(gameSession.PlayerBlackConnectionId, gameId);
 			await Groups.RemoveFromGroupAsync(gameSession.PlayerWhiteConnectionId, gameId);
 

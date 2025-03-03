@@ -45,10 +45,16 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 	}
 	public async Task MakeMove(string gameId, MoveDto moveDto)
 	{
-		await _gameSessionService.MakeMoveAsync(gameId, moveDto);
+		var moveResult = await _gameSessionService.TryMakeMoveAsync(gameId, moveDto);
+		await Clients.Group(gameId).SendAsync("ReceiveMove", moveResult);
 
-		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
-		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+		if (moveResult != "You cannot make moves with your opponent's pieces!" &&
+			moveResult != "Invalid move for this type of piece!" &&
+			moveResult != "The final square is already occupied by an allied piece!")
+		{
+			var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
+			await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+		}
 	}
 	public async Task FinishGame(string gameId, string result)
 	{

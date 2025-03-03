@@ -1,7 +1,7 @@
 namespace GamePlayService.Models.Pieces;
 public class Rook : ChessPiece
 {
-	public override List<string> GetPossibleMoves(string position, string[,] board)
+	public override List<string> GetPossibleMoves(string position, BoardState boardState)
 	{
 		List<string> moves = [];
 

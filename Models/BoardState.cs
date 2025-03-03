@@ -4,14 +4,14 @@ using GamePlayService.Dtos.Game;
 namespace GamePlayService.Models;
 public class BoardState
 {
-	public char[,] Board { get; private set; } = new char[8, 8]; // Матричне представлення дошки
-	public string ActiveColor { get; private set; } = "w"; // "w" або "b"
-	public string CastlingRights { get; private set; } = "KQkq"; // Дозволені рокіровки
-	public string EnPassant { get; private set; } = "-"; // Поле для ен-пассан (або "-")
-	public int HalfmoveClock { get; private set; } = 0; // Лічильник півходів
-	public int FullmoveNumber { get; private set; } = 1; // Номер повного ходу
+	public char[,] Board { get; private set; } = new char[8, 8];
+	public string ActiveColor { get; private set; } = "w";
+	public string CastlingRights { get; private set; } = "KQkq";
+	public string EnPassant { get; private set; } = "-";
+	public int HalfmoveClock { get; private set; } = 0;
+	public int FullmoveNumber { get; private set; } = 1;
 
-	public string FEN => GenerateFEN(); // Генерація FEN при запиті
+	public string FEN => GenerateFEN();
 
 	public BoardState()
 	{
@@ -44,7 +44,6 @@ public class BoardState
 			}
 		}
 
-		// Завантаження інших параметрів
 		ActiveColor = parts[1];
 		CastlingRights = parts[2];
 		EnPassant = parts[3];
@@ -56,7 +55,6 @@ public class BoardState
 	{
 		StringBuilder fenBuilder = new();
 
-		// Генерація позиції
 		for (int rank = 0; rank < 8; rank++)
 		{
 			int emptyCount = 0;
@@ -87,7 +85,6 @@ public class BoardState
 			}
 		}
 
-		// Додавання решти параметрів
 		fenBuilder.Append($" {ActiveColor} {CastlingRights} {EnPassant} {HalfmoveClock} {FullmoveNumber}");
 
 		return fenBuilder.ToString();
@@ -100,20 +97,16 @@ public class BoardState
 
 		char piece = Board[fromRank, fromFile];
 
-		// Переміщення фігури
 		Board[toRank, toFile] = piece;
 		Board[fromRank, fromFile] = '\0';
 
-		// Оновлення ен-пассан
 		EnPassant = "-";
 		if (char.ToLower(piece) == 'p' && Math.Abs(fromRank - toRank) == 2)
 		{
-			// Якщо пішак зробив подвійний крок, можливий ен-пассан
 			int enPassantRank = (fromRank + toRank) / 2;
 			EnPassant = $"{move.From[0]}{8 - enPassantRank}";
 		}
 
-		// Оновлення рокіровки (зняття прав)
 		if (piece == 'K') CastlingRights = CastlingRights.Replace("K", "").Replace("Q", "");
 		if (piece == 'k') CastlingRights = CastlingRights.Replace("k", "").Replace("q", "");
 		if (piece == 'R' && move.From == "h1") CastlingRights = CastlingRights.Replace("K", "");
@@ -121,15 +114,16 @@ public class BoardState
 		if (piece == 'r' && move.From == "h8") CastlingRights = CastlingRights.Replace("k", "");
 		if (piece == 'r' && move.From == "a8") CastlingRights = CastlingRights.Replace("q", "");
 
-		// Оновлення активного кольору
 		ActiveColor = ActiveColor == "w" ? "b" : "w";
 
-		// Оновлення півходів і номеру повного ходу
 		HalfmoveClock = (piece == 'p' || Board[toRank, toFile] != '\0') ? 0 : HalfmoveClock + 1;
 		if (ActiveColor == "w") FullmoveNumber++;
 	}
 	public static (int Rank, int File) ConvertToBoardIndex(string position)
 	{
-		return (8 - (position[1] - '0'), position[0] - 'a');
+		int rank = 8 - (position[1] - '0');
+		int file = position[0] - 'a';
+
+		return (rank, file);
 	}
 }

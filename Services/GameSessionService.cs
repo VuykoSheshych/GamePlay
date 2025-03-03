@@ -1,6 +1,7 @@
 using System.Text.Json;
 using GamePlayService.Dtos.Game;
 using GamePlayService.Models;
+using GamePlayService.Models.Pieces;
 using StackExchange.Redis;
 
 namespace GamePlayService.Services;
@@ -45,23 +46,17 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		var json = JsonSerializer.Serialize(gameSession);
 		await _db.StringSetAsync($"game:{gameSession.Id}", json, _expiration);
 	}
-	public bool IsValidMove(BoardState boardState, MoveDto moveDto)
-	{
-		// Логіка перевірки ходу:
-		// 1. Перевірити, чи гравець робить хід своєю фігурою.
-		// 2. Перевірити, чи хід відповідає правилам для даної фігури.
-		// 3. Перевірити, чи хід не суперечить поточному стану дошки.
-		// 4. Обробка спеціальних випадків (шах, мат, рокіровка тощо).
-		return true; // або false, якщо хід недійсний.
-	}
-	public async Task MakeMoveAsync(string gameId, MoveDto moveDto)
+	public async Task<string> TryMakeMoveAsync(string gameId, MoveDto moveDto)
 	{
 		var game = await GetGameSessionAsync(gameId);
-		if (game == null) return;
+		if (game == null) return "Game not found!";
 
 		var actualBoardState = new BoardState(game.CurrentFen);
+		var moveResult = ChessValidator.GetMoveValidationResult(actualBoardState, moveDto);
 
-		if (!IsValidMove(actualBoardState, moveDto)) return;
+		if (moveResult == "You cannot make moves with your opponent's pieces!" ||
+			moveResult == "Invalid move for this type of piece!" ||
+			moveResult == "The final square is already occupied by an allied piece!") return moveResult;
 
 		game.Moves.Add(new Move()
 		{
@@ -70,7 +65,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 			From = moveDto.From,
 			To = moveDto.To,
 			Promotion = moveDto.Promotion,
-			SanNotation = CreateMoveSanNotation(actualBoardState, moveDto),
+			SanNotation = moveResult,
 			FenBefore = actualBoardState.FEN
 		});
 
@@ -78,10 +73,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		game.CurrentFen = actualBoardState.FEN;
 
 		await SaveGameSessionAsync(game);
-	}
-	public string CreateMoveSanNotation(BoardState boardState, MoveDto moveDto)
-	{
-		return $"{moveDto.From}-{moveDto.To}";
+		return moveResult;
 	}
 	public async Task SaveGameRecordAsync(GameSession gameSession)
 	{

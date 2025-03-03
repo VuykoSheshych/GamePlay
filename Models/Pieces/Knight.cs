@@ -1,7 +1,7 @@
 namespace GamePlayService.Models.Pieces;
 public class Knight : ChessPiece
 {
-	public override List<string> GetPossibleMoves(string position, string[,] board)
+	public override List<string> GetPossibleMoves(string position, BoardState boardState)
 	{
 		List<string> moves = [];
 		int row = position[1] - '1';

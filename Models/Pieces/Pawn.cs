@@ -4,12 +4,11 @@ public class Pawn : ChessPiece
 	public override List<string> GetPossibleMoves(string position, BoardState boardState)
 	{
 		List<string> moves = [];
-		int row = position[1] - '1';
-		int col = position[0] - 'a';
+		var (row, col) = BoardState.ConvertToBoardIndex(position);
 
-		int direction = (Color == "w") ? 1 : -1;
-		int startRow = (Color == "w") ? 1 : 6;
-		int promotionRow = (Color == "w") ? 7 : 0;
+		int direction = (Color == "w") ? -1 : 1;
+		int startRow = (Color == "w") ? 6 : 1;
+		int promotionRow = (Color == "w") ? 0 : 7;
 
 		// Один крок вперед (тільки якщо клітинка пуста)
 		if (IsValidCell(row + direction, col) && boardState.Board[row + direction, col] == '\0')
@@ -62,7 +61,7 @@ public class Pawn : ChessPiece
 
 	private void AddMove(List<string> moves, int row, int col, int promotionRow)
 	{
-		string move = $"{(char)(col + 'a')}{row + 1}";
+		string move = $"{(char)(col + 'a')}{8 - row}";
 		if (row == promotionRow)
 		{
 			// Додаємо можливі перетворення

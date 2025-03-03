@@ -54,7 +54,7 @@ public static class ChessValidator
 	}
 	private static void PrintBoard(char[,] board)
 	{
-		for (int r = 7; r >= 0; r--)
+		for (int r = 0; r < 8; r++)
 		{
 			for (int c = 0; c < 8; c++)
 			{

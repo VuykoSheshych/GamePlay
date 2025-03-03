@@ -9,7 +9,14 @@ namespace GamePlayService.Services
 		private readonly GameDbContext _context = context;
 		public async Task<GameRecord?> GetGameRecordByIdAsync(Guid id)
 		{
-			return await _context.GameRecords.FindAsync(id);
+			var gameRecord = await _context.GameRecords.FindAsync(id);
+			if (gameRecord != null)
+			{
+				gameRecord.Moves = [.. gameRecord.Moves
+					.OrderBy(m => m.MoveNumber)
+					.ThenBy(m => m.PlayerColor == "w" ? 0 : 1)];
+			}
+			return gameRecord;
 		}
 		public async Task<List<GameRecord>?> GetAllGameRecordsAsync()
 		{

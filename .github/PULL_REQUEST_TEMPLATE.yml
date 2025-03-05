@@ -1,0 +1,70 @@
+name: "🚀 Pull Request"
+description: Create a new pull request to contribute changes.
+title: "🚀 [PR] - <title>"
+labels: ["enhancement"]
+body:
+  - type: input
+    id: issue_reference
+    attributes:
+      label: "Issue Reference"
+      description: Reference any related issues (if applicable)
+      placeholder: "#Issue ID"
+    validations:
+      required: false
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Summary"
+      description: Provide a brief summary of the changes introduced.
+      placeholder: Describe in a few lines what your PR does.
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: "Changes Made"
+      description: Describe the changes you made in detail.
+      placeholder: List the major changes in this PR.
+    validations:
+      required: true
+  - type: textarea
+    id: implementation_details
+    attributes:
+      label: "Implementation Details"
+      description: Explain any specific implementation details.
+      placeholder: Provide technical insights if necessary.
+    validations:
+      required: false
+  - type: textarea
+    id: testing
+    attributes:
+      label: "Testing Steps"
+      description: Steps taken to ensure correctness.
+      value: |
+        1. Run '...'
+        2. Click on '....'
+        3. Verify '....'
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots (if applicable)"
+      description: Attach screenshots if relevant.
+      value: |
+        ![DESCRIPTION](LINK.png)
+      render: bash
+    validations:
+      required: false
+  - type: textarea
+    id: checklist
+    attributes:
+      label: "Checklist"
+      description: Ensure your PR meets these conditions.
+      value: |
+        - [ ] Code follows project guidelines
+        - [ ] Tests have been added/updated
+        - [ ] Documentation has been updated (if applicable)
+    validations:
+      required: true

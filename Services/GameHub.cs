@@ -1,4 +1,5 @@
 using GamePlayService.Dtos.Game;
+using GamePlayService.Models;
 using Microsoft.AspNetCore.SignalR;
 
 namespace GamePlayService.Services;
@@ -48,12 +49,27 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		var moveResult = await _gameSessionService.TryMakeMoveAsync(gameId, moveDto);
 		await Clients.Group(gameId).SendAsync("ReceiveMove", moveResult);
 
-		if (moveResult != "You cannot make moves with your opponent's pieces!" &&
-			moveResult != "Invalid move for this type of piece!" &&
-			moveResult != "The final square is already occupied by an allied piece!")
+		if (moveResult is "You cannot make moves with your opponent's pieces!" or
+							"Invalid move for this type of piece!" or
+							"The final square is already occupied by an allied piece!" or
+							"You cannot move into check!" or
+							"Invalid castling move!")
 		{
-			var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
-			await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+			return;
+		}
+
+		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+
+		if (moveResult.EndsWith('#'))
+		{
+			var activeColor = new BoardState(updatedGameSession!.CurrentFen).ActiveColor;
+			string winner = activeColor == "w" ? "Black" : "White";
+			await FinishGame(gameId, winner);
+		}
+		else if (moveResult.Contains("½-½"))
+		{
+			await FinishGame(gameId, "Draw");
 		}
 	}
 	public async Task FinishGame(string gameId, string result)

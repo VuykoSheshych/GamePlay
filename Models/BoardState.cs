@@ -10,19 +10,15 @@ public class BoardState
 	public string EnPassant { get; private set; } = "-";
 	public int HalfmoveClock { get; private set; } = 0;
 	public int FullmoveNumber { get; private set; } = 1;
-
 	public string FEN => GenerateFEN();
-
 	public BoardState()
 	{
 		LoadFromFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 	}
-
 	public BoardState(string fen)
 	{
 		LoadFromFEN(fen);
 	}
-
 	private void LoadFromFEN(string fen)
 	{
 		var parts = fen.Split(' ');
@@ -50,7 +46,6 @@ public class BoardState
 		HalfmoveClock = int.Parse(parts[4]);
 		FullmoveNumber = int.Parse(parts[5]);
 	}
-
 	private string GenerateFEN()
 	{
 		StringBuilder fenBuilder = new();
@@ -89,13 +84,17 @@ public class BoardState
 
 		return fenBuilder.ToString();
 	}
-
 	public void ApplyMove(MoveDto move)
 	{
-		var (fromRank, fromFile) = ConvertToBoardIndex(move.From);
-		var (toRank, toFile) = ConvertToBoardIndex(move.To);
+		var (fromRank, fromFile) = ChessPiece.ConvertToBoardIndex(move.From);
+		var (toRank, toFile) = ChessPiece.ConvertToBoardIndex(move.To);
 
 		char piece = Board[fromRank, fromFile];
+
+		if (char.ToLower(piece) == 'k' && Math.Abs(fromFile - toFile) == 2)
+		{
+			HandleCastling(fromRank, toFile);
+		}
 
 		Board[toRank, toFile] = piece;
 		Board[fromRank, fromFile] = '\0';
@@ -119,11 +118,41 @@ public class BoardState
 		HalfmoveClock = (piece == 'p' || Board[toRank, toFile] != '\0') ? 0 : HalfmoveClock + 1;
 		if (ActiveColor == "w") FullmoveNumber++;
 	}
-	public static (int Rank, int File) ConvertToBoardIndex(string position)
+	private void HandleCastling(int rank, int toFile)
 	{
-		int rank = 8 - (position[1] - '0');
-		int file = position[0] - 'a';
+		if (toFile == 6) // Коротка рокіровка (король йде e1 → g1 або e8 → g8)
+		{
+			Board[rank, 5] = Board[rank, 7]; // Тура рухається h1 → f1 або h8 → f8
+			Board[rank, 7] = '\0'; // Видаляємо туру зі старого місця
+		}
+		else if (toFile == 2) // Довга рокіровка (король йде e1 → c1 або e8 → c8)
+		{
+			Board[rank, 3] = Board[rank, 0]; // Тура рухається a1 → d1 або a8 → d8
+			Board[rank, 0] = '\0'; // Видаляємо туру зі старого місця
+		}
+	}
+	public List<(int row, int col)> GetAllPieces(string color)
+	{
+		List<(int row, int col)> pieces = [];
 
-		return (rank, file);
+		for (int row = 0; row < 8; row++)
+		{
+			for (int col = 0; col < 8; col++)
+			{
+				char piece = Board[row, col];
+
+				if (piece == '\0') continue;
+
+				bool isWhitePiece = char.IsUpper(piece);
+				bool isBlackPiece = char.IsLower(piece);
+
+				if ((color == "w" && isWhitePiece) || (color == "b" && isBlackPiece))
+				{
+					pieces.Add((row, col));
+				}
+			}
+		}
+
+		return pieces;
 	}
 }

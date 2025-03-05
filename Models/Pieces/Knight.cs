@@ -1,24 +1,38 @@
 namespace GamePlayService.Models.Pieces;
-public class Knight : ChessPiece
+public class Knight(string color, string position) : ChessPiece(color, position)
 {
-	public override List<string> GetPossibleMoves(string position, BoardState boardState)
+	public override List<string> GetPossibleMoves(BoardState boardState)
 	{
 		List<string> moves = [];
-		int row = position[1] - '1';
-		int col = position[0] - 'a';
+		var (row, col) = ConvertToBoardIndex(Position);
 
-		int[] dRow = { -2, -2, -1, -1, 1, 1, 2, 2 };
-		int[] dCol = { -1, 1, -2, 2, -2, 2, -1, 1 };
-
-		for (int i = 0; i < 8; i++)
+		// Можливі ходи для коня
+		var knightMoves = new (int, int)[]
 		{
-			int newRow = row + dRow[i];
-			int newCol = col + dCol[i];
-			if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8)
+			(-2, -1), (-2, 1),  // Два кроки вгору, один вліво/вправо
+            (2, -1), (2, 1),    // Два кроки вниз, один вліво/вправо
+            (-1, -2), (-1, 2),  // Один крок вгору, два вліво/вправо
+            (1, -2), (1, 2)     // Один крок вниз, два вліво/вправо
+        };
+
+		foreach (var (dRow, dCol) in knightMoves)
+		{
+			int newRow = row + dRow;
+			int newCol = col + dCol;
+
+			// Перевіряємо, чи клітинка знаходиться в межах дошки
+			if (IsValidCell(newRow, newCol))
 			{
-				moves.Add($"{(char)(newCol + 'a')}{newRow + 1}");
+				char target = boardState.Board[newRow, newCol];
+
+				// Якщо клітинка порожня або містить фігуру супротивника — це допустимий хід
+				if (target == '\0' || IsOpponentPiece(target))
+				{
+					moves.Add($"{(char)(newCol + 'a')}{8 - newRow}");
+				}
 			}
 		}
+
 		return moves;
 	}
 }

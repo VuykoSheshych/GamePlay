@@ -56,7 +56,9 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 
 		if (moveResult == "You cannot make moves with your opponent's pieces!" ||
 			moveResult == "Invalid move for this type of piece!" ||
-			moveResult == "The final square is already occupied by an allied piece!") return moveResult;
+			moveResult == "The final square is already occupied by an allied piece!" ||
+			moveResult == "You cannot move into check!" ||
+			moveResult == "Invalid castling move!") return moveResult;
 
 		game.Moves.Add(new Move()
 		{

@@ -1,11 +1,13 @@
 namespace GamePlayService.Models.Pieces;
-public class Queen : ChessPiece
+public class Queen(string color, string position) : ChessPiece(color, position)
 {
-	public override List<string> GetPossibleMoves(string position, BoardState boardState)
+	public override List<string> GetPossibleMoves(BoardState boardState)
 	{
 		List<string> moves = [];
-		moves.AddRange(new Rook().GetPossibleMoves(position, boardState));
-		moves.AddRange(new Bishop().GetPossibleMoves(position, boardState));
+
+		moves.AddRange(new Rook(Color, Position).GetPossibleMoves(boardState));
+		moves.AddRange(new Bishop(Color, Position).GetPossibleMoves(boardState));
+
 		return moves;
 	}
 }

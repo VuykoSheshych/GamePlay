@@ -1,10 +1,10 @@
 namespace GamePlayService.Models.Pieces;
-public class Pawn : ChessPiece
+public class Pawn(string color, string position) : ChessPiece(color, position)
 {
-	public override List<string> GetPossibleMoves(string position, BoardState boardState)
+	public override List<string> GetPossibleMoves(BoardState boardState)
 	{
 		List<string> moves = [];
-		var (row, col) = BoardState.ConvertToBoardIndex(position);
+		var (row, col) = ConvertToBoardIndex(Position);
 
 		int direction = (Color == "w") ? -1 : 1;
 		int startRow = (Color == "w") ? 6 : 1;
@@ -15,10 +15,6 @@ public class Pawn : ChessPiece
 		{
 			AddMove(moves, row + direction, col, promotionRow);
 		}
-
-		Console.WriteLine($"Checking two-step move for {position}. StartRow: {startRow}, row: {row}, dir: {direction}");
-		Console.WriteLine($"Cell {row + direction},{col} = {boardState.Board[row + direction, col]}");
-		Console.WriteLine($"Cell {row + 2 * direction},{col} = {boardState.Board[row + 2 * direction, col]}");
 
 		// Два кроки вперед (з початкової позиції, якщо обидві клітинки вільні)
 		if (row == startRow && boardState.Board[row + direction, col] == '\0' && boardState.Board[row + 2 * direction, col] == '\0')
@@ -53,18 +49,11 @@ public class Pawn : ChessPiece
 
 		return moves;
 	}
-
-	private bool IsValidCell(int row, int col)
-	{
-		return row >= 0 && row < 8 && col >= 0 && col < 8;
-	}
-
-	private void AddMove(List<string> moves, int row, int col, int promotionRow)
+	private static void AddMove(List<string> moves, int row, int col, int promotionRow)
 	{
 		string move = $"{(char)(col + 'a')}{8 - row}";
 		if (row == promotionRow)
 		{
-			// Додаємо можливі перетворення
 			moves.Add($"{move}=Q");
 			moves.Add($"{move}=R");
 			moves.Add($"{move}=B");
@@ -74,15 +63,5 @@ public class Pawn : ChessPiece
 		{
 			moves.Add(move);
 		}
-	}
-
-	private bool IsOpponentPiece(char piece)
-	{
-		if (piece == '\0') return false; // Порожня клітинка — не противник
-
-		bool isWhitePiece = char.IsUpper(piece);
-		bool isBlackPiece = char.IsLower(piece);
-
-		return (Color == "w" && isBlackPiece) || (Color == "b" && isWhitePiece);
 	}
 }

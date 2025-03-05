@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Pull Request Templates"
+    url: https://github.com/VuykoSheshych/GamePlayService/compare
+    about: "Use one of the available PR templates when creating a pull request."

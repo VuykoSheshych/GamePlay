@@ -7,7 +7,7 @@ namespace GamePlayService.Services;
 
 public class GameSessionService(IConnectionMultiplexer redis, GameRecordService gameService)
 {
-	private readonly GameRecordService _gameService = gameService;
+	private readonly GameRecordService _gameRecordService = gameService;
 	private readonly IDatabase _db = redis.GetDatabase();
 	private readonly TimeSpan _expiration = TimeSpan.FromHours(1);
 	public async Task<GameSession?> GetGameSessionAsync(string gameId)
@@ -15,12 +15,14 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
-	public async Task<Guid> CreateGameSessionAsync(string player1, string player2)
+	public async Task<Guid> CreateGameSessionAsync(Dictionary<string, string> players)
 	{
 		GameSession newGame = new()
 		{
-			PlayerWhite = player1,
-			PlayerBlack = player2
+			PlayerWhite = players.Keys.First(),
+			PlayerWhiteConnectionId = players.Values.First(),
+			PlayerBlack = players.Keys.Last(),
+			PlayerBlackConnectionId = players.Values.Last()
 		};
 
 		var json = JsonSerializer.Serialize(newGame);
@@ -64,7 +66,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		game.Moves.Add(new Move()
 		{
 			MoveNumber = actualBoardState.FullmoveNumber,
-			PlayerColor = moveDto.Player,
+			PlayerColor = actualBoardState.ActiveColor,
 			From = moveDto.From,
 			To = moveDto.To,
 			Promotion = moveDto.Promotion,
@@ -83,8 +85,9 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 	}
 	public async Task SaveGameRecordAsync(GameSession gameSession)
 	{
-		await _gameService.AddGameRecordAsync(new GameRecord()
+		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{
+			Id = gameSession.Id,
 			PlayerWhite = gameSession.PlayerWhite,
 			PlayerBlack = gameSession.PlayerBlack,
 			Moves = gameSession.Moves,

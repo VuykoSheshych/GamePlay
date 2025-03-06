@@ -63,7 +63,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 			From = moveDto.From,
 			To = moveDto.To,
 			Promotion = moveDto.Promotion,
-			SanNotation = moveResult,
+			SanNotation = moveResult.Replace("[SUCCESS] ", ""),
 			FenBefore = actualBoardState.FEN
 		});
 

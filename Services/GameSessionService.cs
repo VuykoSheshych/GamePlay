@@ -49,16 +49,12 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 	public async Task<string> TryMakeMoveAsync(string gameId, MoveDto moveDto)
 	{
 		var game = await GetGameSessionAsync(gameId);
-		if (game == null) return "Game not found!";
+		if (game == null) return "[ERROR] Game not found!";
 
 		var actualBoardState = new BoardState(game.CurrentFen);
 		var moveResult = ChessValidator.GetMoveValidationResult(actualBoardState, moveDto);
 
-		if (moveResult == "You cannot make moves with your opponent's pieces!" ||
-			moveResult == "Invalid move for this type of piece!" ||
-			moveResult == "The final square is already occupied by an allied piece!" ||
-			moveResult == "You cannot move into check!" ||
-			moveResult == "Invalid castling move!") return moveResult;
+		if (moveResult.Contains("[ERROR]")) return moveResult;
 
 		game.Moves.Add(new Move()
 		{

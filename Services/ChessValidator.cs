@@ -13,31 +13,27 @@ public static class ChessValidator
 		char piece = boardState.Board[fromRow, fromCol];
 
 		if (!IsPlayerMakeMoveWithTheirPiece(boardState.ActiveColor, piece))
-			return "You cannot make moves with your opponent's pieces!";
+			return "[ERROR] You cannot make moves with your opponent's pieces!";
 
 		if (!IsMoveCompliesWithRulesForGivenPiece(piece, boardState, moveDto))
-			return "Invalid move for this type of piece!";
+			return "[ERROR] Invalid move for this type of piece!";
 
 		if (!IsTargetSquareOccupiedByAlliedPiece(piece, boardState, moveDto))
-			return "The final square is already occupied by an allied piece!";
+			return "[ERROR] The final square is already occupied by an allied piece!";
 
 		var simulatedBoard = new BoardState(boardState.FEN);
 		simulatedBoard.ApplyMove(moveDto);
 
 		if (IsKingInCheck(simulatedBoard, boardState.ActiveColor))
-			return "You cannot move into check!";
+			return "[ERROR] You cannot move into check!";
 
 		if (char.ToLower(piece) == 'k' && IsCastlingMove(moveDto))
 		{
 			if (!IsCastlingValid(boardState, moveDto))
-				return "Invalid castling move!";
+				return "[ERROR] Invalid castling move!";
 		}
 
-		var san = CreateMoveSanNotation(boardState, moveDto);
-
-		//Console.WriteLine($"Move: {boardState.FullmoveNumber}, Notation: {san}");
-
-		return san;
+		return "[SUCCESS] " + CreateMoveSanNotation(boardState, moveDto);
 	}
 	private static bool IsPlayerMakeMoveWithTheirPiece(string activeColor, char piece)
 	{
@@ -55,8 +51,6 @@ public static class ChessValidator
 			return false;
 		}
 
-		//PrintBoard(boardState.Board);
-
 		var possibleMoves = chessPiece.GetPossibleMoves(boardState);
 
 		if (!possibleMoves.Contains(moveDto.To))
@@ -64,19 +58,6 @@ public static class ChessValidator
 			return false;
 		}
 		return true;
-	}
-	private static void PrintBoard(char[,] board)
-	{
-		for (int r = 0; r < 8; r++)
-		{
-			for (int c = 0; c < 8; c++)
-			{
-				char piece = board[r, c];
-				Console.Write(piece == '\0' ? '.' : piece);
-				Console.Write(' ');
-			}
-			Console.WriteLine();
-		}
 	}
 	private static bool IsTargetSquareOccupiedByAlliedPiece(char piece, BoardState boardState, MoveDto moveDto)
 	{

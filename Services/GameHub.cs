@@ -7,7 +7,6 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 {
 	private readonly GameSessionService _gameSessionService = gamesSessionService;
 	private readonly GameSearchService _gameSearchService = gameSearchService;
-
 	public async Task<string> CreateGame(Dictionary<string, string> players)
 	{
 		var gameId = await _gameSessionService.CreateGameSessionAsync(players);
@@ -16,17 +15,15 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 	}
 	public async Task JoinGame(string gameId, List<string> connectionIds)
 	{
-		if (connectionIds == null || connectionIds.Count == 0)
-		{
-			return;
-		}
+		if (connectionIds == null || connectionIds.Count == 0) return;
 
 		foreach (var connectionId in connectionIds)
 		{
 			await Groups.AddToGroupAsync(connectionId, gameId);
-			await Clients.Group(gameId).SendAsync("GameFound", gameId);
-			await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
 		}
+
+		await Clients.Group(gameId).SendAsync("GameFound", gameId);
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
 	}
 	public async Task StartGameSearch(string playerId)
 	{
@@ -49,14 +46,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		var moveResult = await _gameSessionService.TryMakeMoveAsync(gameId, moveDto);
 		await Clients.Group(gameId).SendAsync("ReceiveMove", moveResult);
 
-		if (moveResult is "You cannot make moves with your opponent's pieces!" or
-							"Invalid move for this type of piece!" or
-							"The final square is already occupied by an allied piece!" or
-							"You cannot move into check!" or
-							"Invalid castling move!")
-		{
-			return;
-		}
+		if (moveResult.Contains("[ERROR]")) return;
 
 		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);

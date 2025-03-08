@@ -3,7 +3,6 @@ using GamePlayService.Models;
 using GamePlayService.Models.Pieces;
 
 namespace GamePlayService.Services;
-
 public static class ChessValidator
 {
 	public static string GetMoveValidationResult(BoardState boardState, MoveDto moveDto)
@@ -46,17 +45,13 @@ public static class ChessValidator
 	private static bool IsMoveCompliesWithRulesForGivenPiece(char piece, BoardState boardState, MoveDto moveDto)
 	{
 		ChessPiece? chessPiece = CreateChessPiece(piece, boardState.ActiveColor, moveDto.From);
-		if (chessPiece == null)
-		{
-			return false;
-		}
+
+		if (chessPiece == null) return false;
 
 		var possibleMoves = chessPiece.GetPossibleMoves(boardState);
 
-		if (!possibleMoves.Contains(moveDto.To))
-		{
-			return false;
-		}
+		if (!possibleMoves.Contains(moveDto.To)) return false;
+
 		return true;
 	}
 	private static bool IsTargetSquareOccupiedByAlliedPiece(char piece, BoardState boardState, MoveDto moveDto)
@@ -106,7 +101,8 @@ public static class ChessValidator
 		// Додаємо "=", якщо це перетворення пішака
 		if (char.ToLower(piece) == 'p' && (toRow == 0 || toRow == 7))
 		{
-			moveNotation += "=Q"; // Зазвичай ферзь, але можна додати вибір фігури
+			moveNotation += "=Q";
+			//moveNotation += $"={moveDto.Promotion}"; // В майбутньому буде отримуватись фігура перетворення окремо
 		}
 
 		// Перевірка шаху або мату

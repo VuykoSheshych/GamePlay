@@ -96,7 +96,23 @@ public class BoardState
 			HandleCastling(fromRank, toFile);
 		}
 
-		Board[toRank, toFile] = piece;
+		// Обробка перетворення пішака
+		if (char.ToLower(piece) == 'p' && (toRank == 0 || toRank == 7) && !string.IsNullOrEmpty(move.Promotion))
+		{
+			char promotedPiece = move.Promotion[0];
+
+			if (char.IsLower(piece))
+				promotedPiece = char.ToLower(promotedPiece);
+			else
+				promotedPiece = char.ToUpper(promotedPiece);
+
+			Board[toRank, toFile] = promotedPiece;
+		}
+		else
+		{
+			Board[toRank, toFile] = piece;
+		}
+
 		Board[fromRank, fromFile] = '\0';
 
 		EnPassant = "-";

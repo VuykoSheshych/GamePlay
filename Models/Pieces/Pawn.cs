@@ -8,18 +8,17 @@ public class Pawn(string color, string position) : ChessPiece(color, position)
 
 		int direction = (Color == "w") ? -1 : 1;
 		int startRow = (Color == "w") ? 6 : 1;
-		int promotionRow = (Color == "w") ? 0 : 7;
 
 		// Один крок вперед (тільки якщо клітинка пуста)
 		if (IsValidCell(row + direction, col) && boardState.Board[row + direction, col] == '\0')
 		{
-			AddMove(moves, row + direction, col, promotionRow);
+			AddMove(moves, row + direction, col);
 		}
 
 		// Два кроки вперед (з початкової позиції, якщо обидві клітинки вільні)
 		if (row == startRow && boardState.Board[row + direction, col] == '\0' && boardState.Board[row + 2 * direction, col] == '\0')
 		{
-			AddMove(moves, row + 2 * direction, col, promotionRow);
+			AddMove(moves, row + 2 * direction, col);
 		}
 
 		// Взяття по діагоналі (ліворуч і праворуч)
@@ -30,7 +29,7 @@ public class Pawn(string color, string position) : ChessPiece(color, position)
 				char target = boardState.Board[row + direction, col + side];
 				if (target != '\0' && IsOpponentPiece(target))
 				{
-					AddMove(moves, row + direction, col + side, promotionRow);
+					AddMove(moves, row + direction, col + side);
 				}
 			}
 		}
@@ -49,19 +48,8 @@ public class Pawn(string color, string position) : ChessPiece(color, position)
 
 		return moves;
 	}
-	private static void AddMove(List<string> moves, int row, int col, int promotionRow)
+	private static void AddMove(List<string> moves, int row, int col)
 	{
-		string move = $"{(char)(col + 'a')}{8 - row}";
-		if (row == promotionRow)
-		{
-			moves.Add($"{move}=Q");
-			moves.Add($"{move}=R");
-			moves.Add($"{move}=B");
-			moves.Add($"{move}=N");
-		}
-		else
-		{
-			moves.Add(move);
-		}
+		moves.Add($"{(char)(col + 'a')}{8 - row}");
 	}
 }

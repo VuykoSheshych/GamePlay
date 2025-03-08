@@ -59,20 +59,20 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		}
 		else if (moveResult.Contains("½-½"))
 		{
-			await FinishGame(gameId, "Draw");
+			await FinishGame(gameId, "½-½");
 		}
 	}
-	public async Task FinishGame(string gameId, string result)
+	public async Task FinishGame(string gameId, string looser)
 	{
+		string result = "½-½";
 		var gameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		if (gameSession != null)
 		{
-			string winner;
-			if (result == "Black") winner = gameSession.PlayerBlack;
-			else if (result == "White") winner = gameSession.PlayerWhite;
-			else winner = "Draw";
+			if (looser == gameSession.PlayerBlack) result = "1 0";
+			else if (looser == gameSession.PlayerWhite) result = "0 1";
+			else result = "½-½";
 
-			await Clients.Group(gameId).SendAsync("GameFinished", winner);
+			await Clients.Group(gameId).SendAsync("GameFinished", looser);
 			await Groups.RemoveFromGroupAsync(gameSession.PlayerBlackConnectionId, gameId);
 			await Groups.RemoveFromGroupAsync(gameSession.PlayerWhiteConnectionId, gameId);
 

@@ -33,7 +33,8 @@ public class GameSearchService(IConnectionMultiplexer redis)
 						await RemovePlayerFromSearchQueue(playersWithConnectionIds.First().name);
 						await RemovePlayerFromSearchQueue(playersWithConnectionIds.Last().name);
 
-						return playersWithConnectionIds;
+						// Без "перемішування" списку гравців той, хто почав пошук гри раніше за опонента, завжди буде грати білими
+						return [.. playersWithConnectionIds.OrderBy(x => new Random().Next())];
 					}
 				}
 			}

@@ -1,7 +1,6 @@
 using System.Text.Json;
-using GamePlayService.Dtos.Game;
+using GamePlayService.Dtos;
 using GamePlayService.Models;
-using GamePlayService.Models.Pieces;
 using StackExchange.Redis;
 
 namespace GamePlayService.Services;
@@ -16,14 +15,20 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
-	public async Task<Guid> CreateGameSessionAsync(Dictionary<string, string> players)
+	public async Task<Guid> CreateGameSessionAsync(List<(string name, string id)> players)
 	{
 		GameSession newGame = new()
 		{
-			PlayerWhite = players.Keys.First(),
-			PlayerWhiteConnectionId = players.Values.First(),
-			PlayerBlack = players.Keys.Last(),
-			PlayerBlackConnectionId = players.Values.Last()
+			WhitePlayer = new()
+			{
+				Name = players.First().name,
+				ConnectionId = players.First().id
+			},
+			BlackPlayer = new()
+			{
+				Name = players.Last().name,
+				ConnectionId = players.Last().id
+			}
 		};
 
 		var json = JsonSerializer.Serialize(newGame);
@@ -46,15 +51,15 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		var json = JsonSerializer.Serialize(gameSession);
 		await _db.StringSetAsync($"game:{gameSession.Id}", json, _expiration);
 	}
-	public async Task<string> TryMakeMoveAsync(string gameId, MoveDto moveDto)
+	public async Task<MoveResultDto> TryMakeMoveAsync(string gameId, MoveDto moveDto)
 	{
 		var game = await GetGameSessionAsync(gameId);
-		if (game == null) return "[ERROR] Game not found!";
+		if (game == null) return MoveResultDto.Error("Game not found!");
 
 		var actualBoardState = new BoardState(game.CurrentFen);
-		var moveResult = ChessValidator.GetMoveValidationResult(actualBoardState, moveDto);
+		var moveResultDto = ChessValidator.GetMoveValidationResult(actualBoardState, moveDto);
 
-		if (moveResult.Contains("[ERROR]")) return moveResult;
+		if (!moveResultDto.IsSuccess) return moveResultDto;
 
 		game.Moves.Add(new Move()
 		{
@@ -63,7 +68,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 			From = moveDto.From,
 			To = moveDto.To,
 			Promotion = moveDto.Promotion,
-			SanNotation = moveResult.Replace("[SUCCESS] ", ""),
+			SanNotation = moveResultDto.Message,
 			FenBefore = actualBoardState.FEN
 		});
 
@@ -71,15 +76,15 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		game.CurrentFen = actualBoardState.FEN;
 
 		await SaveGameSessionAsync(game);
-		return moveResult;
+		return moveResultDto;
 	}
 	public async Task SaveGameRecordAsync(GameSession gameSession)
 	{
 		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{
 			Id = gameSession.Id,
-			PlayerWhite = gameSession.PlayerWhite,
-			PlayerBlack = gameSession.PlayerBlack,
+			PlayerWhite = gameSession.WhitePlayer.Name,
+			PlayerBlack = gameSession.BlackPlayer.Name,
 			Moves = gameSession.Moves,
 			Result = gameSession.Result
 		});

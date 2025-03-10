@@ -1,5 +1,6 @@
-namespace GamePlayService.Dtos.Game;
-public class MoveDto
+namespace GamePlayService.Dtos;
+
+public record MoveDto
 {
 	public required string From { get; set; }
 	public required string To { get; set; }

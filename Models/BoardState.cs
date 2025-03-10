@@ -1,5 +1,5 @@
 using System.Text;
-using GamePlayService.Dtos.Game;
+using GamePlayService.Dtos;
 
 namespace GamePlayService.Models;
 public class BoardState

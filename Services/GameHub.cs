@@ -1,4 +1,4 @@
-using GamePlayService.Dtos.Game;
+using GamePlayService.Dtos;
 using GamePlayService.Models;
 using Microsoft.AspNetCore.SignalR;
 
@@ -7,7 +7,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 {
 	private readonly GameSessionService _gameSessionService = gamesSessionService;
 	private readonly GameSearchService _gameSearchService = gameSearchService;
-	public async Task<string> CreateGame(Dictionary<string, string> players)
+	public async Task<string> CreateGame(List<(string name, string id)> players)
 	{
 		var gameId = await _gameSessionService.CreateGameSessionAsync(players);
 
@@ -25,39 +25,39 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		await Clients.Group(gameId).SendAsync("GameFound", gameId);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
 	}
-	public async Task StartGameSearch(string playerId)
+	public async Task StartGameSearch(string playerName)
 	{
-		await _gameSearchService.AddPlayerToSearchQueue(playerId, Context.ConnectionId);
+		await _gameSearchService.AddPlayerToSearchQueue(playerName, Context.ConnectionId);
 
 		var playersWithConnectionIds = await _gameSearchService.FindPlayersForGame();
 		if (playersWithConnectionIds != null)
 		{
 			var gameId = await CreateGame(playersWithConnectionIds);
 
-			await JoinGame(gameId, [playersWithConnectionIds.Values.First(), playersWithConnectionIds.Values.Last()]);
+			await JoinGame(gameId, [playersWithConnectionIds.First().id, playersWithConnectionIds.Last().id]);
 		}
 	}
-	public async Task TerminateGameSearch(string player)
+	public async Task StopGameSearch(string playerName)
 	{
-		await _gameSearchService.RemovePlayerFromSearchQueue(player);
+		await _gameSearchService.RemovePlayerFromSearchQueue(playerName);
 	}
 	public async Task MakeMove(string gameId, MoveDto moveDto)
 	{
 		var moveResult = await _gameSessionService.TryMakeMoveAsync(gameId, moveDto);
 		await Clients.Group(gameId).SendAsync("ReceiveMove", moveResult);
 
-		if (moveResult.Contains("[ERROR]")) return;
+		if (!moveResult.IsSuccess) return;
 
 		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
 
-		if (moveResult.EndsWith('#'))
+		if (moveResult.Message.EndsWith('#'))
 		{
 			var activeColor = new BoardState(updatedGameSession!.CurrentFen).ActiveColor;
 			string winner = activeColor == "w" ? "Black" : "White";
 			await FinishGame(gameId, winner);
 		}
-		else if (moveResult.Contains("½-½"))
+		else if (moveResult.Message.Contains("½-½"))
 		{
 			await FinishGame(gameId, "½-½");
 		}
@@ -68,13 +68,13 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		var gameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		if (gameSession != null)
 		{
-			if (looser == gameSession.PlayerBlack) result = "1 0";
-			else if (looser == gameSession.PlayerWhite) result = "0 1";
+			if (looser == gameSession.BlackPlayer.Name) result = "1 0";
+			else if (looser == gameSession.WhitePlayer.Name) result = "0 1";
 			else result = "½-½";
 
 			await Clients.Group(gameId).SendAsync("GameFinished", looser);
-			await Groups.RemoveFromGroupAsync(gameSession.PlayerBlackConnectionId, gameId);
-			await Groups.RemoveFromGroupAsync(gameSession.PlayerWhiteConnectionId, gameId);
+			await Groups.RemoveFromGroupAsync(gameSession.BlackPlayer.ConnectionId, gameId);
+			await Groups.RemoveFromGroupAsync(gameSession.WhitePlayer.ConnectionId, gameId);
 
 		}
 		await _gameSessionService.RemoveGameSessionAsync(gameId, result);

@@ -1,38 +1,38 @@
-using GamePlayService.Dtos.Game;
+using GamePlayService.Dtos;
 using GamePlayService.Models;
 using GamePlayService.Models.Pieces;
 
 namespace GamePlayService.Services;
 public static class ChessValidator
 {
-	public static string GetMoveValidationResult(BoardState boardState, MoveDto moveDto)
+	public static MoveResultDto GetMoveValidationResult(BoardState boardState, MoveDto moveDto)
 	{
 		var (fromRow, fromCol) = ChessPiece.ConvertToBoardIndex(moveDto.From);
 
 		char piece = boardState.Board[fromRow, fromCol];
 
 		if (!IsPlayerMakeMoveWithTheirPiece(boardState.ActiveColor, piece))
-			return "[ERROR] You cannot make moves with your opponent's pieces!";
+			return MoveResultDto.Error("You cannot make moves with your opponent's pieces!");
 
 		if (!IsMoveCompliesWithRulesForGivenPiece(piece, boardState, moveDto))
-			return "[ERROR] Invalid move for this type of piece!";
+			return MoveResultDto.Error("Invalid move for this type of piece!");
 
 		if (!IsTargetSquareOccupiedByAlliedPiece(piece, boardState, moveDto))
-			return "[ERROR] The final square is already occupied by an allied piece!";
+			return MoveResultDto.Error("The final square is already occupied by an allied piece!");
 
 		var simulatedBoard = new BoardState(boardState.FEN);
 		simulatedBoard.ApplyMove(moveDto);
 
 		if (IsKingInCheck(simulatedBoard, boardState.ActiveColor))
-			return "[ERROR] You cannot move into check!";
+			return MoveResultDto.Error("You cannot move into check!");
 
 		if (char.ToLower(piece) == 'k' && IsCastlingMove(moveDto))
 		{
 			if (!IsCastlingValid(boardState, moveDto))
-				return "[ERROR] Invalid castling move!";
+				return MoveResultDto.Error("Invalid castling move!");
 		}
 
-		return "[SUCCESS] " + CreateMoveSanNotation(boardState, moveDto);
+		return MoveResultDto.Success(CreateMoveSanNotation(boardState, moveDto));
 	}
 	private static bool IsPlayerMakeMoveWithTheirPiece(string activeColor, char piece)
 	{

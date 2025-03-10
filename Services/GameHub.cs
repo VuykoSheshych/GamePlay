@@ -13,13 +13,14 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 
 		return gameId.ToString();
 	}
-	public async Task JoinGame(string gameId, List<string> connectionIds)
+	public async Task JoinGame(string gameId, List<(string name, string id)> players)
 	{
-		if (connectionIds == null || connectionIds.Count == 0) return;
+		if (players == null || players.Count != 2) return;
 
-		foreach (var connectionId in connectionIds)
+		foreach (var (name, id) in players)
 		{
-			await Groups.AddToGroupAsync(connectionId, gameId);
+			await Groups.AddToGroupAsync(id, gameId);
+			await _gameSearchService.RemovePlayerFromSearchQueue(name);
 		}
 
 		await Clients.Group(gameId).SendAsync("GameFound", gameId);
@@ -34,7 +35,7 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		{
 			var gameId = await CreateGame(playersWithConnectionIds);
 
-			await JoinGame(gameId, [playersWithConnectionIds.First().id, playersWithConnectionIds.Last().id]);
+			await JoinGame(gameId, playersWithConnectionIds);
 		}
 	}
 	public async Task StopGameSearch(string playerName)

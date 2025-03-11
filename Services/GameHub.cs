@@ -63,6 +63,14 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 			await FinishGame(gameId, "½-½");
 		}
 	}
+	public async Task SendMessage(string gameId, ChatMessageDto chatMessage)
+	{
+		var game = await _gameSessionService.GetGameSessionAsync(gameId);
+
+		game?.Messages.Add(chatMessage);
+
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", game);
+	}
 	public async Task FinishGame(string gameId, string looser)
 	{
 		string result = "½-½";

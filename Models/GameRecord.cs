@@ -6,5 +6,6 @@ public class GameRecord
 	public string PlayerBlack { get; set; } = string.Empty;
 	public virtual List<Move> Moves { get; set; } = [];
 	public string Result { get; set; } = string.Empty;
-	public DateTime Date { get; set; } = DateTime.UtcNow;
+	public DateTime Started { get; set; }
+	public DateTime Finished { get; set; } = DateTime.UtcNow;
 }

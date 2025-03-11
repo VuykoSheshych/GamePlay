@@ -41,8 +41,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 
 		if (game != null)
 		{
-			game.Result = result;
-			await SaveGameRecordAsync(game);
+			await SaveGameRecordAsync(game, result);
 		}
 		await _db.KeyDeleteAsync($"game:{gameId}");
 	}
@@ -78,7 +77,7 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		await SaveGameSessionAsync(game);
 		return moveResultDto;
 	}
-	public async Task SaveGameRecordAsync(GameSession gameSession)
+	public async Task SaveGameRecordAsync(GameSession gameSession, string result)
 	{
 		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{
@@ -86,7 +85,8 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 			PlayerWhite = gameSession.WhitePlayer.Name,
 			PlayerBlack = gameSession.BlackPlayer.Name,
 			Moves = gameSession.Moves,
-			Result = gameSession.Result
+			Result = result,
+			Started = gameSession.CreatedAt
 		});
 	}
 }

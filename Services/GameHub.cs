@@ -55,8 +55,8 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		if (moveResult.Message.EndsWith('#'))
 		{
 			var activeColor = new BoardState(updatedGameSession!.CurrentFen).ActiveColor;
-			string winner = activeColor == "w" ? "Black" : "White";
-			await FinishGame(gameId, winner);
+			string looser = activeColor == "w" ? updatedGameSession.WhitePlayer.Name : updatedGameSession.BlackPlayer.Name;
+			await FinishGame(gameId, looser);
 		}
 		else if (moveResult.Message.Contains("½-½"))
 		{

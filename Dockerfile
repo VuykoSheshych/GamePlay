@@ -1,16 +1,24 @@
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+WORKDIR /app
 EXPOSE 80
-COPY bin/Release/net8.0/publish/ .
+EXPOSE 443
 
-COPY ["./GamePlayService.csproj", "./"]
-RUN dotnet restore "./GamePlayService.csproj"
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+COPY ["GamePlayService/GamePlayService.csproj", "GamePlayService/"]
+RUN dotnet restore "GamePlayService/GamePlayService.csproj"
 
 COPY . .
-RUN dotnet build "./GamePlayService.csproj" -c Debug --no-restore
+WORKDIR "/src/GamePlayService"
+RUN dotnet build "GamePlayService.csproj" -c Release -o /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM build AS publish
+RUN dotnet publish "GamePlayService.csproj" -c Release -o /app
+
+FROM base AS final
 WORKDIR /app
-COPY --from=build /src .
+COPY --from=publish /app .
+
+ENV DB_CONNECTION_STRING="Host=gameplay-db;Database=postgres-gameplay-db;Username=gameplay-service;Password=BycRsT3B5PybSd2iaeNV"
 
 ENTRYPOINT ["dotnet", "GamePlayService.dll"]

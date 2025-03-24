@@ -2,15 +2,16 @@ using GamePlayService.Data;
 using GamePlayService.Services;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GameDbContext>(options =>
-	options.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("LocalhostConnection")));
+	options.UseLazyLoadingProxies().UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION_STRING")));
 
-builder.Services.AddHealthChecks().AddDbContextCheck<GameDbContext>(); // Перевірка доступності БД
+builder.Services.AddHealthChecks().AddDbContextCheck<GameDbContext>();
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-	ConnectionMultiplexer.Connect(builder.Configuration.GetConnectionString("Redis")));
+	ConnectionMultiplexer.Connect("gameplay-redis"));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -26,8 +27,8 @@ builder.Services.AddCors(options =>
 	options.AddPolicy("AllowFrontend", policy =>
 	{
 		policy.WithOrigins("https://localhost:7187") // URL Blazor WASM
-			  .AllowAnyHeader()
-			  .AllowAnyMethod();
+			.AllowAnyHeader()
+			.AllowAnyMethod();
 	});
 });
 

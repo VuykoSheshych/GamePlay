@@ -1,0 +1,239 @@
+<doc>
+	<class>
+		<member name="BoardState">
+			<summary>Represents the state of a chessboard, including piece positions and game
+				metadata.</summary>
+		</member>
+
+		<member name="ChessPiece">
+			<summary>Represents an abstract chess piece with color, position, and movement logic.</summary>
+		</member>
+
+		<member name="Pawn">
+			<summary>Represents a pawn chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="Bishop">
+			<summary>Represents a bishop chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="Knight">
+			<summary>Represents a knight chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="Rook">
+			<summary>Represents a rook chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="Queen">
+			<summary>Represents a queen chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="King">
+			<summary>Represents a king chess piece and its movement logic.</summary>
+		</member>
+
+		<member name="GameRecord">
+			<summary>Represents a record of a completed chess game, including players, moves, and
+				result.</summary>
+		</member>
+
+		<member name="GameSession">
+			<summary>Represents a session of a chess game, including players, moves, chat messages,
+				and the current game state (FEN).</summary>
+		</member>
+
+		<member name="Move">
+			<summary>Represents a move made by a player during a chess game, including the move's
+				details, notation, and timestamp.</summary>
+		</member>
+	</class>
+
+	<method>
+		<member name="BoardState.Board">
+			<summary>The 8x8 board representation where each cell contains a chess piece or is
+				empty.</summary>
+		</member>
+
+		<member name="BoardState.ActiveColor">
+			<summary>The color of the player who is to move next ("w" for white, "b" for
+				black).</summary>
+		</member>
+
+		<member name="BoardState.CastlingRights">
+			<summary>The current castling rights in the game ("KQkq" format).</summary>
+		</member>
+
+		<member name="BoardState.EnPassant">
+			<summary>The en passant target square, if applicable.</summary>
+		</member>
+
+		<member name="BoardState.HalfmoveClock">
+			<summary>The halfmove clock for the fifty-move rule.</summary>
+		</member>
+
+		<member name="BoardState.FullmoveNumber">
+			<summary>The full move number, which increments after Black's turn.</summary>
+		</member>
+
+		<member name="BoardState.FEN">
+			<summary>The current board position in FEN (Forsyth-Edwards Notation).</summary>
+		</member>
+
+		<member name="BoardState.#ctor">
+			<summary>Initializes a new instance of the <see cref="BoardState" /> class with the
+				standard starting position.</summary>
+		</member>
+
+		<member name="BoardState.#ctor(string)">
+			<summary>Initializes a new instance of the <see cref="BoardState" /> class from a given
+				FEN string.</summary>
+			<param name="fen">The FEN (Forsyth-Edwards Notation) string representing the board
+				position.</param>
+		</member>
+
+		<member name="BoardState.ApplyMove">
+			<summary>Applies a move to the board, updating its state accordingly.</summary>
+			<param name="move">The move to be applied.</param>
+		</member>
+
+		<member name="BoardState.GetAllPieces">
+			<summary>Retrieves all pieces of a specified color from the board.</summary>
+			<param name="color">The color of pieces to retrieve ("w" for white, "b" for black).</param>
+			<returns>A list of tuples containing the row and column indices of the pieces.</returns>
+		</member>
+
+		<member name="ChessPiece.Color">
+			<summary>The color of the chess piece ("w" for white, "b" for black).</summary>
+		</member>
+
+		<member name="ChessPiece.Position">
+			<summary>The current position of the chess piece in standard chess notation
+				(e.g., "e4").</summary>
+		</member>
+
+		<member name="ChessPiece.GetPossibleMoves">
+			<summary>Returns a list of valid moves for the chess piece based on the current board
+				state.</summary>
+			<param name="boardState">The current state of the chessboard.</param>
+			<returns>A list of valid move positions in chess notation.</returns>
+		</member>
+
+		<member name="ChessPiece.ConvertToBoardIndex">
+			<summary>Converts a chess position (e.g., "e4") into board indices (row, column).</summary>
+			<param name="position">The position in chess notation.</param>
+			<returns>A tuple containing the row and column indices.</returns>
+		</member>
+
+		<member name="ChessPiece.IsValidCell">
+			<summary>Checks if a given row and column are within the valid bounds of the board.</summary>
+			<param name="row">The row index (0-7).</param>
+			<param name="col">The column index (0-7).</param>
+			<returns><c>true</c> if the cell is within the board, otherwise <c>false</c>.</returns>
+		</member>
+
+		<member name="ChessPiece.IsOpponentPiece">
+			<summary>Checks if a given piece belongs to the opponent.</summary>
+			<param name="piece">The piece character to check.</param>
+			<returns><c>true</c> if the piece belongs to the opponent, otherwise <c>false</c>.</returns>
+		</member>
+
+		<member name="GameRecord.Id">
+			<summary>The unique identifier for the game record.</summary>
+		</member>
+
+		<member name="GameRecord.PlayerWhite">
+			<summary>The name of the player playing as White.</summary>
+		</member>
+
+		<member name="GameRecord.PlayerBlack">
+			<summary>The name of the player playing as Black.</summary>
+		</member>
+
+		<member name="GameRecord.Moves">
+			<summary>A list of moves made during the game.</summary>
+		</member>
+
+		<member name="GameRecord.Result">
+			<summary>The result of the game (e.g., "1-0" for White win, "0-1" for Black win,
+				"½-½" for draw).</summary>
+		</member>
+
+		<member name="GameRecord.Started">
+			<summary>The date and time when the game started.</summary>
+		</member>
+
+		<member name="GameRecord.Finished">
+			<summary>The date and time when the game finished.</summary>
+		</member>
+
+		<member name="GameSession.Id">
+			<summary>The unique identifier for the game session.</summary>
+		</member>
+
+		<member name="GameSession.WhitePlayer">
+			<summary>The details of the player playing as White.</summary>
+		</member>
+
+		<member name="GameSession.BlackPlayer">
+			<summary>The details of the player playing as Black.</summary>
+		</member>
+
+		<member name="GameSession.Moves">
+			<summary>A list of moves made during the game.</summary>
+		</member>
+
+		<member name="GameSession.Messages">
+			<summary>A list of chat messages sent during the game.</summary>
+		</member>
+
+		<member name="GameSession.CurrentFen">
+			<summary>The current FEN (Forsyth-Edwards Notation) string representing the state of the
+				chessboard.</summary>
+		</member>
+
+		<member name="GameSession.CreatedAt">
+			<summary>The date and time when the game session was created.</summary>
+		</member>
+
+		<member name="Move.Id">
+			<summary>The unique identifier for the move.</summary>
+		</member>
+
+		<member name="Move.MoveNumber">
+			<summary>The full move number in the game (e.g., 1 for the first move, 2 for the second
+				move, etc.).</summary>
+		</member>
+
+		<member name="Move.PlayerColor">
+			<summary>The color of the player who made the move (either "w" for White or "b" for
+				Black).</summary>
+		</member>
+
+		<member name="Move.From">
+			<summary>The starting position of the piece being moved, in chess notation (e.g., "e2").</summary>
+		</member>
+
+		<member name="Move.To">
+			<summary>The destination position of the piece, in chess notation (e.g., "e4").</summary>
+		</member>
+
+		<member name="Move.Promotion">
+			<summary>Optional. The piece the pawn is promoted to, if the move is a pawn promotion
+				(e.g., "Q" for queen, "R" for rook, etc.).</summary>
+		</member>
+
+		<member name="Move.SanNotation">
+			<summary>The move in Standard Algebraic Notation (SAN), used to represent the move in
+				chess notation (e.g., "Bxc5+", "Nf3").</summary>
+		</member>
+
+		<member name="Move.FenBefore">
+			<summary>The FEN string representing the state of the board before the move was made.</summary>
+		</member>
+
+		<member name="Move.Timestamp">
+			<summary>The date and time when the move was made.</summary>
+		</member>
+	</method>
+</doc>

@@ -1,0 +1,65 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Migrations
+  commentId: N:GamePlayService.Migrations
+  id: GamePlayService.Migrations
+  children:
+  - GamePlayService.Migrations.AddGameRecordTable
+  - GamePlayService.Migrations.AddTimeToGameRecords
+  - GamePlayService.Migrations.EditMoves
+  - GamePlayService.Migrations.EditMovesAgain
+  - GamePlayService.Migrations.GamesTableEdit
+  - GamePlayService.Migrations.InitialCreate
+  - GamePlayService.Migrations.ManageMoveModel
+  langs:
+  - csharp
+  - vb
+  name: GamePlayService.Migrations
+  nameWithType: GamePlayService.Migrations
+  fullName: GamePlayService.Migrations
+  type: Namespace
+  assemblies:
+  - GamePlayService
+references:
+- uid: GamePlayService.Migrations.InitialCreate
+  commentId: T:GamePlayService.Migrations.InitialCreate
+  href: GamePlayService.Migrations.InitialCreate.html
+  name: InitialCreate
+  nameWithType: InitialCreate
+  fullName: GamePlayService.Migrations.InitialCreate
+- uid: GamePlayService.Migrations.GamesTableEdit
+  commentId: T:GamePlayService.Migrations.GamesTableEdit
+  href: GamePlayService.Migrations.GamesTableEdit.html
+  name: GamesTableEdit
+  nameWithType: GamesTableEdit
+  fullName: GamePlayService.Migrations.GamesTableEdit
+- uid: GamePlayService.Migrations.AddGameRecordTable
+  commentId: T:GamePlayService.Migrations.AddGameRecordTable
+  href: GamePlayService.Migrations.AddGameRecordTable.html
+  name: AddGameRecordTable
+  nameWithType: AddGameRecordTable
+  fullName: GamePlayService.Migrations.AddGameRecordTable
+- uid: GamePlayService.Migrations.ManageMoveModel
+  commentId: T:GamePlayService.Migrations.ManageMoveModel
+  href: GamePlayService.Migrations.ManageMoveModel.html
+  name: ManageMoveModel
+  nameWithType: ManageMoveModel
+  fullName: GamePlayService.Migrations.ManageMoveModel
+- uid: GamePlayService.Migrations.EditMoves
+  commentId: T:GamePlayService.Migrations.EditMoves
+  href: GamePlayService.Migrations.EditMoves.html
+  name: EditMoves
+  nameWithType: EditMoves
+  fullName: GamePlayService.Migrations.EditMoves
+- uid: GamePlayService.Migrations.EditMovesAgain
+  commentId: T:GamePlayService.Migrations.EditMovesAgain
+  href: GamePlayService.Migrations.EditMovesAgain.html
+  name: EditMovesAgain
+  nameWithType: EditMovesAgain
+  fullName: GamePlayService.Migrations.EditMovesAgain
+- uid: GamePlayService.Migrations.AddTimeToGameRecords
+  commentId: T:GamePlayService.Migrations.AddTimeToGameRecords
+  href: GamePlayService.Migrations.AddTimeToGameRecords.html
+  name: AddTimeToGameRecords
+  nameWithType: AddTimeToGameRecords
+  fullName: GamePlayService.Migrations.AddTimeToGameRecords

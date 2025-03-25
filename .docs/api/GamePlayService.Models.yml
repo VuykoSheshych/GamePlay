@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Models
+  commentId: N:GamePlayService.Models
+  id: GamePlayService.Models
+  children:
+  - GamePlayService.Models.BoardState
+  - GamePlayService.Models.ChessPiece
+  - GamePlayService.Models.GameRecord
+  - GamePlayService.Models.GameSession
+  - GamePlayService.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: GamePlayService.Models
+  nameWithType: GamePlayService.Models
+  fullName: GamePlayService.Models
+  type: Namespace
+  assemblies:
+  - GamePlayService
+references:
+- uid: GamePlayService.Models.BoardState
+  commentId: T:GamePlayService.Models.BoardState
+  parent: GamePlayService.Models
+  href: GamePlayService.Models.BoardState.html
+  name: BoardState
+  nameWithType: BoardState
+  fullName: GamePlayService.Models.BoardState
+- uid: GamePlayService.Models.ChessPiece
+  commentId: T:GamePlayService.Models.ChessPiece
+  parent: GamePlayService.Models
+  href: GamePlayService.Models.ChessPiece.html
+  name: ChessPiece
+  nameWithType: ChessPiece
+  fullName: GamePlayService.Models.ChessPiece
+- uid: GamePlayService.Models.GameRecord
+  commentId: T:GamePlayService.Models.GameRecord
+  parent: GamePlayService.Models
+  href: GamePlayService.Models.GameRecord.html
+  name: GameRecord
+  nameWithType: GameRecord
+  fullName: GamePlayService.Models.GameRecord
+- uid: GamePlayService.Models.GameSession
+  commentId: T:GamePlayService.Models.GameSession
+  parent: GamePlayService.Models
+  href: GamePlayService.Models.GameSession.html
+  name: GameSession
+  nameWithType: GameSession
+  fullName: GamePlayService.Models.GameSession
+- uid: GamePlayService.Models.Move
+  commentId: T:GamePlayService.Models.Move
+  href: GamePlayService.Models.Move.html
+  name: Move
+  nameWithType: Move
+  fullName: GamePlayService.Models.Move
+- uid: GamePlayService.Models
+  commentId: N:GamePlayService.Models
+  href: GamePlayService.html
+  name: GamePlayService.Models
+  nameWithType: GamePlayService.Models
+  fullName: GamePlayService.Models
+  spec.csharp:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Models
+    name: Models
+    href: GamePlayService.Models.html
+  spec.vb:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Models
+    name: Models
+    href: GamePlayService.Models.html

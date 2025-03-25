@@ -1,8 +1,4 @@
 namespace GamePlayService.Dtos;
 
-public record PlayerInGameDto
-{
-	public required string Name { get; set; }
-	public required string ConnectionId { get; set; }
-	public TimeSpan TimeReserve { get; set; }
-}
+/// <include file='.docs/xmldocs/DTOs.xml' path='doc/class/member[@name="PlayerInGameDto"]/*' />
+public record PlayerInGameDto(string Name, string ConnectionId, TimeSpan TimeReserve) { }

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Controllers
+  commentId: N:GamePlayService.Controllers
+  id: GamePlayService.Controllers
+  children:
+  - GamePlayService.Controllers.GameRecordController
+  langs:
+  - csharp
+  - vb
+  name: GamePlayService.Controllers
+  nameWithType: GamePlayService.Controllers
+  fullName: GamePlayService.Controllers
+  type: Namespace
+  assemblies:
+  - GamePlayService
+references:
+- uid: GamePlayService.Controllers.GameRecordController
+  commentId: T:GamePlayService.Controllers.GameRecordController
+  href: GamePlayService.Controllers.GameRecordController.html
+  name: GameRecordController
+  nameWithType: GameRecordController
+  fullName: GamePlayService.Controllers.GameRecordController

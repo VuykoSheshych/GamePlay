@@ -1,0 +1,36 @@
+<doc>
+	<class>
+		<member name="PlayerInGameDto">
+			<summary>Represents a player participating in a chess game, containing their name,
+				connection ID, and time reserve.</summary>
+		</member>
+		<member name="MoveDto">
+			<summary>Represents a move in chess, including the starting and ending positions, as
+				well as optional promotion for pawns.</summary>
+		</member>
+		<member name="GameResultDto">
+			<summary>Represents the result of a chess game, including the game ID, the names and Elo
+				ratings of the winner and loser.</summary>
+		</member>
+		<member name="ChatMessageDto">
+			<summary>Represents a chat message sent during the game, containing the author and the
+				message text.</summary>
+		</member>
+		<member name="MoveResultDto">
+			<summary>Represents the result of a move in the chess game, indicating whether it was
+				successful and providing a message.</summary>
+		</member>
+	</class>
+	<method>
+		<member name="MoveResultDto.Success">
+			<summary>Creates a successful move result with a provided message.</summary>
+			<param name="message">The success message to be returned.</param>
+			<returns>A `MoveResultDto` with `IsSuccess` set to `true` and the provided message.</returns>
+		</member>
+		<member name="MoveResultDto.Error">
+			<summary>Creates an error move result with a provided message.</summary>
+			<param name="message">The error message to be returned.</param>
+			<returns>A `MoveResultDto` with `IsSuccess` set to `false` and the provided message.</returns>
+		</member>
+	</method>
+</doc>

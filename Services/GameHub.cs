@@ -3,16 +3,22 @@ using GamePlayService.Models;
 using Microsoft.AspNetCore.SignalR;
 
 namespace GamePlayService.Services;
-public class GameHub(GameSessionService gamesSessionService, GameSearchService gameSearchService) : Hub
+
+/// <include file='.docs/xmldocs/Services.xml' path='doc/class/member[@name="GameHub"]/*' />
+public class GameHub(IGameSessionService gamesSessionService, IGameSearchService gameSearchService) : Hub
 {
-	private readonly GameSessionService _gameSessionService = gamesSessionService;
-	private readonly GameSearchService _gameSearchService = gameSearchService;
+	private readonly IGameSessionService _gameSessionService = gamesSessionService;
+	private readonly IGameSearchService _gameSearchService = gameSearchService;
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.CreateGame"]/*' />
 	public async Task<string> CreateGame(List<(string name, string id)> players)
 	{
 		var gameId = await _gameSessionService.CreateGameSessionAsync(players);
 
 		return gameId.ToString();
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.JoinGame"]/*' />
 	public async Task JoinGame(string gameId, List<(string name, string id)> players)
 	{
 		if (players == null || players.Count != 2) return;
@@ -26,6 +32,8 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 		await Clients.Group(gameId).SendAsync("GameFound", gameId);
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.StartGameSearch"]/*' />
 	public async Task StartGameSearch(string playerName)
 	{
 		await _gameSearchService.AddPlayerToSearchQueue(playerName, Context.ConnectionId);
@@ -38,10 +46,14 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 			await JoinGame(gameId, playersWithConnectionIds);
 		}
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.StopGameSearch"]/*' />
 	public async Task StopGameSearch(string playerName)
 	{
 		await _gameSearchService.RemovePlayerFromSearchQueue(playerName);
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.MakeMove"]/*' />
 	public async Task MakeMove(string gameId, MoveDto moveDto)
 	{
 		var moveResult = await _gameSessionService.TryMakeMoveAsync(gameId, moveDto);
@@ -63,6 +75,8 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 			await FinishGame(gameId, "½-½");
 		}
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.SendMessage"]/*' />
 	public async Task SendMessage(string gameId, ChatMessageDto chatMessage)
 	{
 		var game = await _gameSessionService.GetGameSessionAsync(gameId);
@@ -71,6 +85,8 @@ public class GameHub(GameSessionService gamesSessionService, GameSearchService g
 
 		await Clients.Group(gameId).SendAsync("ReceiveGameState", game);
 	}
+
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.FinishGame"]/*' />
 	public async Task FinishGame(string gameId, string looser)
 	{
 		string result = "½-½";

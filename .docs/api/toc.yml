@@ -1,0 +1,130 @@
+### YamlMime:TableOfContent
+items:
+- uid: GamePlayService.Controllers
+  name: GamePlayService.Controllers
+  type: Namespace
+  items:
+  - uid: GamePlayService.Controllers.GameRecordController
+    name: GameRecordController
+    type: Class
+- uid: GamePlayService.Data
+  name: GamePlayService.Data
+  type: Namespace
+  items:
+  - uid: GamePlayService.Data.GameDbContext
+    name: GameDbContext
+    type: Class
+- uid: GamePlayService.Dtos
+  name: GamePlayService.Dtos
+  type: Namespace
+  items:
+  - uid: GamePlayService.Dtos.ChatMessageDto
+    name: ChatMessageDto
+    type: Class
+  - uid: GamePlayService.Dtos.GameResultDto
+    name: GameResultDto
+    type: Class
+  - uid: GamePlayService.Dtos.MoveDto
+    name: MoveDto
+    type: Class
+  - uid: GamePlayService.Dtos.MoveResultDto
+    name: MoveResultDto
+    type: Class
+  - uid: GamePlayService.Dtos.PlayerInGameDto
+    name: PlayerInGameDto
+    type: Class
+- uid: GamePlayService.Migrations
+  name: GamePlayService.Migrations
+  type: Namespace
+  items:
+  - uid: GamePlayService.Migrations.AddGameRecordTable
+    name: AddGameRecordTable
+    type: Class
+  - uid: GamePlayService.Migrations.AddTimeToGameRecords
+    name: AddTimeToGameRecords
+    type: Class
+  - uid: GamePlayService.Migrations.EditMoves
+    name: EditMoves
+    type: Class
+  - uid: GamePlayService.Migrations.EditMovesAgain
+    name: EditMovesAgain
+    type: Class
+  - uid: GamePlayService.Migrations.GamesTableEdit
+    name: GamesTableEdit
+    type: Class
+  - uid: GamePlayService.Migrations.InitialCreate
+    name: InitialCreate
+    type: Class
+  - uid: GamePlayService.Migrations.ManageMoveModel
+    name: ManageMoveModel
+    type: Class
+- uid: GamePlayService.Models
+  name: GamePlayService.Models
+  type: Namespace
+  items:
+  - uid: GamePlayService.Models.BoardState
+    name: BoardState
+    type: Class
+  - uid: GamePlayService.Models.ChessPiece
+    name: ChessPiece
+    type: Class
+  - uid: GamePlayService.Models.GameRecord
+    name: GameRecord
+    type: Class
+  - uid: GamePlayService.Models.GameSession
+    name: GameSession
+    type: Class
+  - uid: GamePlayService.Models.Move
+    name: Move
+    type: Class
+- uid: GamePlayService.Models.Pieces
+  name: GamePlayService.Models.Pieces
+  type: Namespace
+  items:
+  - uid: GamePlayService.Models.Pieces.Bishop
+    name: Bishop
+    type: Class
+  - uid: GamePlayService.Models.Pieces.King
+    name: King
+    type: Class
+  - uid: GamePlayService.Models.Pieces.Knight
+    name: Knight
+    type: Class
+  - uid: GamePlayService.Models.Pieces.Pawn
+    name: Pawn
+    type: Class
+  - uid: GamePlayService.Models.Pieces.Queen
+    name: Queen
+    type: Class
+  - uid: GamePlayService.Models.Pieces.Rook
+    name: Rook
+    type: Class
+- uid: GamePlayService.Services
+  name: GamePlayService.Services
+  type: Namespace
+  items:
+  - uid: GamePlayService.Services.ChessValidator
+    name: ChessValidator
+    type: Class
+  - uid: GamePlayService.Services.GameHub
+    name: GameHub
+    type: Class
+  - uid: GamePlayService.Services.GameRecordService
+    name: GameRecordService
+    type: Class
+  - uid: GamePlayService.Services.GameSearchService
+    name: GameSearchService
+    type: Class
+  - uid: GamePlayService.Services.GameSessionService
+    name: GameSessionService
+    type: Class
+  - uid: GamePlayService.Services.IGameRecordService
+    name: IGameRecordService
+    type: Interface
+  - uid: GamePlayService.Services.IGameSearchService
+    name: IGameSearchService
+    type: Interface
+  - uid: GamePlayService.Services.IGameSessionService
+    name: IGameSessionService
+    type: Interface
+memberLayout: SamePage

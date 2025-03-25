@@ -2,30 +2,34 @@ using GamePlayService.Data;
 using GamePlayService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GamePlayService.Services
+namespace GamePlayService.Services;
+
+/// <inheritdoc cref="IGameRecordService" />
+public class GameRecordService(GameDbContext context) : IGameRecordService
 {
-	public class GameRecordService(GameDbContext context)
+	/// <inheritdoc />
+	public async Task<GameRecord?> GetGameRecordByIdAsync(Guid gameId)
 	{
-		private readonly GameDbContext _context = context;
-		public async Task<GameRecord?> GetGameRecordByIdAsync(Guid id)
+		var gameRecord = await context.GameRecords.FindAsync(gameId);
+		if (gameRecord != null)
 		{
-			var gameRecord = await _context.GameRecords.FindAsync(id);
-			if (gameRecord != null)
-			{
-				gameRecord.Moves = [.. gameRecord.Moves
+			gameRecord.Moves = [.. gameRecord.Moves
 					.OrderBy(m => m.MoveNumber)
 					.ThenBy(m => m.PlayerColor == "w" ? 0 : 1)];
-			}
-			return gameRecord;
 		}
-		public async Task<List<GameRecord>?> GetAllGameRecordsAsync()
-		{
-			return await _context.GameRecords.ToListAsync();
-		}
-		public async Task AddGameRecordAsync(GameRecord gameRecord)
-		{
-			await _context.AddAsync(gameRecord);
-			await _context.SaveChangesAsync();
-		}
+		return gameRecord;
+	}
+
+	/// <inheritdoc/>
+	public async Task<List<GameRecord>?> GetAllGameRecordsAsync()
+	{
+		return await context.GameRecords.ToListAsync();
+	}
+
+	/// <inheritdoc/>
+	public async Task AddGameRecordAsync(GameRecord gameRecord)
+	{
+		await context.AddAsync(gameRecord);
+		await context.SaveChangesAsync();
 	}
 }

@@ -1,26 +1,15 @@
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using GamePlayService.Models;
 
 namespace GamePlayService.Data
 {
+	/// <include file='.docs/xmldocs/DbContext.xml' path='doc/class/member[@name="GameDbContext"]/*' />
 	public class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)
 	{
+		/// <include file='.docs/xmldocs/DbContext.xml' path='doc/method/member[@name="GameDbContext.GameRecords"]/*' />
 		public DbSet<GameRecord> GameRecords { get; set; }
-		public DbSet<Move> Moves { get; set; }
-		public async Task SeedDataAsync()
-		{
-			if (!GameRecords.Any())
-			{
-				var gamesData = await File.ReadAllTextAsync("GameRecords.json");
-				var games = JsonConvert.DeserializeObject<GameRecord>(gamesData);
-				if (games != null)
-				{
-					await GameRecords.AddRangeAsync(games);
-				}
-			}
 
-			await SaveChangesAsync();
-		}
+		/// <include file='.docs/xmldocs/DbContext.xml' path='doc/method/member[@name="GameDbContext.Moves"]/*' />
+		public DbSet<Move> Moves { get; set; }
 	}
 }

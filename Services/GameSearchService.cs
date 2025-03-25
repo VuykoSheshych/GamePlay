@@ -2,13 +2,18 @@ using StackExchange.Redis;
 
 namespace GamePlayService.Services;
 
-public class GameSearchService(IConnectionMultiplexer redis)
+/// <inheritdoc cref="IGameSearchService"/>
+public class GameSearchService(IConnectionMultiplexer redis) : IGameSearchService
 {
 	private readonly IDatabase _db = redis.GetDatabase();
-	public async Task AddPlayerToSearchQueue(string playerName, string connectionId)
+
+	/// <inheritdoc/>
+	public async Task AddPlayerToSearchQueue(string playerName, string playerConnectionId)
 	{
-		await _db.HashSetAsync("search:players", playerName, connectionId);
+		await _db.HashSetAsync("search:players", playerName, playerConnectionId);
 	}
+
+	/// <inheritdoc/>
 	public async Task<List<(string name, string id)>?> FindPlayersForGame()
 	{
 		var playersWithConnectionIds = new List<(string name, string id)>();
@@ -42,10 +47,14 @@ public class GameSearchService(IConnectionMultiplexer redis)
 
 		return null;
 	}
+
+	/// <inheritdoc/>
 	public async Task<string?> GetPlayerConnectionId(string playerName)
 	{
 		return await _db.HashGetAsync("search:players", playerName);
 	}
+
+	/// <inheritdoc/>
 	public async Task RemovePlayerFromSearchQueue(string playerName)
 	{
 		await _db.HashDeleteAsync("search:players", playerName);

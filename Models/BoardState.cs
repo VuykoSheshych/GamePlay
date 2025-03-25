@@ -2,19 +2,38 @@ using System.Text;
 using GamePlayService.Dtos;
 
 namespace GamePlayService.Models;
+
+/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="BoardState"]/*' />
 public class BoardState
 {
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.Board"]/*' />
 	public char[,] Board { get; private set; } = new char[8, 8];
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.ActiveColor"]/*' />
 	public string ActiveColor { get; private set; } = "w";
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.CastlingRights"]/*' />
 	public string CastlingRights { get; private set; } = "KQkq";
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.EnPassant"]/*' />
 	public string EnPassant { get; private set; } = "-";
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.HalfmoveClock"]/*' />
 	public int HalfmoveClock { get; private set; } = 0;
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.FullmoveNumber"]/*' />
 	public int FullmoveNumber { get; private set; } = 1;
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.FEN"]/*' />
 	public string FEN => GenerateFEN();
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.#ctor"]/*' />
 	public BoardState()
 	{
 		LoadFromFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 	}
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.#ctor(string)"]/*' />
 	public BoardState(string fen)
 	{
 		LoadFromFEN(fen);
@@ -84,6 +103,8 @@ public class BoardState
 
 		return fenBuilder.ToString();
 	}
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.ApplyMove"]/*' />
 	public void ApplyMove(MoveDto move)
 	{
 		var (fromRank, fromFile) = ChessPiece.ConvertToBoardIndex(move.From);
@@ -147,6 +168,8 @@ public class BoardState
 			Board[rank, 0] = '\0'; // Видаляємо туру зі старого місця
 		}
 	}
+
+	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.GetAllPieces"]/*' />
 	public List<(int row, int col)> GetAllPieces(string color)
 	{
 		List<(int row, int col)> pieces = [];

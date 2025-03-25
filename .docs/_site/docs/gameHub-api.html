@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>GameHub API Documentation | ChessGamePlayService </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="GameHub API Documentation | ChessGamePlayService ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/VuykoSheshych/GamePlayService/blob/release/0.1.0-preview-1/.docs/docs/gameHub-api.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="ChessGamePlayService">
+            ChessGamePlayService
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="gameHub-api">
+<h1 id="gamehub-api-documentation">GameHub API Documentation</h1>
+
+<h2 id="overview">Overview</h2>
+<p>The <a href="../api/GamePlayService.Services.GameHub.html">GameHub</a> is responsible for managing communication between clients and the server. It handles game creation, game joining, player matching, game state synchronization, moves, and chat messages. It uses SignalR to communicate with clients through the following events.</p>
+<h2 id="event-list">Event List</h2>
+<h3 id="1-gamefound">1. <strong>GameFound</strong></h3>
+<p><strong>Event Name</strong>: <code>GameFound</code></p>
+<p><strong>Triggered When</strong>: When a game is found and players are added to the game session.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>gameId</code> (string): The ID of the game that players have joined.</li>
+</ul>
+<p><strong>Client Side Usage</strong>:</p>
+<pre><code class="lang-javascript">connection.on(&quot;GameFound&quot;, function (gameId) {
+  console.log(&quot;Game found: &quot; + gameId);
+});
+</code></pre>
+<hr>
+<h3 id="2-receivegamestate">2. <strong>ReceiveGameState</strong></h3>
+<p><strong>Event Name</strong>: <code>ReceiveGameState</code></p>
+<p><strong>Triggered When</strong>: After a game has started or when the game state is updated (e.g., after a move or a new message).</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>gameState</code> (object): The current state of the game, including the board state, players, messages, and game status.</li>
+</ul>
+<p><strong>Client Side Usage</strong>:</p>
+<pre><code class="lang-javascript">connection.on(&quot;ReceiveGameState&quot;, function (gameState) {
+  // Update the game state UI with the new game state
+});
+</code></pre>
+<hr>
+<h3 id="3-receivemove">3. <strong>ReceiveMove</strong></h3>
+<p><strong>Event Name</strong>: <code>ReceiveMove</code></p>
+<p><strong>Triggered When</strong>: After a player makes a move in the game.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>moveResult </code> (object): The result of the move, including success status and message.</li>
+</ul>
+<p><strong>Client Side Usage</strong>:</p>
+<pre><code class="lang-javascript">connection.on(&quot;ReceiveMove&quot;, function (moveResult) {
+  // Handle the move result
+});
+</code></pre>
+<hr>
+<h3 id="4-gamefinished">4. <strong>GameFinished</strong></h3>
+<p><strong>Event Name</strong>: <code>GameFinished</code></p>
+<p><strong>Triggered When</strong>: When the game has finished, either due to checkmate, stalemate, or draw.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>looser</code> (string): The name of the player who lost, or &quot;½-½&quot; in case of a draw.</li>
+</ul>
+<p><strong>Client Side Usage</strong>:</p>
+<pre><code class="lang-javascript">connection.on(&quot;GameFinished&quot;, function (looser) {
+  console.log(&quot;Game finished. Looser: &quot; + looser);
+});
+</code></pre>
+<hr>
+<h3 id="5-chatmessagereceived">5. <strong>ChatMessageReceived</strong></h3>
+<p><strong>Event Name</strong>: <code>ChatMessageReceived</code></p>
+<p><strong>Triggered When</strong>: When a player sends a chat message in the game.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>chatMessage</code> (object): The chat message containing the author and text.</li>
+</ul>
+<p><strong>Client Side Usage</strong>:</p>
+<pre><code class="lang-javascript">connection.on(&quot;ChatMessageReceived&quot;, function (chatMessage) {
+  // Display the chat message in the game chat UI
+});
+</code></pre>
+<hr>
+<h2 id="methods">Methods</h2>
+<h3 id="1-startgamesearch">1. <strong>StartGameSearch</strong></h3>
+<p><strong>Method Name</strong>: <code>StartGameSearch</code></p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>playerName</code> (string): The name of the player looking for a game.</li>
+</ul>
+<p><strong>Description</strong>: Adds the player to the search queue for finding an opponent.</p>
+<hr>
+<h3 id="2-stopgamesearch">2. <strong>StopGameSearch</strong></h3>
+<p><strong>Method Name</strong>: <code>StopGameSearch</code></p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>playerName</code> (string): The name of the player who wants to stop searching for a game.</li>
+</ul>
+<p><strong>Description</strong>: Removes the player from the search queue.</p>
+<hr>
+<h3 id="3-makemove">3. <strong>MakeMove</strong></h3>
+<p><strong>Method Name</strong>: <code>MakeMove</code></p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>gameId</code> (string): The ID of the game where the move is made.</li>
+<li><code>moveDto</code> (MoveDto): The move made by the player, including the from and to positions, and optional promotion piece.</li>
+</ul>
+<p><strong>Description</strong>: Tries to make a move and notifies all clients with the result and updated game state.</p>
+<hr>
+<h3 id="4-sendmessage">4. <strong>SendMessage</strong></h3>
+<p><strong>Method Name</strong>: <code>SendMessage</code></p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>gameId</code> (string): The ID of the game where the message is sent.</li>
+<li><code>chatMessage</code> (ChatMessageDto): The message to be sent, including the author's name and the message text.</li>
+</ul>
+<p><strong>Description</strong>: Sends a chat message to the game and updates the game state for all players.</p>
+<hr>
+<h3 id="5-finishgame">5. <strong>FinishGame</strong></h3>
+<p><strong>Method Name</strong>: <code>FinishGame</code></p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>gameId</code> (string): The ID of the game to finish.</li>
+<li><code>looser</code> (string): The name of the player who lost the game, or &quot;½-½&quot; in case of a draw.</li>
+</ul>
+<p><strong>Description</strong>: Ends the game and notifies all players about the result, removing them from the game session.</p>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>The GameHub provides several events for real-time communication between the server and client, including game state updates, move results, and chat messages. The API is designed to handle typical game interactions such as starting a game, making moves, sending messages, and determining the outcome of a game.</p>
+<p>Only those methods that describe direct interaction with the frontend have been described here. For more information about other methods, please refer to the documentation.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/VuykoSheshych/GamePlayService/blob/release/0.1.0-preview-1/.docs/docs/gameHub-api.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

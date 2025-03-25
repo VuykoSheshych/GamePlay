@@ -1,0 +1,18 @@
+<doc>
+	<class>
+		<member name="GameDbContext">
+			<summary>Represents the database context for the chess game, handling game records and
+				moves.</summary>
+		</member>
+	</class>
+
+	<method>
+		<member name="GameDbContext.GameRecords">
+			<summary>Gets or sets the database set for storing game records.</summary>
+		</member>
+
+		<member name="GameDbContext.Moves">
+			<summary>Gets or sets the database set for storing individual chess moves.</summary>
+		</member>
+	</method>
+</doc>

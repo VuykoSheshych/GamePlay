@@ -5,36 +5,39 @@ using StackExchange.Redis;
 
 namespace GamePlayService.Services;
 
-public class GameSessionService(IConnectionMultiplexer redis, GameRecordService gameService)
+/// <inheritdoc cref="IGameSessionService" />
+public class GameSessionService(IConnectionMultiplexer redis, IGameRecordService gameService) : IGameSessionService
 {
-	private readonly GameRecordService _gameRecordService = gameService;
+	private readonly IGameRecordService _gameRecordService = gameService;
 	private readonly IDatabase _db = redis.GetDatabase();
 	private readonly TimeSpan _expiration = TimeSpan.FromHours(1);
+
+	/// <inheritdoc/>
 	public async Task<GameSession?> GetGameSessionAsync(string gameId)
 	{
 		var json = await _db.StringGetAsync($"game:{gameId}");
 		return json.IsNullOrEmpty ? null : JsonSerializer.Deserialize<GameSession>(json!);
 	}
+
+	/// <inheritdoc/>
 	public async Task<Guid> CreateGameSessionAsync(List<(string name, string id)> players)
 	{
+		// За замовчуванням у кожного гравця буде 20 хвилин на ходи
+		var gameDuration = TimeSpan.FromMinutes(20);
+		// By default, each player will have 20 minutes to make moves
+
 		GameSession newGame = new()
 		{
-			WhitePlayer = new()
-			{
-				Name = players.First().name,
-				ConnectionId = players.First().id
-			},
-			BlackPlayer = new()
-			{
-				Name = players.Last().name,
-				ConnectionId = players.Last().id
-			}
+			WhitePlayer = new(players.First().name, players.First().id, gameDuration),
+			BlackPlayer = new(players.Last().name, players.Last().id, gameDuration)
 		};
 
 		var json = JsonSerializer.Serialize(newGame);
 		await _db.StringSetAsync($"game:{newGame.Id}", json, _expiration);
 		return newGame.Id;
 	}
+
+	/// <inheritdoc/>
 	public async Task RemoveGameSessionAsync(string gameId, string result)
 	{
 		var game = await GetGameSessionAsync(gameId);
@@ -45,11 +48,15 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		}
 		await _db.KeyDeleteAsync($"game:{gameId}");
 	}
+
+	/// <inheritdoc/>
 	public async Task SaveGameSessionAsync(GameSession gameSession)
 	{
 		var json = JsonSerializer.Serialize(gameSession);
 		await _db.StringSetAsync($"game:{gameSession.Id}", json, _expiration);
 	}
+
+	/// <inheritdoc/>
 	public async Task<MoveResultDto> TryMakeMoveAsync(string gameId, MoveDto moveDto)
 	{
 		var game = await GetGameSessionAsync(gameId);
@@ -77,6 +84,8 @@ public class GameSessionService(IConnectionMultiplexer redis, GameRecordService 
 		await SaveGameSessionAsync(game);
 		return moveResultDto;
 	}
+
+	/// <inheritdoc/>
 	public async Task SaveGameRecordAsync(GameSession gameSession, string result)
 	{
 		await _gameRecordService.AddGameRecordAsync(new GameRecord()

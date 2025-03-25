@@ -1,0 +1,898 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Services.GameSearchService
+  commentId: T:GamePlayService.Services.GameSearchService
+  id: GameSearchService
+  parent: GamePlayService.Services
+  children:
+  - GamePlayService.Services.GameSearchService.#ctor(StackExchange.Redis.IConnectionMultiplexer)
+  - GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  - GamePlayService.Services.GameSearchService.FindPlayersForGame
+  - GamePlayService.Services.GameSearchService.GetPlayerConnectionId(System.String)
+  - GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(System.String)
+  langs:
+  - csharp
+  - vb
+  name: GameSearchService
+  nameWithType: GameSearchService
+  fullName: GamePlayService.Services.GameSearchService
+  type: Class
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GameSearchService
+    path: ../Services/GameSearchService.cs
+    startLine: 5
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: >-
+    Provides methods for managing the game search process, including adding and
+    				removing players from the search queue.
+  example: []
+  syntax:
+    content: 'public class GameSearchService : IGameSearchService'
+    content.vb: Public Class GameSearchService Implements IGameSearchService
+  inheritance:
+  - System.Object
+  implements:
+  - GamePlayService.Services.IGameSearchService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlayService.Services.GameSearchService.#ctor(StackExchange.Redis.IConnectionMultiplexer)
+  commentId: M:GamePlayService.Services.GameSearchService.#ctor(StackExchange.Redis.IConnectionMultiplexer)
+  id: '#ctor(StackExchange.Redis.IConnectionMultiplexer)'
+  parent: GamePlayService.Services.GameSearchService
+  langs:
+  - csharp
+  - vb
+  name: GameSearchService(IConnectionMultiplexer)
+  nameWithType: GameSearchService.GameSearchService(IConnectionMultiplexer)
+  fullName: GamePlayService.Services.GameSearchService.GameSearchService(StackExchange.Redis.IConnectionMultiplexer)
+  type: Constructor
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Services/GameSearchService.cs
+    startLine: 5
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: >-
+    Provides methods for managing the game search process, including adding and
+    				removing players from the search queue.
+  example: []
+  syntax:
+    content: public GameSearchService(IConnectionMultiplexer redis)
+    parameters:
+    - id: redis
+      type: StackExchange.Redis.IConnectionMultiplexer
+    content.vb: Public Sub New(redis As IConnectionMultiplexer)
+  overload: GamePlayService.Services.GameSearchService.#ctor*
+  nameWithType.vb: GameSearchService.New(IConnectionMultiplexer)
+  fullName.vb: GamePlayService.Services.GameSearchService.New(StackExchange.Redis.IConnectionMultiplexer)
+  name.vb: New(IConnectionMultiplexer)
+- uid: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  commentId: M:GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  id: AddPlayerToSearchQueue(System.String,System.String)
+  parent: GamePlayService.Services.GameSearchService
+  langs:
+  - csharp
+  - vb
+  name: AddPlayerToSearchQueue(string, string)
+  nameWithType: GameSearchService.AddPlayerToSearchQueue(string, string)
+  fullName: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(string, string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: AddPlayerToSearchQueue
+    path: ../Services/GameSearchService.cs
+    startLine: 10
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: Adds a player to the matchmaking queue.
+  example: []
+  syntax:
+    content: public Task AddPlayerToSearchQueue(string playerName, string playerConnectionId)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player to be added.
+    - id: playerConnectionId
+      type: System.String
+      description: The connection ID of the player.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function AddPlayerToSearchQueue(playerName As String, playerConnectionId As String) As Task
+  overload: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue*
+  implements:
+  - GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  nameWithType.vb: GameSearchService.AddPlayerToSearchQueue(String, String)
+  fullName.vb: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(String, String)
+  name.vb: AddPlayerToSearchQueue(String, String)
+- uid: GamePlayService.Services.GameSearchService.FindPlayersForGame
+  commentId: M:GamePlayService.Services.GameSearchService.FindPlayersForGame
+  id: FindPlayersForGame
+  parent: GamePlayService.Services.GameSearchService
+  langs:
+  - csharp
+  - vb
+  name: FindPlayersForGame()
+  nameWithType: GameSearchService.FindPlayersForGame()
+  fullName: GamePlayService.Services.GameSearchService.FindPlayersForGame()
+  type: Method
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FindPlayersForGame
+    path: ../Services/GameSearchService.cs
+    startLine: 16
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: Attempts to find a pair of players for a game session.
+  example: []
+  syntax:
+    content: public Task<List<(string name, string id)>?> FindPlayersForGame()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+      description: >-
+        A list containing two players with their connection IDs, or null if not enough
+        				players are available.
+    content.vb: Public Function FindPlayersForGame() As Task(Of List(Of (name As String, id As String)))
+  overload: GamePlayService.Services.GameSearchService.FindPlayersForGame*
+  implements:
+  - GamePlayService.Services.IGameSearchService.FindPlayersForGame
+- uid: GamePlayService.Services.GameSearchService.GetPlayerConnectionId(System.String)
+  commentId: M:GamePlayService.Services.GameSearchService.GetPlayerConnectionId(System.String)
+  id: GetPlayerConnectionId(System.String)
+  parent: GamePlayService.Services.GameSearchService
+  langs:
+  - csharp
+  - vb
+  name: GetPlayerConnectionId(string)
+  nameWithType: GameSearchService.GetPlayerConnectionId(string)
+  fullName: GamePlayService.Services.GameSearchService.GetPlayerConnectionId(string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetPlayerConnectionId
+    path: ../Services/GameSearchService.cs
+    startLine: 51
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: Retrieves the connection ID of a player currently in the search queue.
+  example: []
+  syntax:
+    content: public Task<string?> GetPlayerConnectionId(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player whose connection ID is being retrieved.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The connection ID of the player, or null if the player is not in the queue.
+    content.vb: Public Function GetPlayerConnectionId(playerName As String) As Task(Of String)
+  overload: GamePlayService.Services.GameSearchService.GetPlayerConnectionId*
+  implements:
+  - GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  nameWithType.vb: GameSearchService.GetPlayerConnectionId(String)
+  fullName.vb: GamePlayService.Services.GameSearchService.GetPlayerConnectionId(String)
+  name.vb: GetPlayerConnectionId(String)
+- uid: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(System.String)
+  commentId: M:GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(System.String)
+  id: RemovePlayerFromSearchQueue(System.String)
+  parent: GamePlayService.Services.GameSearchService
+  langs:
+  - csharp
+  - vb
+  name: RemovePlayerFromSearchQueue(string)
+  nameWithType: GameSearchService.RemovePlayerFromSearchQueue(string)
+  fullName: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameSearchService.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: RemovePlayerFromSearchQueue
+    path: ../Services/GameSearchService.cs
+    startLine: 57
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Services
+  summary: Removes a player from the matchmaking queue.
+  example: []
+  syntax:
+    content: public Task RemovePlayerFromSearchQueue(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player to be removed.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function RemovePlayerFromSearchQueue(playerName As String) As Task
+  overload: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue*
+  implements:
+  - GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  nameWithType.vb: GameSearchService.RemovePlayerFromSearchQueue(String)
+  fullName.vb: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(String)
+  name.vb: RemovePlayerFromSearchQueue(String)
+references:
+- uid: GamePlayService.Services
+  commentId: N:GamePlayService.Services
+  href: GamePlayService.html
+  name: GamePlayService.Services
+  nameWithType: GamePlayService.Services
+  fullName: GamePlayService.Services
+  spec.csharp:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Services
+    name: Services
+    href: GamePlayService.Services.html
+  spec.vb:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Services
+    name: Services
+    href: GamePlayService.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: GamePlayService.Services.IGameSearchService
+  commentId: T:GamePlayService.Services.IGameSearchService
+  parent: GamePlayService.Services
+  href: GamePlayService.Services.IGameSearchService.html
+  name: IGameSearchService
+  nameWithType: IGameSearchService
+  fullName: GamePlayService.Services.IGameSearchService
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GamePlayService.Services.GameSearchService.#ctor*
+  commentId: Overload:GamePlayService.Services.GameSearchService.#ctor
+  href: GamePlayService.Services.GameSearchService.html#GamePlayService_Services_GameSearchService__ctor_StackExchange_Redis_IConnectionMultiplexer_
+  name: GameSearchService
+  nameWithType: GameSearchService.GameSearchService
+  fullName: GamePlayService.Services.GameSearchService.GameSearchService
+  nameWithType.vb: GameSearchService.New
+  fullName.vb: GamePlayService.Services.GameSearchService.New
+  name.vb: New
+- uid: StackExchange.Redis.IConnectionMultiplexer
+  commentId: T:StackExchange.Redis.IConnectionMultiplexer
+  parent: StackExchange.Redis
+  isExternal: true
+  name: IConnectionMultiplexer
+  nameWithType: IConnectionMultiplexer
+  fullName: StackExchange.Redis.IConnectionMultiplexer
+- uid: StackExchange.Redis
+  commentId: N:StackExchange.Redis
+  isExternal: true
+  name: StackExchange.Redis
+  nameWithType: StackExchange.Redis
+  fullName: StackExchange.Redis
+  spec.csharp:
+  - uid: StackExchange
+    name: StackExchange
+    isExternal: true
+  - name: .
+  - uid: StackExchange.Redis
+    name: Redis
+    isExternal: true
+  spec.vb:
+  - uid: StackExchange
+    name: StackExchange
+    isExternal: true
+  - name: .
+  - uid: StackExchange.Redis
+    name: Redis
+    isExternal: true
+- uid: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue*
+  commentId: Overload:GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue
+  href: GamePlayService.Services.GameSearchService.html#GamePlayService_Services_GameSearchService_AddPlayerToSearchQueue_System_String_System_String_
+  name: AddPlayerToSearchQueue
+  nameWithType: GameSearchService.AddPlayerToSearchQueue
+  fullName: GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue
+- uid: GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  commentId: M:GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  parent: GamePlayService.Services.IGameSearchService
+  isExternal: true
+  href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_AddPlayerToSearchQueue_System_String_System_String_
+  name: AddPlayerToSearchQueue(string, string)
+  nameWithType: IGameSearchService.AddPlayerToSearchQueue(string, string)
+  fullName: GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(string, string)
+  nameWithType.vb: IGameSearchService.AddPlayerToSearchQueue(String, String)
+  fullName.vb: GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(String, String)
+  name.vb: AddPlayerToSearchQueue(String, String)
+  spec.csharp:
+  - uid: GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+    name: AddPlayerToSearchQueue
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_AddPlayerToSearchQueue_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+    name: AddPlayerToSearchQueue
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_AddPlayerToSearchQueue_System_String_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: GamePlayService.Services.GameSearchService.FindPlayersForGame*
+  commentId: Overload:GamePlayService.Services.GameSearchService.FindPlayersForGame
+  href: GamePlayService.Services.GameSearchService.html#GamePlayService_Services_GameSearchService_FindPlayersForGame
+  name: FindPlayersForGame
+  nameWithType: GameSearchService.FindPlayersForGame
+  fullName: GamePlayService.Services.GameSearchService.FindPlayersForGame
+- uid: GamePlayService.Services.IGameSearchService.FindPlayersForGame
+  commentId: M:GamePlayService.Services.IGameSearchService.FindPlayersForGame
+  parent: GamePlayService.Services.IGameSearchService
+  href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_FindPlayersForGame
+  name: FindPlayersForGame()
+  nameWithType: IGameSearchService.FindPlayersForGame()
+  fullName: GamePlayService.Services.IGameSearchService.FindPlayersForGame()
+  spec.csharp:
+  - uid: GamePlayService.Services.IGameSearchService.FindPlayersForGame
+    name: FindPlayersForGame
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_FindPlayersForGame
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: GamePlayService.Services.IGameSearchService.FindPlayersForGame
+    name: FindPlayersForGame
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_FindPlayersForGame
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<(string name, string id)>>
+  nameWithType: Task<List<(string name, string id)>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<(string name, string id)>>
+  nameWithType.vb: Task(Of List(Of (name As String, id As String)))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of (name As String, id As String)))
+  name.vb: Task(Of List(Of (name As String, id As String)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: )
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: GamePlayService.Services.GameSearchService.GetPlayerConnectionId*
+  commentId: Overload:GamePlayService.Services.GameSearchService.GetPlayerConnectionId
+  href: GamePlayService.Services.GameSearchService.html#GamePlayService_Services_GameSearchService_GetPlayerConnectionId_System_String_
+  name: GetPlayerConnectionId
+  nameWithType: GameSearchService.GetPlayerConnectionId
+  fullName: GamePlayService.Services.GameSearchService.GetPlayerConnectionId
+- uid: GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  commentId: M:GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  parent: GamePlayService.Services.IGameSearchService
+  isExternal: true
+  href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_GetPlayerConnectionId_System_String_
+  name: GetPlayerConnectionId(string)
+  nameWithType: IGameSearchService.GetPlayerConnectionId(string)
+  fullName: GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(string)
+  nameWithType.vb: IGameSearchService.GetPlayerConnectionId(String)
+  fullName.vb: GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(String)
+  name.vb: GetPlayerConnectionId(String)
+  spec.csharp:
+  - uid: GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+    name: GetPlayerConnectionId
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_GetPlayerConnectionId_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+    name: GetPlayerConnectionId
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_GetPlayerConnectionId_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue*
+  commentId: Overload:GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue
+  href: GamePlayService.Services.GameSearchService.html#GamePlayService_Services_GameSearchService_RemovePlayerFromSearchQueue_System_String_
+  name: RemovePlayerFromSearchQueue
+  nameWithType: GameSearchService.RemovePlayerFromSearchQueue
+  fullName: GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue
+- uid: GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  commentId: M:GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  parent: GamePlayService.Services.IGameSearchService
+  isExternal: true
+  href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_RemovePlayerFromSearchQueue_System_String_
+  name: RemovePlayerFromSearchQueue(string)
+  nameWithType: IGameSearchService.RemovePlayerFromSearchQueue(string)
+  fullName: GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(string)
+  nameWithType.vb: IGameSearchService.RemovePlayerFromSearchQueue(String)
+  fullName.vb: GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(String)
+  name.vb: RemovePlayerFromSearchQueue(String)
+  spec.csharp:
+  - uid: GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+    name: RemovePlayerFromSearchQueue
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_RemovePlayerFromSearchQueue_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+    name: RemovePlayerFromSearchQueue
+    href: GamePlayService.Services.IGameSearchService.html#GamePlayService_Services_IGameSearchService_RemovePlayerFromSearchQueue_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

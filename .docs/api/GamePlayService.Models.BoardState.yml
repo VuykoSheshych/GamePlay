@@ -1,0 +1,958 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Models.BoardState
+  commentId: T:GamePlayService.Models.BoardState
+  id: BoardState
+  parent: GamePlayService.Models
+  children:
+  - GamePlayService.Models.BoardState.#ctor
+  - GamePlayService.Models.BoardState.#ctor(System.String)
+  - GamePlayService.Models.BoardState.ActiveColor
+  - GamePlayService.Models.BoardState.ApplyMove(GamePlayService.Dtos.MoveDto)
+  - GamePlayService.Models.BoardState.Board
+  - GamePlayService.Models.BoardState.CastlingRights
+  - GamePlayService.Models.BoardState.EnPassant
+  - GamePlayService.Models.BoardState.FEN
+  - GamePlayService.Models.BoardState.FullmoveNumber
+  - GamePlayService.Models.BoardState.GetAllPieces(System.String)
+  - GamePlayService.Models.BoardState.HalfmoveClock
+  langs:
+  - csharp
+  - vb
+  name: BoardState
+  nameWithType: BoardState
+  fullName: GamePlayService.Models.BoardState
+  type: Class
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: BoardState
+    path: ../Models/BoardState.cs
+    startLine: 6
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: >-
+    Represents the state of a chessboard, including piece positions and game
+    				metadata.
+  example: []
+  syntax:
+    content: public class BoardState
+    content.vb: Public Class BoardState
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlayService.Models.BoardState.Board
+  commentId: P:GamePlayService.Models.BoardState.Board
+  id: Board
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: Board
+  nameWithType: BoardState.Board
+  fullName: GamePlayService.Models.BoardState.Board
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Board
+    path: ../Models/BoardState.cs
+    startLine: 9
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: >-
+    The 8x8 board representation where each cell contains a chess piece or is
+    				empty.
+  example: []
+  syntax:
+    content: public char[,] Board { get; }
+    parameters: []
+    return:
+      type: System.Char[,]
+    content.vb: Public Property Board As Char(,)
+  overload: GamePlayService.Models.BoardState.Board*
+- uid: GamePlayService.Models.BoardState.ActiveColor
+  commentId: P:GamePlayService.Models.BoardState.ActiveColor
+  id: ActiveColor
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: ActiveColor
+  nameWithType: BoardState.ActiveColor
+  fullName: GamePlayService.Models.BoardState.ActiveColor
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: ActiveColor
+    path: ../Models/BoardState.cs
+    startLine: 12
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: >-
+    The color of the player who is to move next ("w" for white, "b" for
+    				black).
+  example: []
+  syntax:
+    content: public string ActiveColor { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ActiveColor As String
+  overload: GamePlayService.Models.BoardState.ActiveColor*
+- uid: GamePlayService.Models.BoardState.CastlingRights
+  commentId: P:GamePlayService.Models.BoardState.CastlingRights
+  id: CastlingRights
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: CastlingRights
+  nameWithType: BoardState.CastlingRights
+  fullName: GamePlayService.Models.BoardState.CastlingRights
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: CastlingRights
+    path: ../Models/BoardState.cs
+    startLine: 15
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: The current castling rights in the game ("KQkq" format).
+  example: []
+  syntax:
+    content: public string CastlingRights { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property CastlingRights As String
+  overload: GamePlayService.Models.BoardState.CastlingRights*
+- uid: GamePlayService.Models.BoardState.EnPassant
+  commentId: P:GamePlayService.Models.BoardState.EnPassant
+  id: EnPassant
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: EnPassant
+  nameWithType: BoardState.EnPassant
+  fullName: GamePlayService.Models.BoardState.EnPassant
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: EnPassant
+    path: ../Models/BoardState.cs
+    startLine: 18
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: The en passant target square, if applicable.
+  example: []
+  syntax:
+    content: public string EnPassant { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property EnPassant As String
+  overload: GamePlayService.Models.BoardState.EnPassant*
+- uid: GamePlayService.Models.BoardState.HalfmoveClock
+  commentId: P:GamePlayService.Models.BoardState.HalfmoveClock
+  id: HalfmoveClock
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: HalfmoveClock
+  nameWithType: BoardState.HalfmoveClock
+  fullName: GamePlayService.Models.BoardState.HalfmoveClock
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: HalfmoveClock
+    path: ../Models/BoardState.cs
+    startLine: 21
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: The halfmove clock for the fifty-move rule.
+  example: []
+  syntax:
+    content: public int HalfmoveClock { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property HalfmoveClock As Integer
+  overload: GamePlayService.Models.BoardState.HalfmoveClock*
+- uid: GamePlayService.Models.BoardState.FullmoveNumber
+  commentId: P:GamePlayService.Models.BoardState.FullmoveNumber
+  id: FullmoveNumber
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: FullmoveNumber
+  nameWithType: BoardState.FullmoveNumber
+  fullName: GamePlayService.Models.BoardState.FullmoveNumber
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FullmoveNumber
+    path: ../Models/BoardState.cs
+    startLine: 24
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: The full move number, which increments after Black's turn.
+  example: []
+  syntax:
+    content: public int FullmoveNumber { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FullmoveNumber As Integer
+  overload: GamePlayService.Models.BoardState.FullmoveNumber*
+- uid: GamePlayService.Models.BoardState.FEN
+  commentId: P:GamePlayService.Models.BoardState.FEN
+  id: FEN
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: FEN
+  nameWithType: BoardState.FEN
+  fullName: GamePlayService.Models.BoardState.FEN
+  type: Property
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FEN
+    path: ../Models/BoardState.cs
+    startLine: 27
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: The current board position in FEN (Forsyth-Edwards Notation).
+  example: []
+  syntax:
+    content: public string FEN { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property FEN As String
+  overload: GamePlayService.Models.BoardState.FEN*
+- uid: GamePlayService.Models.BoardState.#ctor
+  commentId: M:GamePlayService.Models.BoardState.#ctor
+  id: '#ctor'
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: BoardState()
+  nameWithType: BoardState.BoardState()
+  fullName: GamePlayService.Models.BoardState.BoardState()
+  type: Constructor
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Models/BoardState.cs
+    startLine: 30
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: >-
+    Initializes a new instance of the <xref href="GamePlayService.Models.BoardState" data-throw-if-not-resolved="false"></xref> class with the
+    				standard starting position.
+  example: []
+  syntax:
+    content: public BoardState()
+    content.vb: Public Sub New()
+  overload: GamePlayService.Models.BoardState.#ctor*
+  nameWithType.vb: BoardState.New()
+  fullName.vb: GamePlayService.Models.BoardState.New()
+  name.vb: New()
+- uid: GamePlayService.Models.BoardState.#ctor(System.String)
+  commentId: M:GamePlayService.Models.BoardState.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: BoardState(string)
+  nameWithType: BoardState.BoardState(string)
+  fullName: GamePlayService.Models.BoardState.BoardState(string)
+  type: Constructor
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Models/BoardState.cs
+    startLine: 36
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: >-
+    Initializes a new instance of the <xref href="GamePlayService.Models.BoardState" data-throw-if-not-resolved="false"></xref> class from a given
+    				FEN string.
+  example: []
+  syntax:
+    content: public BoardState(string fen)
+    parameters:
+    - id: fen
+      type: System.String
+      description: >-
+        The FEN (Forsyth-Edwards Notation) string representing the board
+        				position.
+    content.vb: Public Sub New(fen As String)
+  overload: GamePlayService.Models.BoardState.#ctor*
+  nameWithType.vb: BoardState.New(String)
+  fullName.vb: GamePlayService.Models.BoardState.New(String)
+  name.vb: New(String)
+- uid: GamePlayService.Models.BoardState.ApplyMove(GamePlayService.Dtos.MoveDto)
+  commentId: M:GamePlayService.Models.BoardState.ApplyMove(GamePlayService.Dtos.MoveDto)
+  id: ApplyMove(GamePlayService.Dtos.MoveDto)
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: ApplyMove(MoveDto)
+  nameWithType: BoardState.ApplyMove(MoveDto)
+  fullName: GamePlayService.Models.BoardState.ApplyMove(GamePlayService.Dtos.MoveDto)
+  type: Method
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: ApplyMove
+    path: ../Models/BoardState.cs
+    startLine: 107
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: Applies a move to the board, updating its state accordingly.
+  example: []
+  syntax:
+    content: public void ApplyMove(MoveDto move)
+    parameters:
+    - id: move
+      type: GamePlayService.Dtos.MoveDto
+      description: The move to be applied.
+    content.vb: Public Sub ApplyMove(move As MoveDto)
+  overload: GamePlayService.Models.BoardState.ApplyMove*
+- uid: GamePlayService.Models.BoardState.GetAllPieces(System.String)
+  commentId: M:GamePlayService.Models.BoardState.GetAllPieces(System.String)
+  id: GetAllPieces(System.String)
+  parent: GamePlayService.Models.BoardState
+  langs:
+  - csharp
+  - vb
+  name: GetAllPieces(string)
+  nameWithType: BoardState.GetAllPieces(string)
+  fullName: GamePlayService.Models.BoardState.GetAllPieces(string)
+  type: Method
+  source:
+    remote:
+      path: Models/BoardState.cs
+      branch: release/0.1.0-preview-1
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetAllPieces
+    path: ../Models/BoardState.cs
+    startLine: 172
+  assemblies:
+  - GamePlayService
+  namespace: GamePlayService.Models
+  summary: Retrieves all pieces of a specified color from the board.
+  example: []
+  syntax:
+    content: public List<(int row, int col)> GetAllPieces(string color)
+    parameters:
+    - id: color
+      type: System.String
+      description: The color of pieces to retrieve ("w" for white, "b" for black).
+    return:
+      type: System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}}
+      description: A list of tuples containing the row and column indices of the pieces.
+    content.vb: Public Function GetAllPieces(color As String) As List(Of (row As Integer, col As Integer))
+  overload: GamePlayService.Models.BoardState.GetAllPieces*
+  nameWithType.vb: BoardState.GetAllPieces(String)
+  fullName.vb: GamePlayService.Models.BoardState.GetAllPieces(String)
+  name.vb: GetAllPieces(String)
+references:
+- uid: GamePlayService.Models
+  commentId: N:GamePlayService.Models
+  href: GamePlayService.html
+  name: GamePlayService.Models
+  nameWithType: GamePlayService.Models
+  fullName: GamePlayService.Models
+  spec.csharp:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Models
+    name: Models
+    href: GamePlayService.Models.html
+  spec.vb:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Models
+    name: Models
+    href: GamePlayService.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GamePlayService.Models.BoardState.Board*
+  commentId: Overload:GamePlayService.Models.BoardState.Board
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_Board
+  name: Board
+  nameWithType: BoardState.Board
+  fullName: GamePlayService.Models.BoardState.Board
+- uid: System.Char[,]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char[,]
+  nameWithType: char[,]
+  fullName: char[,]
+  nameWithType.vb: Char(,)
+  fullName.vb: Char(,)
+  name.vb: Char(,)
+  spec.csharp:
+  - uid: System.Char
+    name: char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: '['
+  - name: ','
+  - name: ']'
+  spec.vb:
+  - uid: System.Char
+    name: Char
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.char
+  - name: (
+  - name: ','
+  - name: )
+- uid: GamePlayService.Models.BoardState.ActiveColor*
+  commentId: Overload:GamePlayService.Models.BoardState.ActiveColor
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_ActiveColor
+  name: ActiveColor
+  nameWithType: BoardState.ActiveColor
+  fullName: GamePlayService.Models.BoardState.ActiveColor
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: GamePlayService.Models.BoardState.CastlingRights*
+  commentId: Overload:GamePlayService.Models.BoardState.CastlingRights
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_CastlingRights
+  name: CastlingRights
+  nameWithType: BoardState.CastlingRights
+  fullName: GamePlayService.Models.BoardState.CastlingRights
+- uid: GamePlayService.Models.BoardState.EnPassant*
+  commentId: Overload:GamePlayService.Models.BoardState.EnPassant
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_EnPassant
+  name: EnPassant
+  nameWithType: BoardState.EnPassant
+  fullName: GamePlayService.Models.BoardState.EnPassant
+- uid: GamePlayService.Models.BoardState.HalfmoveClock*
+  commentId: Overload:GamePlayService.Models.BoardState.HalfmoveClock
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_HalfmoveClock
+  name: HalfmoveClock
+  nameWithType: BoardState.HalfmoveClock
+  fullName: GamePlayService.Models.BoardState.HalfmoveClock
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: GamePlayService.Models.BoardState.FullmoveNumber*
+  commentId: Overload:GamePlayService.Models.BoardState.FullmoveNumber
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_FullmoveNumber
+  name: FullmoveNumber
+  nameWithType: BoardState.FullmoveNumber
+  fullName: GamePlayService.Models.BoardState.FullmoveNumber
+- uid: GamePlayService.Models.BoardState.FEN*
+  commentId: Overload:GamePlayService.Models.BoardState.FEN
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_FEN
+  name: FEN
+  nameWithType: BoardState.FEN
+  fullName: GamePlayService.Models.BoardState.FEN
+- uid: GamePlayService.Models.BoardState
+  commentId: T:GamePlayService.Models.BoardState
+  parent: GamePlayService.Models
+  href: GamePlayService.Models.BoardState.html
+  name: BoardState
+  nameWithType: BoardState
+  fullName: GamePlayService.Models.BoardState
+- uid: GamePlayService.Models.BoardState.#ctor*
+  commentId: Overload:GamePlayService.Models.BoardState.#ctor
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState__ctor
+  name: BoardState
+  nameWithType: BoardState.BoardState
+  fullName: GamePlayService.Models.BoardState.BoardState
+  nameWithType.vb: BoardState.New
+  fullName.vb: GamePlayService.Models.BoardState.New
+  name.vb: New
+- uid: GamePlayService.Models.BoardState.ApplyMove*
+  commentId: Overload:GamePlayService.Models.BoardState.ApplyMove
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_ApplyMove_GamePlayService_Dtos_MoveDto_
+  name: ApplyMove
+  nameWithType: BoardState.ApplyMove
+  fullName: GamePlayService.Models.BoardState.ApplyMove
+- uid: GamePlayService.Dtos.MoveDto
+  commentId: T:GamePlayService.Dtos.MoveDto
+  parent: GamePlayService.Dtos
+  href: GamePlayService.Dtos.MoveDto.html
+  name: MoveDto
+  nameWithType: MoveDto
+  fullName: GamePlayService.Dtos.MoveDto
+- uid: GamePlayService.Dtos
+  commentId: N:GamePlayService.Dtos
+  href: GamePlayService.html
+  name: GamePlayService.Dtos
+  nameWithType: GamePlayService.Dtos
+  fullName: GamePlayService.Dtos
+  spec.csharp:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Dtos
+    name: Dtos
+    href: GamePlayService.Dtos.html
+  spec.vb:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Dtos
+    name: Dtos
+    href: GamePlayService.Dtos.html
+- uid: GamePlayService.Models.BoardState.GetAllPieces*
+  commentId: Overload:GamePlayService.Models.BoardState.GetAllPieces
+  href: GamePlayService.Models.BoardState.html#GamePlayService_Models_BoardState_GetAllPieces_System_String_
+  name: GetAllPieces
+  nameWithType: BoardState.GetAllPieces
+  fullName: GamePlayService.Models.BoardState.GetAllPieces
+- uid: System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}}
+  commentId: T:System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Int32}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<(int row, int col)>
+  nameWithType: List<(int row, int col)>
+  fullName: System.Collections.Generic.List<(int row, int col)>
+  nameWithType.vb: List(Of (row As Integer, col As Integer))
+  fullName.vb: System.Collections.Generic.List(Of (row As Integer, col As Integer))
+  name.vb: List(Of (row As Integer, col As Integer))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.row
+    name: row
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.row
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.col
+    name: col
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.col
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.Int32,System.Int32}.row
+    name: row
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.row
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.col
+    name: col
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.col
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

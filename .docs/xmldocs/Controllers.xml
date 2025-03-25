@@ -1,0 +1,27 @@
+<doc>
+	<class>
+		<member name="GameRecordController">
+			<summary>
+				Controller for interacting with completed game records. Provides APIs for retrieving
+				game records by ID and for retrieving all records.
+			</summary>
+		</member>
+	</class>
+
+	<method>
+		<member name="GameRecordController.GetGameRecordById">
+			<summary>
+				Returns the game record with the specified ID.
+			</summary>
+			<param name="gameId">Game ID.</param>
+			<returns>Game record or NotFound if record not found.</returns>
+		</member>
+
+		<member name="GameRecordController.GetAllGameRecords">
+			<summary>
+				Returns all game records.
+			</summary>
+			<returns>List of game records or NotFound if no record was found.</returns>
+		</member>
+	</method>
+</doc>

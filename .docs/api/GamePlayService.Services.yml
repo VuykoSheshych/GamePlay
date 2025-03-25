@@ -1,0 +1,97 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlayService.Services
+  commentId: N:GamePlayService.Services
+  id: GamePlayService.Services
+  children:
+  - GamePlayService.Services.ChessValidator
+  - GamePlayService.Services.GameHub
+  - GamePlayService.Services.GameRecordService
+  - GamePlayService.Services.GameSearchService
+  - GamePlayService.Services.GameSessionService
+  - GamePlayService.Services.IGameRecordService
+  - GamePlayService.Services.IGameSearchService
+  - GamePlayService.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: GamePlayService.Services
+  nameWithType: GamePlayService.Services
+  fullName: GamePlayService.Services
+  type: Namespace
+  assemblies:
+  - GamePlayService
+references:
+- uid: GamePlayService.Services.ChessValidator
+  commentId: T:GamePlayService.Services.ChessValidator
+  href: GamePlayService.Services.ChessValidator.html
+  name: ChessValidator
+  nameWithType: ChessValidator
+  fullName: GamePlayService.Services.ChessValidator
+- uid: GamePlayService.Services.GameHub
+  commentId: T:GamePlayService.Services.GameHub
+  href: GamePlayService.Services.GameHub.html
+  name: GameHub
+  nameWithType: GameHub
+  fullName: GamePlayService.Services.GameHub
+- uid: GamePlayService.Services.GameRecordService
+  commentId: T:GamePlayService.Services.GameRecordService
+  href: GamePlayService.Services.GameRecordService.html
+  name: GameRecordService
+  nameWithType: GameRecordService
+  fullName: GamePlayService.Services.GameRecordService
+- uid: GamePlayService.Services.GameSearchService
+  commentId: T:GamePlayService.Services.GameSearchService
+  href: GamePlayService.Services.GameSearchService.html
+  name: GameSearchService
+  nameWithType: GameSearchService
+  fullName: GamePlayService.Services.GameSearchService
+- uid: GamePlayService.Services.GameSessionService
+  commentId: T:GamePlayService.Services.GameSessionService
+  href: GamePlayService.Services.GameSessionService.html
+  name: GameSessionService
+  nameWithType: GameSessionService
+  fullName: GamePlayService.Services.GameSessionService
+- uid: GamePlayService.Services.IGameRecordService
+  commentId: T:GamePlayService.Services.IGameRecordService
+  parent: GamePlayService.Services
+  href: GamePlayService.Services.IGameRecordService.html
+  name: IGameRecordService
+  nameWithType: IGameRecordService
+  fullName: GamePlayService.Services.IGameRecordService
+- uid: GamePlayService.Services.IGameSearchService
+  commentId: T:GamePlayService.Services.IGameSearchService
+  parent: GamePlayService.Services
+  href: GamePlayService.Services.IGameSearchService.html
+  name: IGameSearchService
+  nameWithType: IGameSearchService
+  fullName: GamePlayService.Services.IGameSearchService
+- uid: GamePlayService.Services.IGameSessionService
+  commentId: T:GamePlayService.Services.IGameSessionService
+  parent: GamePlayService.Services
+  href: GamePlayService.Services.IGameSessionService.html
+  name: IGameSessionService
+  nameWithType: IGameSessionService
+  fullName: GamePlayService.Services.IGameSessionService
+- uid: GamePlayService.Services
+  commentId: N:GamePlayService.Services
+  href: GamePlayService.html
+  name: GamePlayService.Services
+  nameWithType: GamePlayService.Services
+  fullName: GamePlayService.Services
+  spec.csharp:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Services
+    name: Services
+    href: GamePlayService.Services.html
+  spec.vb:
+  - uid: GamePlayService
+    name: GamePlayService
+    href: GamePlayService.html
+  - name: .
+  - uid: GamePlayService.Services
+    name: Services
+    href: GamePlayService.Services.html

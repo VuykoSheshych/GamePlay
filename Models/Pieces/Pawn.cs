@@ -1,6 +1,9 @@
 namespace GamePlayService.Models.Pieces;
+
+/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="Pawn"]/*' />
 public class Pawn(string color, string position) : ChessPiece(color, position)
 {
+	/// <inheritdoc/>
 	public override List<string> GetPossibleMoves(BoardState boardState)
 	{
 		List<string> moves = [];

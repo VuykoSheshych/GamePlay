@@ -3,8 +3,11 @@ using GamePlayService.Models;
 using GamePlayService.Models.Pieces;
 
 namespace GamePlayService.Services;
+
+/// <include file='.docs/xmldocs/Services.xml' path='doc/class/member[@name="ChessValidator"]/*' />
 public static class ChessValidator
 {
+	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="ChessValidator.GetMoveValidationResult"]/*' />
 	public static MoveResultDto GetMoveValidationResult(BoardState boardState, MoveDto moveDto)
 	{
 		var (fromRow, fromCol) = ChessPiece.ConvertToBoardIndex(moveDto.From);
@@ -182,7 +185,7 @@ public static class ChessValidator
 		foreach (var square in squaresToCheck)
 		{
 			var tempBoard = new BoardState(boardState.FEN);
-			tempBoard.ApplyMove(new MoveDto { From = moveDto.From, To = square });
+			tempBoard.ApplyMove(new MoveDto(moveDto.From, square));
 			if (IsKingInCheck(tempBoard, kingColor))
 				return false;
 		}
@@ -236,7 +239,7 @@ public static class ChessValidator
 			foreach (var move in possibleMoves)
 			{
 				var simulatedBoard = new BoardState(boardState.FEN);
-				simulatedBoard.ApplyMove(new MoveDto { From = $"{(char)(col + 'a')}{8 - row}", To = move });
+				simulatedBoard.ApplyMove(new MoveDto($"{(char)(col + 'a')}{8 - row}", move));
 
 				if (!IsKingInCheck(simulatedBoard, kingColor))
 				{

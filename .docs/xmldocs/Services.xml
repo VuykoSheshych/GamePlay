@@ -1,0 +1,153 @@
+<doc>
+	<class>
+		<member name="GameHub">
+			<summary>SignalR hub for managing game sessions and player interactions.</summary>
+		</member>
+
+		<member name="IGameRecordService">
+			<summary>Provides methods for managing game records in the database.</summary>
+		</member>
+
+		<member name="IGameSearchService">
+			<summary>Provides methods for managing the game search process, including adding and
+				removing players from the search queue.</summary>
+		</member>
+
+		<member name="IGameSessionService">
+			<summary>Provides methods for managing game sessions, including creation, updates, and
+				moves processing.</summary>
+		</member>
+
+		<member name="ChessValidator">
+			<summary>Provides validation logic for chess moves based on the current board state.</summary>
+		</member>
+	</class>
+
+	<method>
+		<member name="GameHub.CreateGame">
+			<summary>Creates a new game session with the specified players.</summary>
+			<param name="players">List of players with their names and IDs.</param>
+			<returns>The unique ID of the created game.</returns>
+		</member>
+
+		<member name="GameHub.JoinGame">
+			<summary>Adds players to an existing game session and notifies them.</summary>
+			<param name="gameId">The game session ID.</param>
+			<param name="players">List of players joining the game.</param>
+		</member>
+
+		<member name="GameHub.StartGameSearch">
+			<summary>Initiates a game search for a player.</summary>
+			<param name="playerName">The name of the player searching for a game.</param>
+		</member>
+
+		<member name="GameHub.StopGameSearch">
+			<summary>Stops the game search for a player.</summary>
+			<param name="playerName">The name of the player stopping the search.</param>
+		</member>
+
+		<member name="GameHub.MakeMove">
+			<summary>Processes a player's move in a game session.</summary>
+			<param name="gameId">The game session ID.</param>
+			<param name="moveDto">The move details.</param>
+		</member>
+
+		<member name="GameHub.SendMessage">
+			<summary>Sends a chat message to all players in a game session.</summary>
+			<param name="gameId">The game session ID.</param>
+			<param name="chatMessage">The chat message details.</param>
+		</member>
+
+		<member name="GameHub.FinishGame">
+			<summary>Ends a game session and determines the result.</summary>
+			<param name="gameId">The game session ID.</param>
+			<param name="looser">The name of the player who lost, or "½-½" for a draw.</param>
+		</member>
+
+		<member name="IGameRecordService.GetGameRecordByIdAsync">
+			<summary>Retrieves a game record by its unique identifier.</summary>
+			<param name="gameId">The unique identifier of the game record.</param>
+			<returns>The game record if found; otherwise, null.</returns>
+		</member>
+
+		<member name="IGameRecordService.GetAllGameRecordsAsync">
+			<summary>Retrieves all game records from the database.</summary>
+			<returns>A list of all game records, or null if none are found.</returns>
+		</member>
+
+		<member name="IGameRecordService.AddGameRecordAsync">
+			<summary>Adds a new game record to the database.</summary>
+			<param name="gameRecord">The game record to add.</param>
+		</member>
+
+		<member name="IGameSearchService.AddPlayerToSearchQueue">
+			<summary>Adds a player to the matchmaking queue.</summary>
+			<param name="playerName">The name of the player to be added.</param>
+			<param name="playerConnectionId">The connection ID of the player.</param>
+		</member>
+
+		<member name="IGameSearchService.FindPlayersForGame">
+			<summary>Attempts to find a pair of players for a game session.</summary>
+			<returns>A list containing two players with their connection IDs, or null if not enough
+				players are available.</returns>
+		</member>
+
+		<member name="IGameSearchService.GetPlayerConnectionId">
+			<summary>Retrieves the connection ID of a player currently in the search queue.</summary>
+			<param name="playerName">The name of the player whose connection ID is being retrieved.</param>
+			<returns>The connection ID of the player, or null if the player is not in the queue.</returns>
+		</member>
+
+		<member name="IGameSearchService.RemovePlayerFromSearchQueue">
+			<summary>Removes a player from the matchmaking queue.</summary>
+			<param name="playerName">The name of the player to be removed.</param>
+		</member>
+
+		<member name="IGameSessionService.GetGameSessionAsync">
+			<summary>Retrieves an active game session by its unique identifier.</summary>
+			<param name="gameId">The unique identifier of the game session.</param>
+			<returns>The game session if found; otherwise, null.</returns>
+		</member>
+
+		<member name="IGameSessionService.CreateGameSessionAsync">
+			<summary>Creates a new game session with the specified players.</summary>
+			<param name="players">A list of player names and their connection IDs.</param>
+			<returns>The unique identifier of the newly created game session.</returns>
+		</member>
+
+		<member name="IGameSessionService.RemoveGameSessionAsync">
+			<summary>Removes a completed or abandoned game session.</summary>
+			<param name="gameId">The unique identifier of the game session to remove.</param>
+			<param name="result">The final result of the game session (e.g., "1-0" for White win,
+				"0-1" for Black win, "½-½" for draw).</param>
+		</member>
+
+		<member name="IGameSessionService.SaveGameSessionAsync">
+			<summary>Saves the current state of an active game session.</summary>
+			<param name="gameSession">The game session to save.</param>
+		</member>
+
+		<member name="IGameSessionService.TryMakeMoveAsync">
+			<summary>Processes a move attempt in an active game session.</summary>
+			<param name="gameId">The unique identifier of the game session.</param>
+			<param name="moveDto">The move data containing details of the move.</param>
+			<returns>The result of the move attempt, indicating success or failure.</returns>
+		</member>
+
+		<member name="IGameSessionService.SaveGameRecordAsync">
+			<summary>Saves a completed game session as a historical record.</summary>
+			<param name="gameSession">The completed game session to save.</param>
+			<param name="result">The final result of the game session (e.g., "1-0" for White win,
+				"0-1" for Black win, "½-½" for draw).</param>
+		</member>
+
+		<member name="ChessValidator.GetMoveValidationResult">
+			<summary>Validates a given chess move according to game rules.</summary>
+			<param name="boardState">The current state of the chessboard, including piece positions
+				and active color.</param>
+			<param name="moveDto">The move details, including the starting and ending positions.</param>
+			<returns>A <see cref="MoveResultDto" /> indicating whether the move is valid or contains
+				an error message.</returns>
+		</member>
+	</method>
+</doc>

@@ -1,0 +1,46 @@
+name: Deploy GamePlayService
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Log in to DockerHub
+        run: |
+          echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Build and push GamePlayService image
+        run: |
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest -f Dockerfile .
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up kubectl
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" > kubeconfig
+          export KUBECONFIG=kubeconfig
+          kubectl version
+
+      - name: Update Kubernetes Deployment
+        run: |
+          kubectl set image deployment/gameplay gameplay=${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest
+          kubectl rollout restart deployment/gameplay

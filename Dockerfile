@@ -19,6 +19,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 
-ENV DB_CONNECTION_STRING="Host=gameplay-db;Database=postgres-gameplay-db;Username=gameplay-service;Password=BycRsT3B5PybSd2iaeNV"
-
 ENTRYPOINT ["dotnet", "GamePlayService.dll"]

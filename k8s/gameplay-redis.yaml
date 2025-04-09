@@ -1,0 +1,45 @@
+# ====================== #
+#     GamePlay Redis     #
+# ====================== #
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameplay-redis
+  labels:
+    app: gameplay-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gameplay-redis
+  template:
+    metadata:
+      labels:
+        app: gameplay-redis
+    spec:
+      containers:
+        - name: gameplay-redis
+          image: redis:latest
+          ports:
+            - containerPort: 6379
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gameplay-redis
+spec:
+  selector:
+    app: gameplay-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+  type: ClusterIP

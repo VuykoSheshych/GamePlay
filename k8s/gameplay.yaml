@@ -1,0 +1,53 @@
+# ================== #
+#      GamePlay      #
+# ================== #
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameplay
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gameplay
+  template:
+    metadata:
+      labels:
+        app: gameplay
+    spec:
+      containers:
+        - name: gameplay
+          image: DOCKER_HUB_USERNAME_REPLACE/gameplay:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: GAMEPLAY_DB_CONNECTION
+              value: "GAMEPLAY_DB_CONNECTION_REPLACE"
+            - name: GAMEPLAY_REDIS_CONNECTION
+              value: "GAMEPLAY_REDIS_CONNECTION_REPLACE"
+            - name: FRONTEND_URL
+              value: "FRONTEND_URL_REPLACE"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gameplay-service
+spec:
+  selector:
+    app: gameplay
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

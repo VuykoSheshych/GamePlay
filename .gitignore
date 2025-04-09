@@ -1,4 +1,4 @@
-# Visual Studio специфічні файли
+# Visual Studio specific files
 .vs/
 *.user
 *.suo
@@ -10,7 +10,7 @@
 *.pdb
 *.VC.db
 
-# Кеш та вихідні збірки
+# Cache and output builds
 bin/
 obj/
 out/
@@ -22,20 +22,19 @@ out/
 *.o
 *.a
 
-# Файли залежностей
+# Dependency files
 node_modules/
 packages/
 wwwroot/lib/
 bower_components/
 .vscode/
 
-# Конфіденційні файли
+# Confidential files
 appsettings.Development.json
-secrets.json
+secrets/
 .env
 .env.local
 .env.*.local
-_comments.txt
 tempkey.jwk
 
 # NuGet
@@ -45,7 +44,7 @@ artifacts/
 nuget.exe
 NUGET_PACKAGES/
 
-# Mac/Linux специфічні файли
+# Mac/Linux specific files
 .DS_Store
 *.swp
 *.swo

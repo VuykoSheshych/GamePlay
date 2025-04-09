@@ -1,0 +1,70 @@
+# ========================= #
+#    GamePlay  PostgreSQL   #
+# ========================= #
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: gameplay-db-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameplay-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gameplay-db
+  template:
+    metadata:
+      labels:
+        app: gameplay-db
+    spec:
+      containers:
+        - name: gameplay-db
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+          env:
+            - name: POSTGRES_USER
+              value: "GAMEPLAY_DB_USER_REPLACE"
+            - name: POSTGRES_PASSWORD
+              value: "GAMEPLAY_DB_PASSWORD_REPLACE"
+            - name: POSTGRES_DB
+              value: "GAMEPLAY_DB_REPLACE"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: gameplay-db-storage
+      volumes:
+        - name: gameplay-db-storage
+          persistentVolumeClaim:
+            claimName: gameplay-db-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gameplay-db-service
+spec:
+  selector:
+    app: gameplay-db
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP

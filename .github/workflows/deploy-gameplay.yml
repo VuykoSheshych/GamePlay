@@ -1,4 +1,4 @@
-name: Deploy GamePlayService
+name: Deploy GamePlay
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
 
-      - name: Build and push GamePlayService image
+      - name: Build and push GamePlay image
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest -f Dockerfile .
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest
@@ -40,7 +40,13 @@ jobs:
           export KUBECONFIG=kubeconfig
           kubectl version
 
-      - name: Update Kubernetes Deployment
+      - name: Deploy to Kubernetes
         run: |
+          sed -i 's|DOCKER_HUB_USERNAME_REPLACE|${{ secrets.DOCKER_HUB_USERNAME }}|g' k8s/gameplay.yaml
+          sed -i 's|GAMEPLAY_DB_CONNECTION_REPLACE|${{ secrets.GAMEPLAY_DB_CONNECTION}}|g' k8s/gameplay.yaml
+          sed -i 's|GAMEPLAY_DB_USER_REPLACE|${{ secrets.GAMEPLAY_DB_USER }}|g' k8s/gameplay-db.yaml
+          sed -i 's|GAMEPLAY_DB_PASSWORD_REPLACE|${{ secrets.GAMEPLAY_DB_PASSWORD }}|g' k8s/gameplay-db.yaml
+          sed -i 's|GAMEPLAY_DB_REPLACE|${{ secrets.GAMEPLAY_DB }}|g' k8s/gameplay-db.yaml
+          kubectl apply -f k8s/
           kubectl set image deployment/gameplay gameplay=${{ secrets.DOCKER_HUB_USERNAME }}/gameplay:latest
           kubectl rollout restart deployment/gameplay

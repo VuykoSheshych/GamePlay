@@ -68,11 +68,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Start Minikube
+        run: |
+          minikube start --driver=docker
+          minikube status
+          minikube update-context
+
       - name: Set up kubectl
         run: |
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig
           export KUBECONFIG=kubeconfig
-          kubectl version
+          kubectl cluster-info
 
       - name: Deploy to Kubernetes
         run: |

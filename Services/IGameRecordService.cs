@@ -1,6 +1,6 @@
-using GamePlayService.Models;
+using GamePlay.Models;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <include file='.docs/xmldocs/Services.xml' path='doc/class/member[@name="IGameRecordService"]/*' />
 public interface IGameRecordService

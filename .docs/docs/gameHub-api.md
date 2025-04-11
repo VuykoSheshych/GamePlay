@@ -7,7 +7,7 @@ title: GameHub API Documentation
 
 ## Overview
 
-The [GameHub](../api/GamePlayService.Services.GameHub.yml) is responsible for managing communication between clients and the server. It handles game creation, game joining, player matching, game state synchronization, moves, and chat messages. It uses SignalR to communicate with clients through the following events.
+The [GameHub](../api/GamePlay.Services.GameHub.yml) is responsible for managing communication between clients and the server. It handles game creation, game joining, player matching, game state synchronization, moves, and chat messages. It uses SignalR to communicate with clients through the following events.
 
 ## Event List
 

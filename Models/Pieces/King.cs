@@ -1,4 +1,4 @@
-namespace GamePlayService.Models.Pieces;
+namespace GamePlay.Models.Pieces;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="King"]/*' />
 public class King(string color, string position) : ChessPiece(color, position)

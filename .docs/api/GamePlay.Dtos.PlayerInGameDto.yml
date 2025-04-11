@@ -1,0 +1,542 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Dtos.PlayerInGameDto
+  commentId: T:GamePlay.Dtos.PlayerInGameDto
+  id: PlayerInGameDto
+  parent: GamePlay.Dtos
+  children:
+  - GamePlay.Dtos.PlayerInGameDto.#ctor(System.String,System.String,System.TimeSpan)
+  - GamePlay.Dtos.PlayerInGameDto.ConnectionId
+  - GamePlay.Dtos.PlayerInGameDto.Name
+  - GamePlay.Dtos.PlayerInGameDto.TimeReserve
+  langs:
+  - csharp
+  - vb
+  name: PlayerInGameDto
+  nameWithType: PlayerInGameDto
+  fullName: GamePlay.Dtos.PlayerInGameDto
+  type: Class
+  source:
+    remote:
+      path: Dtos/PlayerInGameDto.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: PlayerInGameDto
+    path: ../Dtos/PlayerInGameDto.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Dtos
+  summary: >-
+    Represents a player participating in a chess game, containing their name,
+    				connection ID, and time reserve.
+  example: []
+  syntax:
+    content: 'public record PlayerInGameDto : IEquatable<PlayerInGameDto>'
+    content.vb: Public Class PlayerInGameDto Implements IEquatable(Of PlayerInGameDto)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{GamePlay.Dtos.PlayerInGameDto}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlay.Dtos.PlayerInGameDto.#ctor(System.String,System.String,System.TimeSpan)
+  commentId: M:GamePlay.Dtos.PlayerInGameDto.#ctor(System.String,System.String,System.TimeSpan)
+  id: '#ctor(System.String,System.String,System.TimeSpan)'
+  parent: GamePlay.Dtos.PlayerInGameDto
+  langs:
+  - csharp
+  - vb
+  name: PlayerInGameDto(string, string, TimeSpan)
+  nameWithType: PlayerInGameDto.PlayerInGameDto(string, string, TimeSpan)
+  fullName: GamePlay.Dtos.PlayerInGameDto.PlayerInGameDto(string, string, System.TimeSpan)
+  type: Constructor
+  source:
+    remote:
+      path: Dtos/PlayerInGameDto.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Dtos/PlayerInGameDto.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Dtos
+  summary: >-
+    Represents a player participating in a chess game, containing their name,
+    				connection ID, and time reserve.
+  example: []
+  syntax:
+    content: public PlayerInGameDto(string Name, string ConnectionId, TimeSpan TimeReserve)
+    parameters:
+    - id: Name
+      type: System.String
+    - id: ConnectionId
+      type: System.String
+    - id: TimeReserve
+      type: System.TimeSpan
+    content.vb: Public Sub New(Name As String, ConnectionId As String, TimeReserve As TimeSpan)
+  overload: GamePlay.Dtos.PlayerInGameDto.#ctor*
+  nameWithType.vb: PlayerInGameDto.New(String, String, TimeSpan)
+  fullName.vb: GamePlay.Dtos.PlayerInGameDto.New(String, String, System.TimeSpan)
+  name.vb: New(String, String, TimeSpan)
+- uid: GamePlay.Dtos.PlayerInGameDto.Name
+  commentId: P:GamePlay.Dtos.PlayerInGameDto.Name
+  id: Name
+  parent: GamePlay.Dtos.PlayerInGameDto
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: PlayerInGameDto.Name
+  fullName: GamePlay.Dtos.PlayerInGameDto.Name
+  type: Property
+  source:
+    remote:
+      path: Dtos/PlayerInGameDto.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Name
+    path: ../Dtos/PlayerInGameDto.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Dtos
+  syntax:
+    content: public string Name { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: GamePlay.Dtos.PlayerInGameDto.Name*
+- uid: GamePlay.Dtos.PlayerInGameDto.ConnectionId
+  commentId: P:GamePlay.Dtos.PlayerInGameDto.ConnectionId
+  id: ConnectionId
+  parent: GamePlay.Dtos.PlayerInGameDto
+  langs:
+  - csharp
+  - vb
+  name: ConnectionId
+  nameWithType: PlayerInGameDto.ConnectionId
+  fullName: GamePlay.Dtos.PlayerInGameDto.ConnectionId
+  type: Property
+  source:
+    remote:
+      path: Dtos/PlayerInGameDto.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: ConnectionId
+    path: ../Dtos/PlayerInGameDto.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Dtos
+  syntax:
+    content: public string ConnectionId { get; init; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ConnectionId As String
+  overload: GamePlay.Dtos.PlayerInGameDto.ConnectionId*
+- uid: GamePlay.Dtos.PlayerInGameDto.TimeReserve
+  commentId: P:GamePlay.Dtos.PlayerInGameDto.TimeReserve
+  id: TimeReserve
+  parent: GamePlay.Dtos.PlayerInGameDto
+  langs:
+  - csharp
+  - vb
+  name: TimeReserve
+  nameWithType: PlayerInGameDto.TimeReserve
+  fullName: GamePlay.Dtos.PlayerInGameDto.TimeReserve
+  type: Property
+  source:
+    remote:
+      path: Dtos/PlayerInGameDto.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: TimeReserve
+    path: ../Dtos/PlayerInGameDto.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Dtos
+  syntax:
+    content: public TimeSpan TimeReserve { get; init; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: Public Property TimeReserve As TimeSpan
+  overload: GamePlay.Dtos.PlayerInGameDto.TimeReserve*
+references:
+- uid: GamePlay.Dtos
+  commentId: N:GamePlay.Dtos
+  href: GamePlay.html
+  name: GamePlay.Dtos
+  nameWithType: GamePlay.Dtos
+  fullName: GamePlay.Dtos
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{GamePlay.Dtos.PlayerInGameDto}
+  commentId: T:System.IEquatable{GamePlay.Dtos.PlayerInGameDto}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PlayerInGameDto>
+  nameWithType: IEquatable<PlayerInGameDto>
+  fullName: System.IEquatable<GamePlay.Dtos.PlayerInGameDto>
+  nameWithType.vb: IEquatable(Of PlayerInGameDto)
+  fullName.vb: System.IEquatable(Of GamePlay.Dtos.PlayerInGameDto)
+  name.vb: IEquatable(Of PlayerInGameDto)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: GamePlay.Dtos.PlayerInGameDto
+    name: PlayerInGameDto
+    href: GamePlay.Dtos.PlayerInGameDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GamePlay.Dtos.PlayerInGameDto
+    name: PlayerInGameDto
+    href: GamePlay.Dtos.PlayerInGameDto.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: GamePlay.Dtos.PlayerInGameDto.#ctor*
+  commentId: Overload:GamePlay.Dtos.PlayerInGameDto.#ctor
+  href: GamePlay.Dtos.PlayerInGameDto.html#GamePlay_Dtos_PlayerInGameDto__ctor_System_String_System_String_System_TimeSpan_
+  name: PlayerInGameDto
+  nameWithType: PlayerInGameDto.PlayerInGameDto
+  fullName: GamePlay.Dtos.PlayerInGameDto.PlayerInGameDto
+  nameWithType.vb: PlayerInGameDto.New
+  fullName.vb: GamePlay.Dtos.PlayerInGameDto.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: GamePlay.Dtos.PlayerInGameDto.Name*
+  commentId: Overload:GamePlay.Dtos.PlayerInGameDto.Name
+  href: GamePlay.Dtos.PlayerInGameDto.html#GamePlay_Dtos_PlayerInGameDto_Name
+  name: Name
+  nameWithType: PlayerInGameDto.Name
+  fullName: GamePlay.Dtos.PlayerInGameDto.Name
+- uid: GamePlay.Dtos.PlayerInGameDto.ConnectionId*
+  commentId: Overload:GamePlay.Dtos.PlayerInGameDto.ConnectionId
+  href: GamePlay.Dtos.PlayerInGameDto.html#GamePlay_Dtos_PlayerInGameDto_ConnectionId
+  name: ConnectionId
+  nameWithType: PlayerInGameDto.ConnectionId
+  fullName: GamePlay.Dtos.PlayerInGameDto.ConnectionId
+- uid: GamePlay.Dtos.PlayerInGameDto.TimeReserve*
+  commentId: Overload:GamePlay.Dtos.PlayerInGameDto.TimeReserve
+  href: GamePlay.Dtos.PlayerInGameDto.html#GamePlay_Dtos_PlayerInGameDto_TimeReserve
+  name: TimeReserve
+  nameWithType: PlayerInGameDto.TimeReserve
+  fullName: GamePlay.Dtos.PlayerInGameDto.TimeReserve

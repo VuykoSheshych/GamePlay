@@ -1,7 +1,7 @@
 using System.Text;
-using GamePlayService.Dtos;
+using GamePlay.Dtos;
 
-namespace GamePlayService.Models;
+namespace GamePlay.Models;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="BoardState"]/*' />
 public class BoardState

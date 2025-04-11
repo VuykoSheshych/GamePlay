@@ -1,0 +1,1166 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Services.GameHub
+  commentId: T:GamePlay.Services.GameHub
+  id: GameHub
+  parent: GamePlay.Services
+  children:
+  - GamePlay.Services.GameHub.#ctor(GamePlay.Services.IGameSessionService,GamePlay.Services.IGameSearchService)
+  - GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  - GamePlay.Services.GameHub.FinishGame(System.String,System.String)
+  - GamePlay.Services.GameHub.JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  - GamePlay.Services.GameHub.MakeMove(System.String,GamePlay.Dtos.MoveDto)
+  - GamePlay.Services.GameHub.SendMessage(System.String,GamePlay.Dtos.ChatMessageDto)
+  - GamePlay.Services.GameHub.StartGameSearch(System.String)
+  - GamePlay.Services.GameHub.StopGameSearch(System.String)
+  langs:
+  - csharp
+  - vb
+  name: GameHub
+  nameWithType: GameHub
+  fullName: GamePlay.Services.GameHub
+  type: Class
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GameHub
+    path: ../Services/GameHub.cs
+    startLine: 7
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: SignalR hub for managing game sessions and player interactions.
+  example: []
+  syntax:
+    content: 'public class GameHub : Hub, IDisposable'
+    content.vb: Public Class GameHub Inherits Hub Implements IDisposable
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.SignalR.Hub
+  implements:
+  - System.IDisposable
+  inheritedMembers:
+  - Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  - Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  - Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  - Microsoft.AspNetCore.SignalR.Hub.Dispose
+  - Microsoft.AspNetCore.SignalR.Hub.Clients
+  - Microsoft.AspNetCore.SignalR.Hub.Context
+  - Microsoft.AspNetCore.SignalR.Hub.Groups
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlay.Services.GameHub.#ctor(GamePlay.Services.IGameSessionService,GamePlay.Services.IGameSearchService)
+  commentId: M:GamePlay.Services.GameHub.#ctor(GamePlay.Services.IGameSessionService,GamePlay.Services.IGameSearchService)
+  id: '#ctor(GamePlay.Services.IGameSessionService,GamePlay.Services.IGameSearchService)'
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: GameHub(IGameSessionService, IGameSearchService)
+  nameWithType: GameHub.GameHub(IGameSessionService, IGameSearchService)
+  fullName: GamePlay.Services.GameHub.GameHub(GamePlay.Services.IGameSessionService, GamePlay.Services.IGameSearchService)
+  type: Constructor
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Services/GameHub.cs
+    startLine: 7
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: SignalR hub for managing game sessions and player interactions.
+  example: []
+  syntax:
+    content: public GameHub(IGameSessionService gamesSessionService, IGameSearchService gameSearchService)
+    parameters:
+    - id: gamesSessionService
+      type: GamePlay.Services.IGameSessionService
+    - id: gameSearchService
+      type: GamePlay.Services.IGameSearchService
+    content.vb: Public Sub New(gamesSessionService As IGameSessionService, gameSearchService As IGameSearchService)
+  overload: GamePlay.Services.GameHub.#ctor*
+  nameWithType.vb: GameHub.New(IGameSessionService, IGameSearchService)
+  fullName.vb: GamePlay.Services.GameHub.New(GamePlay.Services.IGameSessionService, GamePlay.Services.IGameSearchService)
+  name.vb: New(IGameSessionService, IGameSearchService)
+- uid: GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  commentId: M:GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  id: CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: CreateGame(List<(string name, string id)>)
+  nameWithType: GameHub.CreateGame(List<(string name, string id)>)
+  fullName: GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List<(string name, string id)>)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: CreateGame
+    path: ../Services/GameHub.cs
+    startLine: 13
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Creates a new game session with the specified players.
+  example: []
+  syntax:
+    content: public Task<string> CreateGame(List<(string name, string id)> players)
+    parameters:
+    - id: players
+      type: System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+      description: List of players with their names and IDs.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The unique ID of the created game.
+    content.vb: Public Function CreateGame(players As List(Of (name As String, id As String))) As Task(Of String)
+  overload: GamePlay.Services.GameHub.CreateGame*
+  nameWithType.vb: GameHub.CreateGame(List(Of (name As String, id As String)))
+  fullName.vb: GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List(Of (name As String, id As String)))
+  name.vb: CreateGame(List(Of (name As String, id As String)))
+- uid: GamePlay.Services.GameHub.JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  commentId: M:GamePlay.Services.GameHub.JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  id: JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: JoinGame(string, List<(string name, string id)>)
+  nameWithType: GameHub.JoinGame(string, List<(string name, string id)>)
+  fullName: GamePlay.Services.GameHub.JoinGame(string, System.Collections.Generic.List<(string name, string id)>)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: JoinGame
+    path: ../Services/GameHub.cs
+    startLine: 21
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Adds players to an existing game session and notifies them.
+  example: []
+  syntax:
+    content: public Task JoinGame(string gameId, List<(string name, string id)> players)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The game session ID.
+    - id: players
+      type: System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+      description: List of players joining the game.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function JoinGame(gameId As String, players As List(Of (name As String, id As String))) As Task
+  overload: GamePlay.Services.GameHub.JoinGame*
+  nameWithType.vb: GameHub.JoinGame(String, List(Of (name As String, id As String)))
+  fullName.vb: GamePlay.Services.GameHub.JoinGame(String, System.Collections.Generic.List(Of (name As String, id As String)))
+  name.vb: JoinGame(String, List(Of (name As String, id As String)))
+- uid: GamePlay.Services.GameHub.StartGameSearch(System.String)
+  commentId: M:GamePlay.Services.GameHub.StartGameSearch(System.String)
+  id: StartGameSearch(System.String)
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: StartGameSearch(string)
+  nameWithType: GameHub.StartGameSearch(string)
+  fullName: GamePlay.Services.GameHub.StartGameSearch(string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: StartGameSearch
+    path: ../Services/GameHub.cs
+    startLine: 36
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Initiates a game search for a player.
+  example: []
+  syntax:
+    content: public Task StartGameSearch(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player searching for a game.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StartGameSearch(playerName As String) As Task
+  overload: GamePlay.Services.GameHub.StartGameSearch*
+  nameWithType.vb: GameHub.StartGameSearch(String)
+  fullName.vb: GamePlay.Services.GameHub.StartGameSearch(String)
+  name.vb: StartGameSearch(String)
+- uid: GamePlay.Services.GameHub.StopGameSearch(System.String)
+  commentId: M:GamePlay.Services.GameHub.StopGameSearch(System.String)
+  id: StopGameSearch(System.String)
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: StopGameSearch(string)
+  nameWithType: GameHub.StopGameSearch(string)
+  fullName: GamePlay.Services.GameHub.StopGameSearch(string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: StopGameSearch
+    path: ../Services/GameHub.cs
+    startLine: 50
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Stops the game search for a player.
+  example: []
+  syntax:
+    content: public Task StopGameSearch(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player stopping the search.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function StopGameSearch(playerName As String) As Task
+  overload: GamePlay.Services.GameHub.StopGameSearch*
+  nameWithType.vb: GameHub.StopGameSearch(String)
+  fullName.vb: GamePlay.Services.GameHub.StopGameSearch(String)
+  name.vb: StopGameSearch(String)
+- uid: GamePlay.Services.GameHub.MakeMove(System.String,GamePlay.Dtos.MoveDto)
+  commentId: M:GamePlay.Services.GameHub.MakeMove(System.String,GamePlay.Dtos.MoveDto)
+  id: MakeMove(System.String,GamePlay.Dtos.MoveDto)
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: MakeMove(string, MoveDto)
+  nameWithType: GameHub.MakeMove(string, MoveDto)
+  fullName: GamePlay.Services.GameHub.MakeMove(string, GamePlay.Dtos.MoveDto)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: MakeMove
+    path: ../Services/GameHub.cs
+    startLine: 56
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Processes a player's move in a game session.
+  example: []
+  syntax:
+    content: public Task MakeMove(string gameId, MoveDto moveDto)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The game session ID.
+    - id: moveDto
+      type: GamePlay.Dtos.MoveDto
+      description: The move details.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function MakeMove(gameId As String, moveDto As MoveDto) As Task
+  overload: GamePlay.Services.GameHub.MakeMove*
+  nameWithType.vb: GameHub.MakeMove(String, MoveDto)
+  fullName.vb: GamePlay.Services.GameHub.MakeMove(String, GamePlay.Dtos.MoveDto)
+  name.vb: MakeMove(String, MoveDto)
+- uid: GamePlay.Services.GameHub.SendMessage(System.String,GamePlay.Dtos.ChatMessageDto)
+  commentId: M:GamePlay.Services.GameHub.SendMessage(System.String,GamePlay.Dtos.ChatMessageDto)
+  id: SendMessage(System.String,GamePlay.Dtos.ChatMessageDto)
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: SendMessage(string, ChatMessageDto)
+  nameWithType: GameHub.SendMessage(string, ChatMessageDto)
+  fullName: GamePlay.Services.GameHub.SendMessage(string, GamePlay.Dtos.ChatMessageDto)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: SendMessage
+    path: ../Services/GameHub.cs
+    startLine: 79
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Sends a chat message to all players in a game session.
+  example: []
+  syntax:
+    content: public Task SendMessage(string gameId, ChatMessageDto chatMessage)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The game session ID.
+    - id: chatMessage
+      type: GamePlay.Dtos.ChatMessageDto
+      description: The chat message details.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function SendMessage(gameId As String, chatMessage As ChatMessageDto) As Task
+  overload: GamePlay.Services.GameHub.SendMessage*
+  nameWithType.vb: GameHub.SendMessage(String, ChatMessageDto)
+  fullName.vb: GamePlay.Services.GameHub.SendMessage(String, GamePlay.Dtos.ChatMessageDto)
+  name.vb: SendMessage(String, ChatMessageDto)
+- uid: GamePlay.Services.GameHub.FinishGame(System.String,System.String)
+  commentId: M:GamePlay.Services.GameHub.FinishGame(System.String,System.String)
+  id: FinishGame(System.String,System.String)
+  parent: GamePlay.Services.GameHub
+  langs:
+  - csharp
+  - vb
+  name: FinishGame(string, string)
+  nameWithType: GameHub.FinishGame(string, string)
+  fullName: GamePlay.Services.GameHub.FinishGame(string, string)
+  type: Method
+  source:
+    remote:
+      path: Services/GameHub.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FinishGame
+    path: ../Services/GameHub.cs
+    startLine: 89
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Ends a game session and determines the result.
+  example: []
+  syntax:
+    content: public Task FinishGame(string gameId, string looser)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The game session ID.
+    - id: looser
+      type: System.String
+      description: The name of the player who lost, or "½-½" for a draw.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function FinishGame(gameId As String, looser As String) As Task
+  overload: GamePlay.Services.GameHub.FinishGame*
+  nameWithType.vb: GameHub.FinishGame(String, String)
+  fullName.vb: GamePlay.Services.GameHub.FinishGame(String, String)
+  name.vb: FinishGame(String, String)
+references:
+- uid: GamePlay.Services
+  commentId: N:GamePlay.Services
+  href: GamePlay.html
+  name: GamePlay.Services
+  nameWithType: GamePlay.Services
+  fullName: GamePlay.Services
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.SignalR.Hub
+  commentId: T:Microsoft.AspNetCore.SignalR.Hub
+  parent: Microsoft.AspNetCore.SignalR
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub
+  name: Hub
+  nameWithType: Hub
+  fullName: Microsoft.AspNetCore.SignalR.Hub
+- uid: System.IDisposable
+  commentId: T:System.IDisposable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.idisposable
+  name: IDisposable
+  nameWithType: IDisposable
+  fullName: System.IDisposable
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  name: OnConnectedAsync()
+  nameWithType: Hub.OnConnectedAsync()
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnConnectedAsync
+    name: OnConnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.onconnectedasync
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  name: OnDisconnectedAsync(Exception)
+  nameWithType: Hub.OnDisconnectedAsync(Exception)
+  fullName: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.OnDisconnectedAsync(System.Exception)
+    name: OnDisconnectedAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.ondisconnectedasync
+  - name: (
+  - uid: System.Exception
+    name: Exception
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  name: Dispose(bool)
+  nameWithType: Hub.Dispose(bool)
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Dispose(bool)
+  nameWithType.vb: Hub.Dispose(Boolean)
+  fullName.vb: Microsoft.AspNetCore.SignalR.Hub.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  - name: (
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose(System.Boolean)
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose(system-boolean)
+  - name: (
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+  commentId: M:Microsoft.AspNetCore.SignalR.Hub.Dispose
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  name: Dispose()
+  nameWithType: Hub.Dispose()
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Dispose()
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.SignalR.Hub.Dispose
+    name: Dispose
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.dispose#microsoft-aspnetcore-signalr-hub-dispose
+  - name: (
+  - name: )
+- uid: Microsoft.AspNetCore.SignalR.Hub.Clients
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Clients
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.clients
+  name: Clients
+  nameWithType: Hub.Clients
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Clients
+- uid: Microsoft.AspNetCore.SignalR.Hub.Context
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Context
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.context
+  name: Context
+  nameWithType: Hub.Context
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Context
+- uid: Microsoft.AspNetCore.SignalR.Hub.Groups
+  commentId: P:Microsoft.AspNetCore.SignalR.Hub.Groups
+  parent: Microsoft.AspNetCore.SignalR.Hub
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr.hub.groups
+  name: Groups
+  nameWithType: Hub.Groups
+  fullName: Microsoft.AspNetCore.SignalR.Hub.Groups
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.SignalR
+  commentId: N:Microsoft.AspNetCore.SignalR
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.SignalR
+  nameWithType: Microsoft.AspNetCore.SignalR
+  fullName: Microsoft.AspNetCore.SignalR
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.SignalR
+    name: SignalR
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.signalr
+- uid: GamePlay.Services.GameHub.#ctor*
+  commentId: Overload:GamePlay.Services.GameHub.#ctor
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub__ctor_GamePlay_Services_IGameSessionService_GamePlay_Services_IGameSearchService_
+  name: GameHub
+  nameWithType: GameHub.GameHub
+  fullName: GamePlay.Services.GameHub.GameHub
+  nameWithType.vb: GameHub.New
+  fullName.vb: GamePlay.Services.GameHub.New
+  name.vb: New
+- uid: GamePlay.Services.IGameSessionService
+  commentId: T:GamePlay.Services.IGameSessionService
+  parent: GamePlay.Services
+  href: GamePlay.Services.IGameSessionService.html
+  name: IGameSessionService
+  nameWithType: IGameSessionService
+  fullName: GamePlay.Services.IGameSessionService
+- uid: GamePlay.Services.IGameSearchService
+  commentId: T:GamePlay.Services.IGameSearchService
+  parent: GamePlay.Services
+  href: GamePlay.Services.IGameSearchService.html
+  name: IGameSearchService
+  nameWithType: IGameSearchService
+  fullName: GamePlay.Services.IGameSearchService
+- uid: GamePlay.Services.GameHub.CreateGame*
+  commentId: Overload:GamePlay.Services.GameHub.CreateGame
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_CreateGame_System_Collections_Generic_List_System_ValueTuple_System_String_System_String___
+  name: CreateGame
+  nameWithType: GameHub.CreateGame
+  fullName: GamePlay.Services.GameHub.CreateGame
+- uid: System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+  commentId: T:System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<(string name, string id)>
+  nameWithType: List<(string name, string id)>
+  fullName: System.Collections.Generic.List<(string name, string id)>
+  nameWithType.vb: List(Of (name As String, id As String))
+  fullName.vb: System.Collections.Generic.List(Of (name As String, id As String))
+  name.vb: List(Of (name As String, id As String))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: GamePlay.Services.GameHub.JoinGame*
+  commentId: Overload:GamePlay.Services.GameHub.JoinGame
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_JoinGame_System_String_System_Collections_Generic_List_System_ValueTuple_System_String_System_String___
+  name: JoinGame
+  nameWithType: GameHub.JoinGame
+  fullName: GamePlay.Services.GameHub.JoinGame
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: GamePlay.Services.GameHub.StartGameSearch*
+  commentId: Overload:GamePlay.Services.GameHub.StartGameSearch
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_StartGameSearch_System_String_
+  name: StartGameSearch
+  nameWithType: GameHub.StartGameSearch
+  fullName: GamePlay.Services.GameHub.StartGameSearch
+- uid: GamePlay.Services.GameHub.StopGameSearch*
+  commentId: Overload:GamePlay.Services.GameHub.StopGameSearch
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_StopGameSearch_System_String_
+  name: StopGameSearch
+  nameWithType: GameHub.StopGameSearch
+  fullName: GamePlay.Services.GameHub.StopGameSearch
+- uid: GamePlay.Services.GameHub.MakeMove*
+  commentId: Overload:GamePlay.Services.GameHub.MakeMove
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_MakeMove_System_String_GamePlay_Dtos_MoveDto_
+  name: MakeMove
+  nameWithType: GameHub.MakeMove
+  fullName: GamePlay.Services.GameHub.MakeMove
+- uid: GamePlay.Dtos.MoveDto
+  commentId: T:GamePlay.Dtos.MoveDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.MoveDto.html
+  name: MoveDto
+  nameWithType: MoveDto
+  fullName: GamePlay.Dtos.MoveDto
+- uid: GamePlay.Dtos
+  commentId: N:GamePlay.Dtos
+  href: GamePlay.html
+  name: GamePlay.Dtos
+  nameWithType: GamePlay.Dtos
+  fullName: GamePlay.Dtos
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+- uid: GamePlay.Services.GameHub.SendMessage*
+  commentId: Overload:GamePlay.Services.GameHub.SendMessage
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_SendMessage_System_String_GamePlay_Dtos_ChatMessageDto_
+  name: SendMessage
+  nameWithType: GameHub.SendMessage
+  fullName: GamePlay.Services.GameHub.SendMessage
+- uid: GamePlay.Dtos.ChatMessageDto
+  commentId: T:GamePlay.Dtos.ChatMessageDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.ChatMessageDto.html
+  name: ChatMessageDto
+  nameWithType: ChatMessageDto
+  fullName: GamePlay.Dtos.ChatMessageDto
+- uid: GamePlay.Services.GameHub.FinishGame*
+  commentId: Overload:GamePlay.Services.GameHub.FinishGame
+  href: GamePlay.Services.GameHub.html#GamePlay_Services_GameHub_FinishGame_System_String_System_String_
+  name: FinishGame
+  nameWithType: GameHub.FinishGame
+  fullName: GamePlay.Services.GameHub.FinishGame

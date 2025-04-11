@@ -1,5 +1,5 @@
 {
-  "source_base_path": "E:/Arbeiten/Chess/GamePlayService/.docs",
+  "source_base_path": "E:/Arbeiten/Chess/GamePlay/.docs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -12,562 +12,562 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Controllers.GameRecordController.yml",
+      "source_relative_path": "api/GamePlay.Controllers.GameRecordController.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Controllers.GameRecordController.html"
+          "relative_path": "api/GamePlay.Controllers.GameRecordController.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Controllers.GameRecordController",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Controllers.GameRecordController.yml\" sourcestartlinenumber=\"1\">Controller for interacting with completed game records. Provides APIs for retrieving\ngame records by ID and for retrieving all records.</p>\n"
+      "Title": "GamePlay.Controllers.GameRecordController",
+      "Summary": "<p sourcefile=\"api/GamePlay.Controllers.GameRecordController.yml\" sourcestartlinenumber=\"1\">Controller for interacting with completed game records. Provides APIs for retrieving\ngame records by ID and for retrieving all records.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Controllers.yml",
+      "source_relative_path": "api/GamePlay.Controllers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Controllers.html"
+          "relative_path": "api/GamePlay.Controllers.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Controllers",
+      "Title": "GamePlay.Controllers",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Data.GameDbContext.yml",
+      "source_relative_path": "api/GamePlay.Data.GameDbContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Data.GameDbContext.html"
+          "relative_path": "api/GamePlay.Data.GameDbContext.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Data.GameDbContext",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Data.GameDbContext.yml\" sourcestartlinenumber=\"1\">Represents the database context for the chess game, handling game records and\nmoves.</p>\n"
+      "Title": "GamePlay.Data.GameDbContext",
+      "Summary": "<p sourcefile=\"api/GamePlay.Data.GameDbContext.yml\" sourcestartlinenumber=\"1\">Represents the database context for the chess game, handling game records and\nmoves.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Data.yml",
+      "source_relative_path": "api/GamePlay.Data.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Data.html"
+          "relative_path": "api/GamePlay.Data.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Data",
+      "Title": "GamePlay.Data",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.ChatMessageDto.yml",
+      "source_relative_path": "api/GamePlay.Dtos.ChatMessageDto.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.ChatMessageDto.html"
+          "relative_path": "api/GamePlay.Dtos.ChatMessageDto.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos.ChatMessageDto",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Dtos.ChatMessageDto.yml\" sourcestartlinenumber=\"1\">Represents a chat message sent during the game, containing the author and the\nmessage text.</p>\n"
+      "Title": "GamePlay.Dtos.ChatMessageDto",
+      "Summary": "<p sourcefile=\"api/GamePlay.Dtos.ChatMessageDto.yml\" sourcestartlinenumber=\"1\">Represents a chat message sent during the game, containing the author and the\nmessage text.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.GameResultDto.yml",
+      "source_relative_path": "api/GamePlay.Dtos.GameResultDto.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.GameResultDto.html"
+          "relative_path": "api/GamePlay.Dtos.GameResultDto.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos.GameResultDto",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Dtos.GameResultDto.yml\" sourcestartlinenumber=\"1\">Represents a chat message sent during the game, containing the author and the\nmessage text.</p>\n"
+      "Title": "GamePlay.Dtos.GameResultDto",
+      "Summary": "<p sourcefile=\"api/GamePlay.Dtos.GameResultDto.yml\" sourcestartlinenumber=\"1\">Represents a chat message sent during the game, containing the author and the\nmessage text.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.MoveDto.yml",
+      "source_relative_path": "api/GamePlay.Dtos.MoveDto.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.MoveDto.html"
+          "relative_path": "api/GamePlay.Dtos.MoveDto.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos.MoveDto",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Dtos.MoveDto.yml\" sourcestartlinenumber=\"1\">Represents a move in chess, including the starting and ending positions, as\nwell as optional promotion for pawns.</p>\n"
+      "Title": "GamePlay.Dtos.MoveDto",
+      "Summary": "<p sourcefile=\"api/GamePlay.Dtos.MoveDto.yml\" sourcestartlinenumber=\"1\">Represents a move in chess, including the starting and ending positions, as\nwell as optional promotion for pawns.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.MoveResultDto.yml",
+      "source_relative_path": "api/GamePlay.Dtos.MoveResultDto.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.MoveResultDto.html"
+          "relative_path": "api/GamePlay.Dtos.MoveResultDto.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos.MoveResultDto",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Dtos.MoveResultDto.yml\" sourcestartlinenumber=\"1\">Represents the result of a move in the chess game, indicating whether it was\nsuccessful and providing a message.</p>\n"
+      "Title": "GamePlay.Dtos.MoveResultDto",
+      "Summary": "<p sourcefile=\"api/GamePlay.Dtos.MoveResultDto.yml\" sourcestartlinenumber=\"1\">Represents the result of a move in the chess game, indicating whether it was\nsuccessful and providing a message.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.PlayerInGameDto.yml",
+      "source_relative_path": "api/GamePlay.Dtos.PlayerInGameDto.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.PlayerInGameDto.html"
+          "relative_path": "api/GamePlay.Dtos.PlayerInGameDto.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos.PlayerInGameDto",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Dtos.PlayerInGameDto.yml\" sourcestartlinenumber=\"1\">Represents a player participating in a chess game, containing their name,\nconnection ID, and time reserve.</p>\n"
+      "Title": "GamePlay.Dtos.PlayerInGameDto",
+      "Summary": "<p sourcefile=\"api/GamePlay.Dtos.PlayerInGameDto.yml\" sourcestartlinenumber=\"1\">Represents a player participating in a chess game, containing their name,\nconnection ID, and time reserve.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Dtos.yml",
+      "source_relative_path": "api/GamePlay.Dtos.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Dtos.html"
+          "relative_path": "api/GamePlay.Dtos.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Dtos",
+      "Title": "GamePlay.Dtos",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.AddGameRecordTable.yml",
+      "source_relative_path": "api/GamePlay.Migrations.AddGameRecordTable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.AddGameRecordTable.html"
+          "relative_path": "api/GamePlay.Migrations.AddGameRecordTable.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.AddGameRecordTable",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.AddGameRecordTable.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.AddGameRecordTable",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.AddGameRecordTable.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.AddTimeToGameRecords.yml",
+      "source_relative_path": "api/GamePlay.Migrations.AddTimeToGameRecords.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.AddTimeToGameRecords.html"
+          "relative_path": "api/GamePlay.Migrations.AddTimeToGameRecords.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.AddTimeToGameRecords",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.AddTimeToGameRecords.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.AddTimeToGameRecords",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.AddTimeToGameRecords.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.EditMoves.yml",
+      "source_relative_path": "api/GamePlay.Migrations.EditMoves.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.EditMoves.html"
+          "relative_path": "api/GamePlay.Migrations.EditMoves.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.EditMoves",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.EditMoves.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.EditMoves",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.EditMoves.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.EditMovesAgain.yml",
+      "source_relative_path": "api/GamePlay.Migrations.EditMovesAgain.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.EditMovesAgain.html"
+          "relative_path": "api/GamePlay.Migrations.EditMovesAgain.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.EditMovesAgain",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.EditMovesAgain.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.EditMovesAgain",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.EditMovesAgain.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.GamesTableEdit.yml",
+      "source_relative_path": "api/GamePlay.Migrations.GamesTableEdit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.GamesTableEdit.html"
+          "relative_path": "api/GamePlay.Migrations.GamesTableEdit.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.GamesTableEdit",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.GamesTableEdit.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.GamesTableEdit",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.GamesTableEdit.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.InitialCreate.yml",
+      "source_relative_path": "api/GamePlay.Migrations.InitialCreate.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.InitialCreate.html"
+          "relative_path": "api/GamePlay.Migrations.InitialCreate.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.InitialCreate",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.InitialCreate.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.InitialCreate",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.InitialCreate.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.ManageMoveModel.yml",
+      "source_relative_path": "api/GamePlay.Migrations.ManageMoveModel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.ManageMoveModel.html"
+          "relative_path": "api/GamePlay.Migrations.ManageMoveModel.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations.ManageMoveModel",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Migrations.ManageMoveModel.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Title": "GamePlay.Migrations.ManageMoveModel",
+      "Summary": "<p sourcefile=\"api/GamePlay.Migrations.ManageMoveModel.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Migrations.yml",
+      "source_relative_path": "api/GamePlay.Migrations.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Migrations.html"
+          "relative_path": "api/GamePlay.Migrations.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Migrations",
+      "Title": "GamePlay.Migrations",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.BoardState.yml",
+      "source_relative_path": "api/GamePlay.Models.BoardState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.BoardState.html"
+          "relative_path": "api/GamePlay.Models.BoardState.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.BoardState",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.BoardState.yml\" sourcestartlinenumber=\"1\">Represents the state of a chessboard, including piece positions and game\nmetadata.</p>\n"
+      "Title": "GamePlay.Models.BoardState",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.BoardState.yml\" sourcestartlinenumber=\"1\">Represents the state of a chessboard, including piece positions and game\nmetadata.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.ChessPiece.yml",
+      "source_relative_path": "api/GamePlay.Models.ChessPiece.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.ChessPiece.html"
+          "relative_path": "api/GamePlay.Models.ChessPiece.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.ChessPiece",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.ChessPiece.yml\" sourcestartlinenumber=\"1\">Represents an abstract chess piece with color, position, and movement logic.</p>\n"
+      "Title": "GamePlay.Models.ChessPiece",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.ChessPiece.yml\" sourcestartlinenumber=\"1\">Represents an abstract chess piece with color, position, and movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.GameRecord.yml",
+      "source_relative_path": "api/GamePlay.Models.GameRecord.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.GameRecord.html"
+          "relative_path": "api/GamePlay.Models.GameRecord.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.GameRecord",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.GameRecord.yml\" sourcestartlinenumber=\"1\">Represents a record of a completed chess game, including players, moves, and\nresult.</p>\n"
+      "Title": "GamePlay.Models.GameRecord",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.GameRecord.yml\" sourcestartlinenumber=\"1\">Represents a record of a completed chess game, including players, moves, and\nresult.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.GameSession.yml",
+      "source_relative_path": "api/GamePlay.Models.GameSession.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.GameSession.html"
+          "relative_path": "api/GamePlay.Models.GameSession.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.GameSession",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.GameSession.yml\" sourcestartlinenumber=\"1\">Represents a session of a chess game, including players, moves, chat messages,\nand the current game state (FEN).</p>\n"
+      "Title": "GamePlay.Models.GameSession",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.GameSession.yml\" sourcestartlinenumber=\"1\">Represents a session of a chess game, including players, moves, chat messages,\nand the current game state (FEN).</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Move.yml",
+      "source_relative_path": "api/GamePlay.Models.Move.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Move.html"
+          "relative_path": "api/GamePlay.Models.Move.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Move",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Move.yml\" sourcestartlinenumber=\"1\">Represents a move made by a player during a chess game, including the move's\ndetails, notation, and timestamp.</p>\n"
+      "Title": "GamePlay.Models.Move",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Move.yml\" sourcestartlinenumber=\"1\">Represents a move made by a player during a chess game, including the move's\ndetails, notation, and timestamp.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.Bishop.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.Bishop.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.Bishop.html"
+          "relative_path": "api/GamePlay.Models.Pieces.Bishop.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.Bishop",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.Bishop.yml\" sourcestartlinenumber=\"1\">Represents a bishop chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.Bishop",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.Bishop.yml\" sourcestartlinenumber=\"1\">Represents a bishop chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.King.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.King.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.King.html"
+          "relative_path": "api/GamePlay.Models.Pieces.King.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.King",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.King.yml\" sourcestartlinenumber=\"1\">Represents a king chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.King",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.King.yml\" sourcestartlinenumber=\"1\">Represents a king chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.Knight.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.Knight.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.Knight.html"
+          "relative_path": "api/GamePlay.Models.Pieces.Knight.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.Knight",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.Knight.yml\" sourcestartlinenumber=\"1\">Represents a knight chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.Knight",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.Knight.yml\" sourcestartlinenumber=\"1\">Represents a knight chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.Pawn.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.Pawn.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.Pawn.html"
+          "relative_path": "api/GamePlay.Models.Pieces.Pawn.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.Pawn",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.Pawn.yml\" sourcestartlinenumber=\"1\">Represents a pawn chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.Pawn",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.Pawn.yml\" sourcestartlinenumber=\"1\">Represents a pawn chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.Queen.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.Queen.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.Queen.html"
+          "relative_path": "api/GamePlay.Models.Pieces.Queen.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.Queen",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.Queen.yml\" sourcestartlinenumber=\"1\">Represents a queen chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.Queen",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.Queen.yml\" sourcestartlinenumber=\"1\">Represents a queen chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.Rook.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.Rook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.Rook.html"
+          "relative_path": "api/GamePlay.Models.Pieces.Rook.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces.Rook",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Models.Pieces.Rook.yml\" sourcestartlinenumber=\"1\">Represents a rook chess piece and its movement logic.</p>\n"
+      "Title": "GamePlay.Models.Pieces.Rook",
+      "Summary": "<p sourcefile=\"api/GamePlay.Models.Pieces.Rook.yml\" sourcestartlinenumber=\"1\">Represents a rook chess piece and its movement logic.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.Pieces.yml",
+      "source_relative_path": "api/GamePlay.Models.Pieces.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.Pieces.html"
+          "relative_path": "api/GamePlay.Models.Pieces.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models.Pieces",
+      "Title": "GamePlay.Models.Pieces",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Models.yml",
+      "source_relative_path": "api/GamePlay.Models.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Models.html"
+          "relative_path": "api/GamePlay.Models.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Models",
+      "Title": "GamePlay.Models",
       "Summary": null
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.ChessValidator.yml",
+      "source_relative_path": "api/GamePlay.Services.ChessValidator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.ChessValidator.html"
+          "relative_path": "api/GamePlay.Services.ChessValidator.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.ChessValidator",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.ChessValidator.yml\" sourcestartlinenumber=\"1\">Provides validation logic for chess moves based on the current board state.</p>\n"
+      "Title": "GamePlay.Services.ChessValidator",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.ChessValidator.yml\" sourcestartlinenumber=\"1\">Provides validation logic for chess moves based on the current board state.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.GameHub.yml",
+      "source_relative_path": "api/GamePlay.Services.GameHub.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.GameHub.html"
+          "relative_path": "api/GamePlay.Services.GameHub.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.GameHub",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.GameHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for managing game sessions and player interactions.</p>\n"
+      "Title": "GamePlay.Services.GameHub",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.GameHub.yml\" sourcestartlinenumber=\"1\">SignalR hub for managing game sessions and player interactions.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.GameRecordService.yml",
+      "source_relative_path": "api/GamePlay.Services.GameRecordService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.GameRecordService.html"
+          "relative_path": "api/GamePlay.Services.GameRecordService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.GameRecordService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.GameRecordService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game records in the database.</p>\n"
+      "Title": "GamePlay.Services.GameRecordService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.GameRecordService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game records in the database.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.GameSearchService.yml",
+      "source_relative_path": "api/GamePlay.Services.GameSearchService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.GameSearchService.html"
+          "relative_path": "api/GamePlay.Services.GameSearchService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.GameSearchService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.GameSearchService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing the game search process, including adding and\nremoving players from the search queue.</p>\n"
+      "Title": "GamePlay.Services.GameSearchService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.GameSearchService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing the game search process, including adding and\nremoving players from the search queue.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.GameSessionService.yml",
+      "source_relative_path": "api/GamePlay.Services.GameSessionService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.GameSessionService.html"
+          "relative_path": "api/GamePlay.Services.GameSessionService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.GameSessionService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.GameSessionService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game sessions, including creation, updates, and\nmoves processing.</p>\n"
+      "Title": "GamePlay.Services.GameSessionService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.GameSessionService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game sessions, including creation, updates, and\nmoves processing.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.IGameRecordService.yml",
+      "source_relative_path": "api/GamePlay.Services.IGameRecordService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.IGameRecordService.html"
+          "relative_path": "api/GamePlay.Services.IGameRecordService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.IGameRecordService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.IGameRecordService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game records in the database.</p>\n"
+      "Title": "GamePlay.Services.IGameRecordService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.IGameRecordService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game records in the database.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.IGameSearchService.yml",
+      "source_relative_path": "api/GamePlay.Services.IGameSearchService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.IGameSearchService.html"
+          "relative_path": "api/GamePlay.Services.IGameSearchService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.IGameSearchService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.IGameSearchService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing the game search process, including adding and\nremoving players from the search queue.</p>\n"
+      "Title": "GamePlay.Services.IGameSearchService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.IGameSearchService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing the game search process, including adding and\nremoving players from the search queue.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.IGameSessionService.yml",
+      "source_relative_path": "api/GamePlay.Services.IGameSessionService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.IGameSessionService.html"
+          "relative_path": "api/GamePlay.Services.IGameSessionService.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services.IGameSessionService",
-      "Summary": "<p sourcefile=\"api/GamePlayService.Services.IGameSessionService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game sessions, including creation, updates, and\nmoves processing.</p>\n"
+      "Title": "GamePlay.Services.IGameSessionService",
+      "Summary": "<p sourcefile=\"api/GamePlay.Services.IGameSessionService.yml\" sourcestartlinenumber=\"1\">Provides methods for managing game sessions, including creation, updates, and\nmoves processing.</p>\n"
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/GamePlayService.Services.yml",
+      "source_relative_path": "api/GamePlay.Services.yml",
       "output": {
         ".html": {
-          "relative_path": "api/GamePlayService.Services.html"
+          "relative_path": "api/GamePlay.Services.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "GamePlayService.Services",
+      "Title": "GamePlay.Services",
       "Summary": null
     },
     {

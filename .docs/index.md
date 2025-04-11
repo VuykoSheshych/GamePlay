@@ -33,4 +33,4 @@ The project is organized into several key components:
 
 ## Getting Help
 
-If you need further assistance, join the discussion on our [GitHub Issues](https://github.com/VuykoSheshych/GamePlayService/issues).
+If you need further assistance, join the discussion on our [GitHub Issues](https://github.com/VuykoSheshych/GamePlay/issues).

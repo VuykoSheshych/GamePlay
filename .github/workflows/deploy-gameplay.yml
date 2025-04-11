@@ -44,10 +44,10 @@ jobs:
             --store-password-in-clear-text
 
       - name: Restore dependencies
-        run: dotnet restore GamePlayService.csproj
+        run: dotnet restore GamePlay.csproj
 
       - name: Publish project
-        run: dotnet publish GamePlayService.csproj -c Release -o ./publish --no-restore
+        run: dotnet publish GamePlay.csproj -c Release -o ./publish --no-restore
 
       - name: Log in to DockerHub
         run: |

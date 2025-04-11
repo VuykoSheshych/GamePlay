@@ -1,7 +1,7 @@
-using GamePlayService.Dtos;
-using GamePlayService.Models;
+using GamePlay.Dtos;
+using GamePlay.Models;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <include file='.docs/xmldocs/Services.xml' path='doc/class/member[@name="IGameSessionService"]/*' />
 public interface IGameSessionService

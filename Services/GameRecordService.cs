@@ -1,8 +1,8 @@
-using GamePlayService.Data;
-using GamePlayService.Models;
+using GamePlay.Data;
+using GamePlay.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <inheritdoc cref="IGameRecordService" />
 public class GameRecordService(GameDbContext context) : IGameRecordService

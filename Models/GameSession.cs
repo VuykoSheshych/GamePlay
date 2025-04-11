@@ -1,6 +1,6 @@
-using GamePlayService.Dtos;
+using GamePlay.Dtos;
 
-namespace GamePlayService.Models;
+namespace GamePlay.Models;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="GameSession"]/*' />
 public class GameSession

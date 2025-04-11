@@ -1,651 +1,528 @@
 <?xml version="1.0"?>
 <doc>
-	<assembly>
-		<name>GamePlayService</name>
-	</assembly>
-	<members>
-		<member name="T:GamePlayService.Controllers.GameRecordController">
-			<summary>
+    <assembly>
+        <name>GamePlay</name>
+    </assembly>
+    <members>
+        <member name="T:GamePlay.Controllers.GameRecordController">
+            <summary>
 				Controller for interacting with completed game records. Provides APIs for retrieving
 				game records by ID and for retrieving all records.
 			</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Controllers.GameRecordController.#ctor(GamePlayService.Services.IGameRecordService)">
-			<summary>
+        </member>
+        <member name="M:GamePlay.Controllers.GameRecordController.#ctor(GamePlay.Services.IGameRecordService)">
+            <summary>
 				Controller for interacting with completed game records. Provides APIs for retrieving
 				game records by ID and for retrieving all records.
 			</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Controllers.GameRecordController.GetGameRecordById(System.Guid)">
-			<summary>
+        </member>
+        <member name="M:GamePlay.Controllers.GameRecordController.GetGameRecordById(System.Guid)">
+            <summary>
 				Returns the game record with the specified ID.
-			</summary>
-			<param name="gameId">Game ID.</param>
-			<returns>Game record or NotFound if record not found.</returns>
-		</member>
-		<member name="M:GamePlayService.Controllers.GameRecordController.GetAllGameRecords">
-			<summary>
+			</summary><param name="gameId">Game ID.</param><returns>Game record or NotFound if record not found.</returns>
+        </member>
+        <member name="M:GamePlay.Controllers.GameRecordController.GetAllGameRecords">
+            <summary>
 				Returns all game records.
-			</summary>
-			<returns>List of game records or NotFound if no record was found.</returns>
-		</member>
-		<member name="T:GamePlayService.Data.GameDbContext">
-			<summary>Represents the database context for the chess game, handling game records and
+			</summary><returns>List of game records or NotFound if no record was found.</returns>
+        </member>
+        <member name="T:GamePlay.Data.GameDbContext">
+            <summary>Represents the database context for the chess game, handling game records and
 				moves.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Data.GameDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{GamePlayService.Data.GameDbContext})">
-			<summary>Represents the database context for the chess game, handling game records and
+        </member>
+        <member name="M:GamePlay.Data.GameDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{GamePlay.Data.GameDbContext})">
+            <summary>Represents the database context for the chess game, handling game records and
 				moves.</summary>
-		</member>
-		<member name="P:GamePlayService.Data.GameDbContext.GameRecords">
-			<summary>Gets or sets the database set for storing game records.</summary>
-		</member>
-		<member name="P:GamePlayService.Data.GameDbContext.Moves">
-			<summary>Gets or sets the database set for storing individual chess moves.</summary>
-		</member>
-		<member name="T:GamePlayService.Migrations.InitialCreate">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.GamesTableEdit">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.GamesTableEdit.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.GamesTableEdit.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.GamesTableEdit.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.AddGameRecordTable">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddGameRecordTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddGameRecordTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddGameRecordTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.ManageMoveModel">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.ManageMoveModel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.ManageMoveModel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.ManageMoveModel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.EditMoves">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMoves.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMoves.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMoves.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.EditMovesAgain">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMovesAgain.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMovesAgain.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.EditMovesAgain.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Migrations.AddTimeToGameRecords">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddTimeToGameRecords.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddTimeToGameRecords.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Migrations.AddTimeToGameRecords.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Dtos.ChatMessageDto">
-			<summary>Represents a chat message sent during the game, containing the author and the
+        </member>
+        <member name="P:GamePlay.Data.GameDbContext.GameRecords">
+            <summary>Gets or sets the database set for storing game records.</summary>
+        </member>
+        <member name="P:GamePlay.Data.GameDbContext.Moves">
+            <summary>Gets or sets the database set for storing individual chess moves.</summary>
+        </member>
+        <member name="T:GamePlay.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.GamesTableEdit">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.GamesTableEdit.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.GamesTableEdit.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.GamesTableEdit.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.AddGameRecordTable">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddGameRecordTable.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddGameRecordTable.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddGameRecordTable.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.ManageMoveModel">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.ManageMoveModel.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.ManageMoveModel.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.ManageMoveModel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.EditMoves">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMoves.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMoves.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMoves.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.EditMovesAgain">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMovesAgain.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMovesAgain.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.EditMovesAgain.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Migrations.AddTimeToGameRecords">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddTimeToGameRecords.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddTimeToGameRecords.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Migrations.AddTimeToGameRecords.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:GamePlay.Dtos.ChatMessageDto">
+            <summary>Represents a chat message sent during the game, containing the author and the
 				message text.</summary>
-		</member>
-		<member name="M:GamePlayService.Dtos.ChatMessageDto.#ctor(System.String,System.String)">
-			<summary>Represents a chat message sent during the game, containing the author and the
+        </member>
+        <member name="M:GamePlay.Dtos.ChatMessageDto.#ctor(System.String,System.String)">
+            <summary>Represents a chat message sent during the game, containing the author and the
 				message text.</summary>
-		</member>
-		<member name="T:GamePlayService.Dtos.GameResultDto">
-			<summary>Represents a chat message sent during the game, containing the author and the
+        </member>
+        <member name="T:GamePlay.Dtos.GameResultDto">
+            <summary>Represents a chat message sent during the game, containing the author and the
 				message text.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Dtos.GameResultDto.#ctor(System.String,System.String,System.Int32,System.String,System.Int32)">
-			<summary>Represents a chat message sent during the game, containing the author and the
+        </member>
+        <member name="M:GamePlay.Dtos.GameResultDto.#ctor(System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>Represents a chat message sent during the game, containing the author and the
 				message text.</summary>
-		</member>
-		<member name="T:GamePlayService.Dtos.MoveDto">
-			<summary>Represents a move in chess, including the starting and ending positions, as
+        </member>
+        <member name="T:GamePlay.Dtos.MoveDto">
+            <summary>Represents a move in chess, including the starting and ending positions, as
 				well as optional promotion for pawns.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Dtos.MoveDto.#ctor(System.String,System.String,System.String)">
-			<summary>Represents a move in chess, including the starting and ending positions, as
+        </member>
+        <member name="M:GamePlay.Dtos.MoveDto.#ctor(System.String,System.String,System.String)">
+            <summary>Represents a move in chess, including the starting and ending positions, as
 				well as optional promotion for pawns.</summary>
-		</member>
-		<member name="T:GamePlayService.Dtos.MoveResultDto">
-			<summary>Represents the result of a move in the chess game, indicating whether it was
+        </member>
+        <member name="T:GamePlay.Dtos.MoveResultDto">
+            <summary>Represents the result of a move in the chess game, indicating whether it was
 				successful and providing a message.</summary>
-		</member>
-		<member name="M:GamePlayService.Dtos.MoveResultDto.#ctor(System.Boolean,System.String)">
-			<summary>Represents the result of a move in the chess game, indicating whether it was
+        </member>
+        <member name="M:GamePlay.Dtos.MoveResultDto.#ctor(System.Boolean,System.String)">
+            <summary>Represents the result of a move in the chess game, indicating whether it was
 				successful and providing a message.</summary>
-		</member>
-		<member name="M:GamePlayService.Dtos.MoveResultDto.Success(System.String)">
-			<summary>Creates a successful move result with a provided message.</summary>
-			<param name="message">The success message to be returned.</param>
-			<returns>A `MoveResultDto` with `IsSuccess` set to `true` and the provided message.</returns>
-		</member>
-		<member name="M:GamePlayService.Dtos.MoveResultDto.Error(System.String)">
-			<summary>Creates an error move result with a provided message.</summary>
-			<param name="message">The error message to be returned.</param>
-			<returns>A `MoveResultDto` with `IsSuccess` set to `false` and the provided message.</returns>
-		</member>
-		<member name="T:GamePlayService.Dtos.PlayerInGameDto">
-			<summary>Represents a player participating in a chess game, containing their name,
+        </member>
+        <member name="M:GamePlay.Dtos.MoveResultDto.Success(System.String)">
+            <summary>Creates a successful move result with a provided message.</summary><param name="message">The success message to be returned.</param><returns>A `MoveResultDto` with `IsSuccess` set to `true` and the provided message.</returns>
+        </member>
+        <member name="M:GamePlay.Dtos.MoveResultDto.Error(System.String)">
+            <summary>Creates an error move result with a provided message.</summary><param name="message">The error message to be returned.</param><returns>A `MoveResultDto` with `IsSuccess` set to `false` and the provided message.</returns>
+        </member>
+        <member name="T:GamePlay.Dtos.PlayerInGameDto">
+            <summary>Represents a player participating in a chess game, containing their name,
 				connection ID, and time reserve.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Dtos.PlayerInGameDto.#ctor(System.String,System.String,System.TimeSpan)">
-			<summary>Represents a player participating in a chess game, containing their name,
+        </member>
+        <member name="M:GamePlay.Dtos.PlayerInGameDto.#ctor(System.String,System.String,System.TimeSpan)">
+            <summary>Represents a player participating in a chess game, containing their name,
 				connection ID, and time reserve.</summary>
-		</member>
-		<member name="T:GamePlayService.Models.BoardState">
-			<summary>Represents the state of a chessboard, including piece positions and game
+        </member>
+        <member name="T:GamePlay.Models.BoardState">
+            <summary>Represents the state of a chessboard, including piece positions and game
 				metadata.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.Board">
-			<summary>The 8x8 board representation where each cell contains a chess piece or is
+        </member>
+        <member name="P:GamePlay.Models.BoardState.Board">
+            <summary>The 8x8 board representation where each cell contains a chess piece or is
 				empty.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.ActiveColor">
-			<summary>The color of the player who is to move next ("w" for white, "b" for
+        </member>
+        <member name="P:GamePlay.Models.BoardState.ActiveColor">
+            <summary>The color of the player who is to move next ("w" for white, "b" for
 				black).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.CastlingRights">
-			<summary>The current castling rights in the game ("KQkq" format).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.EnPassant">
-			<summary>The en passant target square, if applicable.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.HalfmoveClock">
-			<summary>The halfmove clock for the fifty-move rule.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.FullmoveNumber">
-			<summary>The full move number, which increments after Black's turn.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.BoardState.FEN">
-			<summary>The current board position in FEN (Forsyth-Edwards Notation).</summary>
-		</member>
-		<member name="M:GamePlayService.Models.BoardState.#ctor">
-			<summary>Initializes a new instance of the <see
-					cref="T:GamePlayService.Models.BoardState" /> class with the standard starting
-				position.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.BoardState.#ctor(System.String)">
-			<summary>Initializes a new instance of the <see
-					cref="T:GamePlayService.Models.BoardState" /> class from a given FEN string.</summary>
-			<param name="fen">The FEN (Forsyth-Edwards Notation) string representing the board
+        </member>
+        <member name="P:GamePlay.Models.BoardState.CastlingRights">
+            <summary>The current castling rights in the game ("KQkq" format).</summary>
+        </member>
+        <member name="P:GamePlay.Models.BoardState.EnPassant">
+            <summary>The en passant target square, if applicable.</summary>
+        </member>
+        <member name="P:GamePlay.Models.BoardState.HalfmoveClock">
+            <summary>The halfmove clock for the fifty-move rule.</summary>
+        </member>
+        <member name="P:GamePlay.Models.BoardState.FullmoveNumber">
+            <summary>The full move number, which increments after Black's turn.</summary>
+        </member>
+        <member name="P:GamePlay.Models.BoardState.FEN">
+            <summary>The current board position in FEN (Forsyth-Edwards Notation).</summary>
+        </member>
+        <member name="M:GamePlay.Models.BoardState.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:GamePlay.Models.BoardState" /> class with the
+				standard starting position.</summary>
+        </member>
+        <member name="M:GamePlay.Models.BoardState.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:GamePlay.Models.BoardState" /> class from a given
+				FEN string.</summary><param name="fen">The FEN (Forsyth-Edwards Notation) string representing the board
 				position.</param>
-		</member>
-		<member name="M:GamePlayService.Models.BoardState.ApplyMove(GamePlayService.Dtos.MoveDto)">
-			<summary>Applies a move to the board, updating its state accordingly.</summary>
-			<param name="move">The move to be applied.</param>
-		</member>
-		<member name="M:GamePlayService.Models.BoardState.GetAllPieces(System.String)">
-			<summary>Retrieves all pieces of a specified color from the board.</summary>
-			<param name="color">The color of pieces to retrieve ("w" for white, "b" for black).</param>
-			<returns>A list of tuples containing the row and column indices of the pieces.</returns>
-		</member>
-		<member name="T:GamePlayService.Models.ChessPiece">
-			<summary>Represents an abstract chess piece with color, position, and movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.ChessPiece.#ctor(System.String,System.String)">
-			<summary>Represents an abstract chess piece with color, position, and movement logic.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.ChessPiece.Color">
-			<summary>The color of the chess piece ("w" for white, "b" for black).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.ChessPiece.Position">
-			<summary>The current position of the chess piece in standard chess notation
+        </member>
+        <member name="M:GamePlay.Models.BoardState.ApplyMove(GamePlay.Dtos.MoveDto)">
+            <summary>Applies a move to the board, updating its state accordingly.</summary><param name="move">The move to be applied.</param>
+        </member>
+        <member name="M:GamePlay.Models.BoardState.GetAllPieces(System.String)">
+            <summary>Retrieves all pieces of a specified color from the board.</summary><param name="color">The color of pieces to retrieve ("w" for white, "b" for black).</param><returns>A list of tuples containing the row and column indices of the pieces.</returns>
+        </member>
+        <member name="T:GamePlay.Models.ChessPiece">
+            <summary>Represents an abstract chess piece with color, position, and movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.ChessPiece.#ctor(System.String,System.String)">
+            <summary>Represents an abstract chess piece with color, position, and movement logic.</summary>
+        </member>
+        <member name="P:GamePlay.Models.ChessPiece.Color">
+            <summary>The color of the chess piece ("w" for white, "b" for black).</summary>
+        </member>
+        <member name="P:GamePlay.Models.ChessPiece.Position">
+            <summary>The current position of the chess piece in standard chess notation
 				(e.g., "e4").</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.ChessPiece.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<summary>Returns a list of valid moves for the chess piece based on the current board
-				state.</summary>
-			<param name="boardState">The current state of the chessboard.</param>
-			<returns>A list of valid move positions in chess notation.</returns>
-		</member>
-		<member name="M:GamePlayService.Models.ChessPiece.ConvertToBoardIndex(System.String)">
-			<summary>Converts a chess position (e.g., "e4") into board indices (row, column).</summary>
-			<param name="position">The position in chess notation.</param>
-			<returns>A tuple containing the row and column indices.</returns>
-		</member>
-		<member name="M:GamePlayService.Models.ChessPiece.IsValidCell(System.Int32,System.Int32)">
-			<summary>Checks if a given row and column are within the valid bounds of the board.</summary>
-			<param name="row">The row index (0-7).</param>
-			<param name="col">The column index (0-7).</param>
-			<returns><c>true</c> if the cell is within the board, otherwise <c>false</c>.</returns>
-		</member>
-		<member name="M:GamePlayService.Models.ChessPiece.IsOpponentPiece(System.Char)">
-			<summary>Checks if a given piece belongs to the opponent.</summary>
-			<param name="piece">The piece character to check.</param>
-			<returns><c>true</c> if the piece belongs to the opponent, otherwise <c>false</c>.</returns>
-		</member>
-		<member name="T:GamePlayService.Models.GameRecord">
-			<summary>Represents a record of a completed chess game, including players, moves, and
+        </member>
+        <member name="M:GamePlay.Models.ChessPiece.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <summary>Returns a list of valid moves for the chess piece based on the current board
+				state.</summary><param name="boardState">The current state of the chessboard.</param><returns>A list of valid move positions in chess notation.</returns>
+        </member>
+        <member name="M:GamePlay.Models.ChessPiece.ConvertToBoardIndex(System.String)">
+            <summary>Converts a chess position (e.g., "e4") into board indices (row, column).</summary><param name="position">The position in chess notation.</param><returns>A tuple containing the row and column indices.</returns>
+        </member>
+        <member name="M:GamePlay.Models.ChessPiece.IsValidCell(System.Int32,System.Int32)">
+            <summary>Checks if a given row and column are within the valid bounds of the board.</summary><param name="row">The row index (0-7).</param><param name="col">The column index (0-7).</param><returns><c>true</c> if the cell is within the board, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:GamePlay.Models.ChessPiece.IsOpponentPiece(System.Char)">
+            <summary>Checks if a given piece belongs to the opponent.</summary><param name="piece">The piece character to check.</param><returns><c>true</c> if the piece belongs to the opponent, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:GamePlay.Models.GameRecord">
+            <summary>Represents a record of a completed chess game, including players, moves, and
 				result.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.Id">
-			<summary>The unique identifier for the game record.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.PlayerWhite">
-			<summary>The name of the player playing as White.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.PlayerBlack">
-			<summary>The name of the player playing as Black.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.Moves">
-			<summary>A list of moves made during the game.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.Result">
-			<summary>The result of the game (e.g., "1-0" for White win, "0-1" for Black win,
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.Id">
+            <summary>The unique identifier for the game record.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.PlayerWhite">
+            <summary>The name of the player playing as White.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.PlayerBlack">
+            <summary>The name of the player playing as Black.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.Moves">
+            <summary>A list of moves made during the game.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.Result">
+            <summary>The result of the game (e.g., "1-0" for White win, "0-1" for Black win,
 				"½-½" for draw).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.Started">
-			<summary>The date and time when the game started.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameRecord.Finished">
-			<summary>The date and time when the game finished.</summary>
-		</member>
-		<member name="T:GamePlayService.Models.GameSession">
-			<summary>Represents a session of a chess game, including players, moves, chat messages,
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.Started">
+            <summary>The date and time when the game started.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameRecord.Finished">
+            <summary>The date and time when the game finished.</summary>
+        </member>
+        <member name="T:GamePlay.Models.GameSession">
+            <summary>Represents a session of a chess game, including players, moves, chat messages,
 				and the current game state (FEN).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.Id">
-			<summary>The unique identifier for the game session.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.WhitePlayer">
-			<summary>The details of the player playing as White.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.BlackPlayer">
-			<summary>The details of the player playing as White.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.Moves">
-			<summary>A list of moves made during the game.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.Messages">
-			<summary>A list of chat messages sent during the game.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.CurrentFen">
-			<summary>The current FEN (Forsyth-Edwards Notation) string representing the state of the
+        </member>
+        <member name="P:GamePlay.Models.GameSession.Id">
+            <summary>The unique identifier for the game session.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameSession.WhitePlayer">
+            <summary>The details of the player playing as White.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameSession.BlackPlayer">
+            <summary>The details of the player playing as White.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameSession.Moves">
+            <summary>A list of moves made during the game.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameSession.Messages">
+            <summary>A list of chat messages sent during the game.</summary>
+        </member>
+        <member name="P:GamePlay.Models.GameSession.CurrentFen">
+            <summary>The current FEN (Forsyth-Edwards Notation) string representing the state of the
 				chessboard.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.GameSession.CreatedAt">
-			<summary>The date and time when the game session was created.</summary>
-		</member>
-		<member name="T:GamePlayService.Models.Move">
-			<summary>Represents a move made by a player during a chess game, including the move's
+        </member>
+        <member name="P:GamePlay.Models.GameSession.CreatedAt">
+            <summary>The date and time when the game session was created.</summary>
+        </member>
+        <member name="T:GamePlay.Models.Move">
+            <summary>Represents a move made by a player during a chess game, including the move's
 				details, notation, and timestamp.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.Id">
-			<summary>The unique identifier for the move.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.MoveNumber">
-			<summary>The full move number in the game (e.g., 1 for the first move, 2 for the second
+        </member>
+        <member name="P:GamePlay.Models.Move.Id">
+            <summary>The unique identifier for the move.</summary>
+        </member>
+        <member name="P:GamePlay.Models.Move.MoveNumber">
+            <summary>The full move number in the game (e.g., 1 for the first move, 2 for the second
 				move, etc.).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.PlayerColor">
-			<summary>The color of the player who made the move (either "w" for White or "b" for
+        </member>
+        <member name="P:GamePlay.Models.Move.PlayerColor">
+            <summary>The color of the player who made the move (either "w" for White or "b" for
 				Black).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.From">
-			<summary>The starting position of the piece being moved, in chess notation (e.g., "e2").</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.To">
-			<summary>The destination position of the piece, in chess notation (e.g., "e4").</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.Promotion">
-			<summary>Optional. The piece the pawn is promoted to, if the move is a pawn promotion
+        </member>
+        <member name="P:GamePlay.Models.Move.From">
+            <summary>The starting position of the piece being moved, in chess notation (e.g., "e2").</summary>
+        </member>
+        <member name="P:GamePlay.Models.Move.To">
+            <summary>The destination position of the piece, in chess notation (e.g., "e4").</summary>
+        </member>
+        <member name="P:GamePlay.Models.Move.Promotion">
+            <summary>Optional. The piece the pawn is promoted to, if the move is a pawn promotion
 				(e.g., "Q" for queen, "R" for rook, etc.).</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.SanNotation">
-			<summary>The move in Standard Algebraic Notation (SAN), used to represent the move in
+        </member>
+        <member name="P:GamePlay.Models.Move.SanNotation">
+            <summary>The move in Standard Algebraic Notation (SAN), used to represent the move in
 				chess notation (e.g., "Bxc5+", "Nf3").</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.FenBefore">
-			<summary>The FEN string representing the state of the board before the move was made.</summary>
-		</member>
-		<member name="P:GamePlayService.Models.Move.Timestamp">
-			<summary>The date and time when the move was made.</summary>
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.Bishop">
-			<summary>Represents a bishop chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.Bishop.#ctor(System.String,System.String)">
-			<summary>Represents a bishop chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.Bishop.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.King">
-			<summary>Represents a king chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.King.#ctor(System.String,System.String)">
-			<summary>Represents a king chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.King.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.Knight">
-			<summary>Represents a knight chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.Knight.#ctor(System.String,System.String)">
-			<summary>Represents a knight chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.Knight.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.Pawn">
-			<summary>Represents a pawn chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.Pawn.#ctor(System.String,System.String)">
-			<summary>Represents a pawn chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.Pawn.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.Queen">
-			<summary>Represents a queen chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.Queen.#ctor(System.String,System.String)">
-			<summary>Represents a queen chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.Queen.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Models.Pieces.Rook">
-			<summary>Represents a rook chess piece and its movement logic.</summary>
-		</member>
-		<member name="M:GamePlayService.Models.Pieces.Rook.#ctor(System.String,System.String)">
-			<summary>Represents a rook chess piece and its movement logic.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Models.Pieces.Rook.GetPossibleMoves(GamePlayService.Models.BoardState)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Services.ChessValidator">
-			<summary>Provides validation logic for chess moves based on the current board state.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.ChessValidator.GetMoveValidationResult(GamePlayService.Models.BoardState,GamePlayService.Dtos.MoveDto)">
-			<summary>Validates a given chess move according to game rules.</summary>
-			<param name="boardState">The current state of the chessboard, including piece positions
-				and active color.</param>
-			<param name="moveDto">The move details, including the starting and ending positions.</param>
-			<returns>A <see cref="T:GamePlayService.Dtos.MoveResultDto" /> indicating whether the
-				move is valid or contains an error message.</returns>
-		</member>
-		<member name="T:GamePlayService.Services.GameHub">
-			<summary>SignalR hub for managing game sessions and player interactions.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameHub.#ctor(GamePlayService.Services.IGameSessionService,GamePlayService.Services.IGameSearchService)">
-			<summary>SignalR hub for managing game sessions and player interactions.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameHub.CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
-			<summary>Creates a new game session with the specified players.</summary>
-			<param name="players">List of players with their names and IDs.</param>
-			<returns>The unique ID of the created game.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameHub.JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
-			<summary>Adds players to an existing game session and notifies them.</summary>
-			<param name="gameId">The game session ID.</param>
-			<param name="players">List of players joining the game.</param>
-		</member>
-		<member name="M:GamePlayService.Services.GameHub.StartGameSearch(System.String)">
-			<summary>Initiates a game search for a player.</summary>
-			<param name="playerName">The name of the player searching for a game.</param>
-		</member>
-		<member name="M:GamePlayService.Services.GameHub.StopGameSearch(System.String)">
-			<summary>Stops the game search for a player.</summary>
-			<param name="playerName">The name of the player stopping the search.</param>
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameHub.MakeMove(System.String,GamePlayService.Dtos.MoveDto)">
-			<summary>Processes a player's move in a game session.</summary>
-			<param name="gameId">The game session ID.</param>
-			<param name="moveDto">The move details.</param>
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameHub.SendMessage(System.String,GamePlayService.Dtos.ChatMessageDto)">
-			<summary>Sends a chat message to all players in a game session.</summary>
-			<param name="gameId">The game session ID.</param>
-			<param name="chatMessage">The chat message details.</param>
-		</member>
-		<member name="M:GamePlayService.Services.GameHub.FinishGame(System.String,System.String)">
-			<summary>Ends a game session and determines the result.</summary>
-			<param name="gameId">The game session ID.</param>
-			<param name="looser">The name of the player who lost, or "½-½" for a draw.</param>
-		</member>
-		<member name="T:GamePlayService.Services.GameRecordService">
-			<inheritdoc cref="T:GamePlayService.Services.IGameRecordService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameRecordService.#ctor(GamePlayService.Data.GameDbContext)">
-			<inheritdoc cref="T:GamePlayService.Services.IGameRecordService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameRecordService.GetGameRecordByIdAsync(System.Guid)">
-			<inheritdoc />
-		</member>
-		<member name="M:GamePlayService.Services.GameRecordService.GetAllGameRecordsAsync">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameRecordService.AddGameRecordAsync(GamePlayService.Models.GameRecord)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Services.GameSearchService">
-			<inheritdoc cref="T:GamePlayService.Services.IGameSearchService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSearchService.#ctor(StackExchange.Redis.IConnectionMultiplexer)">
-			<inheritdoc cref="T:GamePlayService.Services.IGameSearchService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSearchService.AddPlayerToSearchQueue(System.String,System.String)">
-			<inheritdoc />
-		</member>
-		<member name="M:GamePlayService.Services.GameSearchService.FindPlayersForGame">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSearchService.GetPlayerConnectionId(System.String)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSearchService.RemovePlayerFromSearchQueue(System.String)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Services.GameSessionService">
-			<inheritdoc cref="T:GamePlayService.Services.IGameSessionService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.#ctor(StackExchange.Redis.IConnectionMultiplexer,GamePlayService.Services.IGameRecordService)">
-			<inheritdoc cref="T:GamePlayService.Services.IGameSessionService" />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.GetGameSessionAsync(System.String)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.RemoveGameSessionAsync(System.String,System.String)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.SaveGameSessionAsync(GamePlayService.Models.GameSession)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.TryMakeMoveAsync(System.String,GamePlayService.Dtos.MoveDto)">
-			<inheritdoc />
-		</member>
-		<member
-			name="M:GamePlayService.Services.GameSessionService.SaveGameRecordAsync(GamePlayService.Models.GameSession,System.String)">
-			<inheritdoc />
-		</member>
-		<member name="T:GamePlayService.Services.IGameRecordService">
-			<summary>Provides methods for managing game records in the database.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)">
-			<summary>Retrieves a game record by its unique identifier.</summary>
-			<param name="gameId">The unique identifier of the game record.</param>
-			<returns>The game record if found; otherwise, null.</returns>
-		</member>
-		<member name="M:GamePlayService.Services.IGameRecordService.GetAllGameRecordsAsync">
-			<summary>Retrieves all game records from the database.</summary>
-			<returns>A list of all game records, or null if none are found.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameRecordService.AddGameRecordAsync(GamePlayService.Models.GameRecord)">
-			<summary>Adds a new game record to the database.</summary>
-			<param name="gameRecord">The game record to add.</param>
-		</member>
-		<member name="T:GamePlayService.Services.IGameSearchService">
-			<summary>Provides methods for managing the game search process, including adding and
+        </member>
+        <member name="P:GamePlay.Models.Move.FenBefore">
+            <summary>The FEN string representing the state of the board before the move was made.</summary>
+        </member>
+        <member name="P:GamePlay.Models.Move.Timestamp">
+            <summary>The date and time when the move was made.</summary>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.Bishop">
+            <summary>Represents a bishop chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Bishop.#ctor(System.String,System.String)">
+            <summary>Represents a bishop chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Bishop.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.King">
+            <summary>Represents a king chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.King.#ctor(System.String,System.String)">
+            <summary>Represents a king chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.King.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.Knight">
+            <summary>Represents a knight chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Knight.#ctor(System.String,System.String)">
+            <summary>Represents a knight chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Knight.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.Pawn">
+            <summary>Represents a pawn chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Pawn.#ctor(System.String,System.String)">
+            <summary>Represents a pawn chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Pawn.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.Queen">
+            <summary>Represents a queen chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Queen.#ctor(System.String,System.String)">
+            <summary>Represents a queen chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Queen.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Models.Pieces.Rook">
+            <summary>Represents a rook chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Rook.#ctor(System.String,System.String)">
+            <summary>Represents a rook chess piece and its movement logic.</summary>
+        </member>
+        <member name="M:GamePlay.Models.Pieces.Rook.GetPossibleMoves(GamePlay.Models.BoardState)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Services.ChessValidator">
+            <summary>Provides validation logic for chess moves based on the current board state.</summary>
+        </member>
+        <member name="M:GamePlay.Services.ChessValidator.GetMoveValidationResult(GamePlay.Models.BoardState,GamePlay.Dtos.MoveDto)">
+            <summary>Validates a given chess move according to game rules.</summary><param name="boardState">The current state of the chessboard, including piece positions
+				and active color.</param><param name="moveDto">The move details, including the starting and ending positions.</param><returns>A <see cref="T:GamePlay.Dtos.MoveResultDto" /> indicating whether the move is valid or contains
+				an error message.</returns>
+        </member>
+        <member name="T:GamePlay.Services.GameHub">
+            <summary>SignalR hub for managing game sessions and player interactions.</summary>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.#ctor(GamePlay.Services.IGameSessionService,GamePlay.Services.IGameSearchService)">
+            <summary>SignalR hub for managing game sessions and player interactions.</summary>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.CreateGame(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
+            <summary>Creates a new game session with the specified players.</summary><param name="players">List of players with their names and IDs.</param><returns>The unique ID of the created game.</returns>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.JoinGame(System.String,System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
+            <summary>Adds players to an existing game session and notifies them.</summary><param name="gameId">The game session ID.</param><param name="players">List of players joining the game.</param>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.StartGameSearch(System.String)">
+            <summary>Initiates a game search for a player.</summary><param name="playerName">The name of the player searching for a game.</param>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.StopGameSearch(System.String)">
+            <summary>Stops the game search for a player.</summary><param name="playerName">The name of the player stopping the search.</param>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.MakeMove(System.String,GamePlay.Dtos.MoveDto)">
+            <summary>Processes a player's move in a game session.</summary><param name="gameId">The game session ID.</param><param name="moveDto">The move details.</param>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.SendMessage(System.String,GamePlay.Dtos.ChatMessageDto)">
+            <summary>Sends a chat message to all players in a game session.</summary><param name="gameId">The game session ID.</param><param name="chatMessage">The chat message details.</param>
+        </member>
+        <member name="M:GamePlay.Services.GameHub.FinishGame(System.String,System.String)">
+            <summary>Ends a game session and determines the result.</summary><param name="gameId">The game session ID.</param><param name="looser">The name of the player who lost, or "½-½" for a draw.</param>
+        </member>
+        <member name="T:GamePlay.Services.GameRecordService">
+            <inheritdoc cref="T:GamePlay.Services.IGameRecordService" />
+        </member>
+        <member name="M:GamePlay.Services.GameRecordService.#ctor(GamePlay.Data.GameDbContext)">
+            <inheritdoc cref="T:GamePlay.Services.IGameRecordService" />
+        </member>
+        <member name="M:GamePlay.Services.GameRecordService.GetGameRecordByIdAsync(System.Guid)">
+            <inheritdoc />
+        </member>
+        <member name="M:GamePlay.Services.GameRecordService.GetAllGameRecordsAsync">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Services.GameSearchService">
+            <inheritdoc cref="T:GamePlay.Services.IGameSearchService"/>
+        </member>
+        <member name="M:GamePlay.Services.GameSearchService.#ctor(StackExchange.Redis.IConnectionMultiplexer)">
+            <inheritdoc cref="T:GamePlay.Services.IGameSearchService"/>
+        </member>
+        <member name="M:GamePlay.Services.GameSearchService.AddPlayerToSearchQueue(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSearchService.FindPlayersForGame">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSearchService.GetPlayerConnectionId(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSearchService.RemovePlayerFromSearchQueue(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Services.GameSessionService">
+            <inheritdoc cref="T:GamePlay.Services.IGameSessionService" />
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.#ctor(StackExchange.Redis.IConnectionMultiplexer,GamePlay.Services.IGameRecordService)">
+            <inheritdoc cref="T:GamePlay.Services.IGameSessionService" />
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.GetGameSessionAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.RemoveGameSessionAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:GamePlay.Services.GameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:GamePlay.Services.IGameRecordService">
+            <summary>Provides methods for managing game records in the database.</summary>
+        </member>
+        <member name="M:GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)">
+            <summary>Retrieves a game record by its unique identifier.</summary><param name="gameId">The unique identifier of the game record.</param><returns>The game record if found; otherwise, null.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync">
+            <summary>Retrieves all game records from the database.</summary><returns>A list of all game records, or null if none are found.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)">
+            <summary>Adds a new game record to the database.</summary><param name="gameRecord">The game record to add.</param>
+        </member>
+        <member name="T:GamePlay.Services.IGameSearchService">
+            <summary>Provides methods for managing the game search process, including adding and
 				removing players from the search queue.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)">
-			<summary>Adds a player to the matchmaking queue.</summary>
-			<param name="playerName">The name of the player to be added.</param>
-			<param name="playerConnectionId">The connection ID of the player.</param>
-		</member>
-		<member name="M:GamePlayService.Services.IGameSearchService.FindPlayersForGame">
-			<summary>Attempts to find a pair of players for a game session.</summary>
-			<returns>A list containing two players with their connection IDs, or null if not enough
+        </member>
+        <member name="M:GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)">
+            <summary>Adds a player to the matchmaking queue.</summary><param name="playerName">The name of the player to be added.</param><param name="playerConnectionId">The connection ID of the player.</param>
+        </member>
+        <member name="M:GamePlay.Services.IGameSearchService.FindPlayersForGame">
+            <summary>Attempts to find a pair of players for a game session.</summary><returns>A list containing two players with their connection IDs, or null if not enough
 				players are available.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSearchService.GetPlayerConnectionId(System.String)">
-			<summary>Retrieves the connection ID of a player currently in the search queue.</summary>
-			<param name="playerName">The name of the player whose connection ID is being retrieved.</param>
-			<returns>The connection ID of the player, or null if the player is not in the queue.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)">
-			<summary>Removes a player from the matchmaking queue.</summary>
-			<param name="playerName">The name of the player to be removed.</param>
-		</member>
-		<member name="T:GamePlayService.Services.IGameSessionService">
-			<summary>Provides methods for managing game sessions, including creation, updates, and
+        </member>
+        <member name="M:GamePlay.Services.IGameSearchService.GetPlayerConnectionId(System.String)">
+            <summary>Retrieves the connection ID of a player currently in the search queue.</summary><param name="playerName">The name of the player whose connection ID is being retrieved.</param><returns>The connection ID of the player, or null if the player is not in the queue.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)">
+            <summary>Removes a player from the matchmaking queue.</summary><param name="playerName">The name of the player to be removed.</param>
+        </member>
+        <member name="T:GamePlay.Services.IGameSessionService">
+            <summary>Provides methods for managing game sessions, including creation, updates, and
 				moves processing.</summary>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.GetGameSessionAsync(System.String)">
-			<summary>Retrieves an active game session by its unique identifier.</summary>
-			<param name="gameId">The unique identifier of the game session.</param>
-			<returns>The game session if found; otherwise, null.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
-			<summary>Creates a new game session with the specified players.</summary>
-			<param name="players">A list of player names and their connection IDs.</param>
-			<returns>The unique identifier of the newly created game session.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.RemoveGameSessionAsync(System.String,System.String)">
-			<summary>Removes a completed or abandoned game session.</summary>
-			<param name="gameId">The unique identifier of the game session to remove.</param>
-			<param name="result">The final result of the game session (e.g., "1-0" for White win,
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.GetGameSessionAsync(System.String)">
+            <summary>Retrieves an active game session by its unique identifier.</summary><param name="gameId">The unique identifier of the game session.</param><returns>The game session if found; otherwise, null.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})">
+            <summary>Creates a new game session with the specified players.</summary><param name="players">A list of player names and their connection IDs.</param><returns>The unique identifier of the newly created game session.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(System.String,System.String)">
+            <summary>Removes a completed or abandoned game session.</summary><param name="gameId">The unique identifier of the game session to remove.</param><param name="result">The final result of the game session (e.g., "1-0" for White win,
 				"0-1" for Black win, "½-½" for draw).</param>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.SaveGameSessionAsync(GamePlayService.Models.GameSession)">
-			<summary>Saves the current state of an active game session.</summary>
-			<param name="gameSession">The game session to save.</param>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.TryMakeMoveAsync(System.String,GamePlayService.Dtos.MoveDto)">
-			<summary>Processes a move attempt in an active game session.</summary>
-			<param name="gameId">The unique identifier of the game session.</param>
-			<param name="moveDto">The move data containing details of the move.</param>
-			<returns>The result of the move attempt, indicating success or failure.</returns>
-		</member>
-		<member
-			name="M:GamePlayService.Services.IGameSessionService.SaveGameRecordAsync(GamePlayService.Models.GameSession,System.String)">
-			<summary>Saves a completed game session as a historical record.</summary>
-			<param name="gameSession">The completed game session to save.</param>
-			<param name="result">The final result of the game session (e.g., "1-0" for White win,
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)">
+            <summary>Saves the current state of an active game session.</summary><param name="gameSession">The game session to save.</param>
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)">
+            <summary>Processes a move attempt in an active game session.</summary><param name="gameId">The unique identifier of the game session.</param><param name="moveDto">The move data containing details of the move.</param><returns>The result of the move attempt, indicating success or failure.</returns>
+        </member>
+        <member name="M:GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)">
+            <summary>Saves a completed game session as a historical record.</summary><param name="gameSession">The completed game session to save.</param><param name="result">The final result of the game session (e.g., "1-0" for White win,
 				"0-1" for Black win, "½-½" for draw).</param>
-		</member>
-	</members>
+        </member>
+    </members>
 </doc>

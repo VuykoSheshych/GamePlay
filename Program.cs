@@ -1,5 +1,5 @@
-using GamePlayService.Data;
-using GamePlayService.Services;
+using GamePlay.Data;
+using GamePlay.Services;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 

@@ -1,4 +1,4 @@
-namespace GamePlayService.Models;
+namespace GamePlay.Models;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="Move"]/*' />
 public class Move

@@ -1,130 +1,130 @@
 ### YamlMime:TableOfContent
 items:
-- uid: GamePlayService.Controllers
-  name: GamePlayService.Controllers
+- uid: GamePlay.Controllers
+  name: GamePlay.Controllers
   type: Namespace
   items:
-  - uid: GamePlayService.Controllers.GameRecordController
+  - uid: GamePlay.Controllers.GameRecordController
     name: GameRecordController
     type: Class
-- uid: GamePlayService.Data
-  name: GamePlayService.Data
+- uid: GamePlay.Data
+  name: GamePlay.Data
   type: Namespace
   items:
-  - uid: GamePlayService.Data.GameDbContext
+  - uid: GamePlay.Data.GameDbContext
     name: GameDbContext
     type: Class
-- uid: GamePlayService.Dtos
-  name: GamePlayService.Dtos
+- uid: GamePlay.Dtos
+  name: GamePlay.Dtos
   type: Namespace
   items:
-  - uid: GamePlayService.Dtos.ChatMessageDto
+  - uid: GamePlay.Dtos.ChatMessageDto
     name: ChatMessageDto
     type: Class
-  - uid: GamePlayService.Dtos.GameResultDto
+  - uid: GamePlay.Dtos.GameResultDto
     name: GameResultDto
     type: Class
-  - uid: GamePlayService.Dtos.MoveDto
+  - uid: GamePlay.Dtos.MoveDto
     name: MoveDto
     type: Class
-  - uid: GamePlayService.Dtos.MoveResultDto
+  - uid: GamePlay.Dtos.MoveResultDto
     name: MoveResultDto
     type: Class
-  - uid: GamePlayService.Dtos.PlayerInGameDto
+  - uid: GamePlay.Dtos.PlayerInGameDto
     name: PlayerInGameDto
     type: Class
-- uid: GamePlayService.Migrations
-  name: GamePlayService.Migrations
+- uid: GamePlay.Migrations
+  name: GamePlay.Migrations
   type: Namespace
   items:
-  - uid: GamePlayService.Migrations.AddGameRecordTable
+  - uid: GamePlay.Migrations.AddGameRecordTable
     name: AddGameRecordTable
     type: Class
-  - uid: GamePlayService.Migrations.AddTimeToGameRecords
+  - uid: GamePlay.Migrations.AddTimeToGameRecords
     name: AddTimeToGameRecords
     type: Class
-  - uid: GamePlayService.Migrations.EditMoves
+  - uid: GamePlay.Migrations.EditMoves
     name: EditMoves
     type: Class
-  - uid: GamePlayService.Migrations.EditMovesAgain
+  - uid: GamePlay.Migrations.EditMovesAgain
     name: EditMovesAgain
     type: Class
-  - uid: GamePlayService.Migrations.GamesTableEdit
+  - uid: GamePlay.Migrations.GamesTableEdit
     name: GamesTableEdit
     type: Class
-  - uid: GamePlayService.Migrations.InitialCreate
+  - uid: GamePlay.Migrations.InitialCreate
     name: InitialCreate
     type: Class
-  - uid: GamePlayService.Migrations.ManageMoveModel
+  - uid: GamePlay.Migrations.ManageMoveModel
     name: ManageMoveModel
     type: Class
-- uid: GamePlayService.Models
-  name: GamePlayService.Models
+- uid: GamePlay.Models
+  name: GamePlay.Models
   type: Namespace
   items:
-  - uid: GamePlayService.Models.BoardState
+  - uid: GamePlay.Models.BoardState
     name: BoardState
     type: Class
-  - uid: GamePlayService.Models.ChessPiece
+  - uid: GamePlay.Models.ChessPiece
     name: ChessPiece
     type: Class
-  - uid: GamePlayService.Models.GameRecord
+  - uid: GamePlay.Models.GameRecord
     name: GameRecord
     type: Class
-  - uid: GamePlayService.Models.GameSession
+  - uid: GamePlay.Models.GameSession
     name: GameSession
     type: Class
-  - uid: GamePlayService.Models.Move
+  - uid: GamePlay.Models.Move
     name: Move
     type: Class
-- uid: GamePlayService.Models.Pieces
-  name: GamePlayService.Models.Pieces
+- uid: GamePlay.Models.Pieces
+  name: GamePlay.Models.Pieces
   type: Namespace
   items:
-  - uid: GamePlayService.Models.Pieces.Bishop
+  - uid: GamePlay.Models.Pieces.Bishop
     name: Bishop
     type: Class
-  - uid: GamePlayService.Models.Pieces.King
+  - uid: GamePlay.Models.Pieces.King
     name: King
     type: Class
-  - uid: GamePlayService.Models.Pieces.Knight
+  - uid: GamePlay.Models.Pieces.Knight
     name: Knight
     type: Class
-  - uid: GamePlayService.Models.Pieces.Pawn
+  - uid: GamePlay.Models.Pieces.Pawn
     name: Pawn
     type: Class
-  - uid: GamePlayService.Models.Pieces.Queen
+  - uid: GamePlay.Models.Pieces.Queen
     name: Queen
     type: Class
-  - uid: GamePlayService.Models.Pieces.Rook
+  - uid: GamePlay.Models.Pieces.Rook
     name: Rook
     type: Class
-- uid: GamePlayService.Services
-  name: GamePlayService.Services
+- uid: GamePlay.Services
+  name: GamePlay.Services
   type: Namespace
   items:
-  - uid: GamePlayService.Services.ChessValidator
+  - uid: GamePlay.Services.ChessValidator
     name: ChessValidator
     type: Class
-  - uid: GamePlayService.Services.GameHub
+  - uid: GamePlay.Services.GameHub
     name: GameHub
     type: Class
-  - uid: GamePlayService.Services.GameRecordService
+  - uid: GamePlay.Services.GameRecordService
     name: GameRecordService
     type: Class
-  - uid: GamePlayService.Services.GameSearchService
+  - uid: GamePlay.Services.GameSearchService
     name: GameSearchService
     type: Class
-  - uid: GamePlayService.Services.GameSessionService
+  - uid: GamePlay.Services.GameSessionService
     name: GameSessionService
     type: Class
-  - uid: GamePlayService.Services.IGameRecordService
+  - uid: GamePlay.Services.IGameRecordService
     name: IGameRecordService
     type: Interface
-  - uid: GamePlayService.Services.IGameSearchService
+  - uid: GamePlay.Services.IGameSearchService
     name: IGameSearchService
     type: Interface
-  - uid: GamePlayService.Services.IGameSessionService
+  - uid: GamePlay.Services.IGameSessionService
     name: IGameSessionService
     type: Interface
 memberLayout: SamePage

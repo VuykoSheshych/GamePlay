@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using GamePlayService.Services;
+using GamePlay.Services;
 
-namespace GamePlayService.Controllers;
+namespace GamePlay.Controllers;
 
 /// <include file='.docs/xmldocs/Controllers.xml' path='doc/class/member[@name="GameRecordController"]/*' />
 [ApiController]

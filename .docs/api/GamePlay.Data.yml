@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Data
+  commentId: N:GamePlay.Data
+  id: GamePlay.Data
+  children:
+  - GamePlay.Data.GameDbContext
+  langs:
+  - csharp
+  - vb
+  name: GamePlay.Data
+  nameWithType: GamePlay.Data
+  fullName: GamePlay.Data
+  type: Namespace
+  assemblies:
+  - GamePlay
+references:
+- uid: GamePlay.Data.GameDbContext
+  commentId: T:GamePlay.Data.GameDbContext
+  parent: GamePlay.Data
+  href: GamePlay.Data.GameDbContext.html
+  name: GameDbContext
+  nameWithType: GameDbContext
+  fullName: GamePlay.Data.GameDbContext
+- uid: GamePlay.Data
+  commentId: N:GamePlay.Data
+  href: GamePlay.html
+  name: GamePlay.Data
+  nameWithType: GamePlay.Data
+  fullName: GamePlay.Data
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Data
+    name: Data
+    href: GamePlay.Data.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Data
+    name: Data
+    href: GamePlay.Data.html

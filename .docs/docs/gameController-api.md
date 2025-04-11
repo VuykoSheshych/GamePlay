@@ -7,7 +7,7 @@ title: GameRecordController API Documentation
 
 ## Overview
 
-The [GameRecordController](../api/GamePlayService.Controllers.GameRecordController.yml) is responsible for the client receiving information about completed games using the HTTP protocol.
+The [GameRecordController](../api/GamePlay.Controllers.GameRecordController.yml) is responsible for the client receiving information about completed games using the HTTP protocol.
 
 ## Methods
 

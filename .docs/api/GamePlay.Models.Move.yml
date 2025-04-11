@@ -1,0 +1,693 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Models.Move
+  commentId: T:GamePlay.Models.Move
+  id: Move
+  parent: GamePlay.Models
+  children:
+  - GamePlay.Models.Move.FenBefore
+  - GamePlay.Models.Move.From
+  - GamePlay.Models.Move.Id
+  - GamePlay.Models.Move.MoveNumber
+  - GamePlay.Models.Move.PlayerColor
+  - GamePlay.Models.Move.Promotion
+  - GamePlay.Models.Move.SanNotation
+  - GamePlay.Models.Move.Timestamp
+  - GamePlay.Models.Move.To
+  langs:
+  - csharp
+  - vb
+  name: Move
+  nameWithType: Move
+  fullName: GamePlay.Models.Move
+  type: Class
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Move
+    path: ../Models/Move.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    Represents a move made by a player during a chess game, including the move's
+    				details, notation, and timestamp.
+  example: []
+  syntax:
+    content: public class Move
+    content.vb: Public Class Move
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlay.Models.Move.Id
+  commentId: P:GamePlay.Models.Move.Id
+  id: Id
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Move.Id
+  fullName: GamePlay.Models.Move.Id
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Id
+    path: ../Models/Move.cs
+    startLine: 6
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The unique identifier for the move.
+  example: []
+  syntax:
+    content: public Guid Id { get; set; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: GamePlay.Models.Move.Id*
+- uid: GamePlay.Models.Move.MoveNumber
+  commentId: P:GamePlay.Models.Move.MoveNumber
+  id: MoveNumber
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: MoveNumber
+  nameWithType: Move.MoveNumber
+  fullName: GamePlay.Models.Move.MoveNumber
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: MoveNumber
+    path: ../Models/Move.cs
+    startLine: 9
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    The full move number in the game (e.g., 1 for the first move, 2 for the second
+    				move, etc.).
+  example: []
+  syntax:
+    content: public int MoveNumber { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property MoveNumber As Integer
+  overload: GamePlay.Models.Move.MoveNumber*
+- uid: GamePlay.Models.Move.PlayerColor
+  commentId: P:GamePlay.Models.Move.PlayerColor
+  id: PlayerColor
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: PlayerColor
+  nameWithType: Move.PlayerColor
+  fullName: GamePlay.Models.Move.PlayerColor
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: PlayerColor
+    path: ../Models/Move.cs
+    startLine: 12
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    The color of the player who made the move (either "w" for White or "b" for
+    				Black).
+  example: []
+  syntax:
+    content: public string PlayerColor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PlayerColor As String
+  overload: GamePlay.Models.Move.PlayerColor*
+- uid: GamePlay.Models.Move.From
+  commentId: P:GamePlay.Models.Move.From
+  id: From
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: From
+  nameWithType: Move.From
+  fullName: GamePlay.Models.Move.From
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: From
+    path: ../Models/Move.cs
+    startLine: 15
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The starting position of the piece being moved, in chess notation (e.g., "e2").
+  example: []
+  syntax:
+    content: public string From { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property From As String
+  overload: GamePlay.Models.Move.From*
+- uid: GamePlay.Models.Move.To
+  commentId: P:GamePlay.Models.Move.To
+  id: To
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: To
+  nameWithType: Move.To
+  fullName: GamePlay.Models.Move.To
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: To
+    path: ../Models/Move.cs
+    startLine: 18
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The destination position of the piece, in chess notation (e.g., "e4").
+  example: []
+  syntax:
+    content: public string To { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property [To] As String
+  overload: GamePlay.Models.Move.To*
+- uid: GamePlay.Models.Move.Promotion
+  commentId: P:GamePlay.Models.Move.Promotion
+  id: Promotion
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: Promotion
+  nameWithType: Move.Promotion
+  fullName: GamePlay.Models.Move.Promotion
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Promotion
+    path: ../Models/Move.cs
+    startLine: 21
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    Optional. The piece the pawn is promoted to, if the move is a pawn promotion
+    				(e.g., "Q" for queen, "R" for rook, etc.).
+  example: []
+  syntax:
+    content: public string? Promotion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Promotion As String
+  overload: GamePlay.Models.Move.Promotion*
+- uid: GamePlay.Models.Move.SanNotation
+  commentId: P:GamePlay.Models.Move.SanNotation
+  id: SanNotation
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: SanNotation
+  nameWithType: Move.SanNotation
+  fullName: GamePlay.Models.Move.SanNotation
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: SanNotation
+    path: ../Models/Move.cs
+    startLine: 24
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    The move in Standard Algebraic Notation (SAN), used to represent the move in
+    				chess notation (e.g., "Bxc5+", "Nf3").
+  example: []
+  syntax:
+    content: public string SanNotation { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SanNotation As String
+  overload: GamePlay.Models.Move.SanNotation*
+- uid: GamePlay.Models.Move.FenBefore
+  commentId: P:GamePlay.Models.Move.FenBefore
+  id: FenBefore
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: FenBefore
+  nameWithType: Move.FenBefore
+  fullName: GamePlay.Models.Move.FenBefore
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FenBefore
+    path: ../Models/Move.cs
+    startLine: 27
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The FEN string representing the state of the board before the move was made.
+  example: []
+  syntax:
+    content: public string FenBefore { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FenBefore As String
+  overload: GamePlay.Models.Move.FenBefore*
+- uid: GamePlay.Models.Move.Timestamp
+  commentId: P:GamePlay.Models.Move.Timestamp
+  id: Timestamp
+  parent: GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: Timestamp
+  nameWithType: Move.Timestamp
+  fullName: GamePlay.Models.Move.Timestamp
+  type: Property
+  source:
+    remote:
+      path: Models/Move.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Timestamp
+    path: ../Models/Move.cs
+    startLine: 30
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The date and time when the move was made.
+  example: []
+  syntax:
+    content: public DateTime Timestamp { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Timestamp As Date
+  overload: GamePlay.Models.Move.Timestamp*
+references:
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  href: GamePlay.html
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GamePlay.Models.Move.Id*
+  commentId: Overload:GamePlay.Models.Move.Id
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_Id
+  name: Id
+  nameWithType: Move.Id
+  fullName: GamePlay.Models.Move.Id
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: GamePlay.Models.Move.MoveNumber*
+  commentId: Overload:GamePlay.Models.Move.MoveNumber
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_MoveNumber
+  name: MoveNumber
+  nameWithType: Move.MoveNumber
+  fullName: GamePlay.Models.Move.MoveNumber
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: GamePlay.Models.Move.PlayerColor*
+  commentId: Overload:GamePlay.Models.Move.PlayerColor
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_PlayerColor
+  name: PlayerColor
+  nameWithType: Move.PlayerColor
+  fullName: GamePlay.Models.Move.PlayerColor
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: GamePlay.Models.Move.From*
+  commentId: Overload:GamePlay.Models.Move.From
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_From
+  name: From
+  nameWithType: Move.From
+  fullName: GamePlay.Models.Move.From
+- uid: GamePlay.Models.Move.To*
+  commentId: Overload:GamePlay.Models.Move.To
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_To
+  name: To
+  nameWithType: Move.To
+  fullName: GamePlay.Models.Move.To
+- uid: GamePlay.Models.Move.Promotion*
+  commentId: Overload:GamePlay.Models.Move.Promotion
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_Promotion
+  name: Promotion
+  nameWithType: Move.Promotion
+  fullName: GamePlay.Models.Move.Promotion
+- uid: GamePlay.Models.Move.SanNotation*
+  commentId: Overload:GamePlay.Models.Move.SanNotation
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_SanNotation
+  name: SanNotation
+  nameWithType: Move.SanNotation
+  fullName: GamePlay.Models.Move.SanNotation
+- uid: GamePlay.Models.Move.FenBefore*
+  commentId: Overload:GamePlay.Models.Move.FenBefore
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_FenBefore
+  name: FenBefore
+  nameWithType: Move.FenBefore
+  fullName: GamePlay.Models.Move.FenBefore
+- uid: GamePlay.Models.Move.Timestamp*
+  commentId: Overload:GamePlay.Models.Move.Timestamp
+  href: GamePlay.Models.Move.html#GamePlay_Models_Move_Timestamp
+  name: Timestamp
+  nameWithType: Move.Timestamp
+  fullName: GamePlay.Models.Move.Timestamp
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date

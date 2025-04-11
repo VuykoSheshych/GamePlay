@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Dtos
+  commentId: N:GamePlay.Dtos
+  id: GamePlay.Dtos
+  children:
+  - GamePlay.Dtos.ChatMessageDto
+  - GamePlay.Dtos.GameResultDto
+  - GamePlay.Dtos.MoveDto
+  - GamePlay.Dtos.MoveResultDto
+  - GamePlay.Dtos.PlayerInGameDto
+  langs:
+  - csharp
+  - vb
+  name: GamePlay.Dtos
+  nameWithType: GamePlay.Dtos
+  fullName: GamePlay.Dtos
+  type: Namespace
+  assemblies:
+  - GamePlay
+references:
+- uid: GamePlay.Dtos.ChatMessageDto
+  commentId: T:GamePlay.Dtos.ChatMessageDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.ChatMessageDto.html
+  name: ChatMessageDto
+  nameWithType: ChatMessageDto
+  fullName: GamePlay.Dtos.ChatMessageDto
+- uid: GamePlay.Dtos.GameResultDto
+  commentId: T:GamePlay.Dtos.GameResultDto
+  href: GamePlay.Dtos.GameResultDto.html
+  name: GameResultDto
+  nameWithType: GameResultDto
+  fullName: GamePlay.Dtos.GameResultDto
+- uid: GamePlay.Dtos.MoveDto
+  commentId: T:GamePlay.Dtos.MoveDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.MoveDto.html
+  name: MoveDto
+  nameWithType: MoveDto
+  fullName: GamePlay.Dtos.MoveDto
+- uid: GamePlay.Dtos.MoveResultDto
+  commentId: T:GamePlay.Dtos.MoveResultDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.MoveResultDto.html
+  name: MoveResultDto
+  nameWithType: MoveResultDto
+  fullName: GamePlay.Dtos.MoveResultDto
+- uid: GamePlay.Dtos.PlayerInGameDto
+  commentId: T:GamePlay.Dtos.PlayerInGameDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.PlayerInGameDto.html
+  name: PlayerInGameDto
+  nameWithType: PlayerInGameDto
+  fullName: GamePlay.Dtos.PlayerInGameDto
+- uid: GamePlay.Dtos
+  commentId: N:GamePlay.Dtos
+  href: GamePlay.html
+  name: GamePlay.Dtos
+  nameWithType: GamePlay.Dtos
+  fullName: GamePlay.Dtos
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html

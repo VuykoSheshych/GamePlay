@@ -1,0 +1,840 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Models.ChessPiece
+  commentId: T:GamePlay.Models.ChessPiece
+  id: ChessPiece
+  parent: GamePlay.Models
+  children:
+  - GamePlay.Models.ChessPiece.#ctor(System.String,System.String)
+  - GamePlay.Models.ChessPiece.Color
+  - GamePlay.Models.ChessPiece.ConvertToBoardIndex(System.String)
+  - GamePlay.Models.ChessPiece.GetPossibleMoves(GamePlay.Models.BoardState)
+  - GamePlay.Models.ChessPiece.IsOpponentPiece(System.Char)
+  - GamePlay.Models.ChessPiece.IsValidCell(System.Int32,System.Int32)
+  - GamePlay.Models.ChessPiece.Position
+  langs:
+  - csharp
+  - vb
+  name: ChessPiece
+  nameWithType: ChessPiece
+  fullName: GamePlay.Models.ChessPiece
+  type: Class
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: ChessPiece
+    path: ../Models/ChessPiece.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: Represents an abstract chess piece with color, position, and movement logic.
+  example: []
+  syntax:
+    content: public abstract class ChessPiece
+    content.vb: Public MustInherit Class ChessPiece
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - GamePlay.Models.Pieces.Bishop
+  - GamePlay.Models.Pieces.King
+  - GamePlay.Models.Pieces.Knight
+  - GamePlay.Models.Pieces.Pawn
+  - GamePlay.Models.Pieces.Queen
+  - GamePlay.Models.Pieces.Rook
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: GamePlay.Models.ChessPiece.#ctor(System.String,System.String)
+  commentId: M:GamePlay.Models.ChessPiece.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: ChessPiece(string, string)
+  nameWithType: ChessPiece.ChessPiece(string, string)
+  fullName: GamePlay.Models.ChessPiece.ChessPiece(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: .ctor
+    path: ../Models/ChessPiece.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: Represents an abstract chess piece with color, position, and movement logic.
+  example: []
+  syntax:
+    content: protected ChessPiece(string color, string position)
+    parameters:
+    - id: color
+      type: System.String
+    - id: position
+      type: System.String
+    content.vb: Protected Sub New(color As String, position As String)
+  overload: GamePlay.Models.ChessPiece.#ctor*
+  nameWithType.vb: ChessPiece.New(String, String)
+  fullName.vb: GamePlay.Models.ChessPiece.New(String, String)
+  name.vb: New(String, String)
+- uid: GamePlay.Models.ChessPiece.Color
+  commentId: P:GamePlay.Models.ChessPiece.Color
+  id: Color
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: Color
+  nameWithType: ChessPiece.Color
+  fullName: GamePlay.Models.ChessPiece.Color
+  type: Property
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Color
+    path: ../Models/ChessPiece.cs
+    startLine: 6
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: The color of the chess piece ("w" for white, "b" for black).
+  example: []
+  syntax:
+    content: public string Color { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Color As String
+  overload: GamePlay.Models.ChessPiece.Color*
+- uid: GamePlay.Models.ChessPiece.Position
+  commentId: P:GamePlay.Models.ChessPiece.Position
+  id: Position
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: Position
+  nameWithType: ChessPiece.Position
+  fullName: GamePlay.Models.ChessPiece.Position
+  type: Property
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: Position
+    path: ../Models/ChessPiece.cs
+    startLine: 9
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    The current position of the chess piece in standard chess notation
+    				(e.g., "e4").
+  example: []
+  syntax:
+    content: public string Position { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Position As String
+  overload: GamePlay.Models.ChessPiece.Position*
+- uid: GamePlay.Models.ChessPiece.GetPossibleMoves(GamePlay.Models.BoardState)
+  commentId: M:GamePlay.Models.ChessPiece.GetPossibleMoves(GamePlay.Models.BoardState)
+  id: GetPossibleMoves(GamePlay.Models.BoardState)
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: GetPossibleMoves(BoardState)
+  nameWithType: ChessPiece.GetPossibleMoves(BoardState)
+  fullName: GamePlay.Models.ChessPiece.GetPossibleMoves(GamePlay.Models.BoardState)
+  type: Method
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetPossibleMoves
+    path: ../Models/ChessPiece.cs
+    startLine: 12
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: >-
+    Returns a list of valid moves for the chess piece based on the current board
+    				state.
+  example: []
+  syntax:
+    content: public abstract List<string> GetPossibleMoves(BoardState boardState)
+    parameters:
+    - id: boardState
+      type: GamePlay.Models.BoardState
+      description: The current state of the chessboard.
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: A list of valid move positions in chess notation.
+    content.vb: Public MustOverride Function GetPossibleMoves(boardState As BoardState) As List(Of String)
+  overload: GamePlay.Models.ChessPiece.GetPossibleMoves*
+- uid: GamePlay.Models.ChessPiece.ConvertToBoardIndex(System.String)
+  commentId: M:GamePlay.Models.ChessPiece.ConvertToBoardIndex(System.String)
+  id: ConvertToBoardIndex(System.String)
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: ConvertToBoardIndex(string)
+  nameWithType: ChessPiece.ConvertToBoardIndex(string)
+  fullName: GamePlay.Models.ChessPiece.ConvertToBoardIndex(string)
+  type: Method
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: ConvertToBoardIndex
+    path: ../Models/ChessPiece.cs
+    startLine: 15
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: Converts a chess position (e.g., "e4") into board indices (row, column).
+  example: []
+  syntax:
+    content: public static (int row, int col) ConvertToBoardIndex(string position)
+    parameters:
+    - id: position
+      type: System.String
+      description: The position in chess notation.
+    return:
+      type: System.ValueTuple{System.Int32,System.Int32}
+      description: A tuple containing the row and column indices.
+    content.vb: Public Shared Function ConvertToBoardIndex(position As String) As (row As Integer, col As Integer)
+  overload: GamePlay.Models.ChessPiece.ConvertToBoardIndex*
+  nameWithType.vb: ChessPiece.ConvertToBoardIndex(String)
+  fullName.vb: GamePlay.Models.ChessPiece.ConvertToBoardIndex(String)
+  name.vb: ConvertToBoardIndex(String)
+- uid: GamePlay.Models.ChessPiece.IsValidCell(System.Int32,System.Int32)
+  commentId: M:GamePlay.Models.ChessPiece.IsValidCell(System.Int32,System.Int32)
+  id: IsValidCell(System.Int32,System.Int32)
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: IsValidCell(int, int)
+  nameWithType: ChessPiece.IsValidCell(int, int)
+  fullName: GamePlay.Models.ChessPiece.IsValidCell(int, int)
+  type: Method
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: IsValidCell
+    path: ../Models/ChessPiece.cs
+    startLine: 23
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: Checks if a given row and column are within the valid bounds of the board.
+  example: []
+  syntax:
+    content: protected bool IsValidCell(int row, int col)
+    parameters:
+    - id: row
+      type: System.Int32
+      description: The row index (0-7).
+    - id: col
+      type: System.Int32
+      description: The column index (0-7).
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the cell is within the board, otherwise <code>false</code>.
+    content.vb: Protected Function IsValidCell(row As Integer, col As Integer) As Boolean
+  overload: GamePlay.Models.ChessPiece.IsValidCell*
+  nameWithType.vb: ChessPiece.IsValidCell(Integer, Integer)
+  fullName.vb: GamePlay.Models.ChessPiece.IsValidCell(Integer, Integer)
+  name.vb: IsValidCell(Integer, Integer)
+- uid: GamePlay.Models.ChessPiece.IsOpponentPiece(System.Char)
+  commentId: M:GamePlay.Models.ChessPiece.IsOpponentPiece(System.Char)
+  id: IsOpponentPiece(System.Char)
+  parent: GamePlay.Models.ChessPiece
+  langs:
+  - csharp
+  - vb
+  name: IsOpponentPiece(char)
+  nameWithType: ChessPiece.IsOpponentPiece(char)
+  fullName: GamePlay.Models.ChessPiece.IsOpponentPiece(char)
+  type: Method
+  source:
+    remote:
+      path: Models/ChessPiece.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: IsOpponentPiece
+    path: ../Models/ChessPiece.cs
+    startLine: 29
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Models
+  summary: Checks if a given piece belongs to the opponent.
+  example: []
+  syntax:
+    content: protected bool IsOpponentPiece(char piece)
+    parameters:
+    - id: piece
+      type: System.Char
+      description: The piece character to check.
+    return:
+      type: System.Boolean
+      description: <code>true</code> if the piece belongs to the opponent, otherwise <code>false</code>.
+    content.vb: Protected Function IsOpponentPiece(piece As Char) As Boolean
+  overload: GamePlay.Models.ChessPiece.IsOpponentPiece*
+  nameWithType.vb: ChessPiece.IsOpponentPiece(Char)
+  fullName.vb: GamePlay.Models.ChessPiece.IsOpponentPiece(Char)
+  name.vb: IsOpponentPiece(Char)
+references:
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  href: GamePlay.html
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: GamePlay.Models.ChessPiece.#ctor*
+  commentId: Overload:GamePlay.Models.ChessPiece.#ctor
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece__ctor_System_String_System_String_
+  name: ChessPiece
+  nameWithType: ChessPiece.ChessPiece
+  fullName: GamePlay.Models.ChessPiece.ChessPiece
+  nameWithType.vb: ChessPiece.New
+  fullName.vb: GamePlay.Models.ChessPiece.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: GamePlay.Models.ChessPiece.Color*
+  commentId: Overload:GamePlay.Models.ChessPiece.Color
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_Color
+  name: Color
+  nameWithType: ChessPiece.Color
+  fullName: GamePlay.Models.ChessPiece.Color
+- uid: GamePlay.Models.ChessPiece.Position*
+  commentId: Overload:GamePlay.Models.ChessPiece.Position
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_Position
+  name: Position
+  nameWithType: ChessPiece.Position
+  fullName: GamePlay.Models.ChessPiece.Position
+- uid: GamePlay.Models.ChessPiece.GetPossibleMoves*
+  commentId: Overload:GamePlay.Models.ChessPiece.GetPossibleMoves
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_GetPossibleMoves_GamePlay_Models_BoardState_
+  name: GetPossibleMoves
+  nameWithType: ChessPiece.GetPossibleMoves
+  fullName: GamePlay.Models.ChessPiece.GetPossibleMoves
+- uid: GamePlay.Models.BoardState
+  commentId: T:GamePlay.Models.BoardState
+  parent: GamePlay.Models
+  href: GamePlay.Models.BoardState.html
+  name: BoardState
+  nameWithType: BoardState
+  fullName: GamePlay.Models.BoardState
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: GamePlay.Models.ChessPiece.ConvertToBoardIndex*
+  commentId: Overload:GamePlay.Models.ChessPiece.ConvertToBoardIndex
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_ConvertToBoardIndex_System_String_
+  name: ConvertToBoardIndex
+  nameWithType: ChessPiece.ConvertToBoardIndex
+  fullName: GamePlay.Models.ChessPiece.ConvertToBoardIndex
+- uid: System.ValueTuple{System.Int32,System.Int32}
+  commentId: T:System.ValueTuple{System.Int32,System.Int32}
+  parent: System
+  definition: System.ValueTuple`2
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: (int row, int col)
+  nameWithType: (int row, int col)
+  fullName: (int row, int col)
+  nameWithType.vb: (row As Integer, col As Integer)
+  fullName.vb: (row As Integer, col As Integer)
+  name.vb: (row As Integer, col As Integer)
+  spec.csharp:
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.row
+    name: row
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.row
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.col
+    name: col
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.col
+  - name: )
+  spec.vb:
+  - name: (
+  - uid: System.ValueTuple{System.Int32,System.Int32}.row
+    name: row
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.row
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.Int32,System.Int32}.col
+    name: col
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.int32,system.int32-.col
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.ValueTuple`2
+  commentId: T:System.ValueTuple`2
+  name: (T1, T2)
+  nameWithType: (T1, T2)
+  fullName: (T1, T2)
+  spec.csharp:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+  spec.vb:
+  - name: (
+  - name: T1
+  - name: ','
+  - name: " "
+  - name: T2
+  - name: )
+- uid: GamePlay.Models.ChessPiece.IsValidCell*
+  commentId: Overload:GamePlay.Models.ChessPiece.IsValidCell
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_IsValidCell_System_Int32_System_Int32_
+  name: IsValidCell
+  nameWithType: ChessPiece.IsValidCell
+  fullName: GamePlay.Models.ChessPiece.IsValidCell
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: GamePlay.Models.ChessPiece.IsOpponentPiece*
+  commentId: Overload:GamePlay.Models.ChessPiece.IsOpponentPiece
+  href: GamePlay.Models.ChessPiece.html#GamePlay_Models_ChessPiece_IsOpponentPiece_System_Char_
+  name: IsOpponentPiece
+  nameWithType: ChessPiece.IsOpponentPiece
+  fullName: GamePlay.Models.ChessPiece.IsOpponentPiece
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.char
+  name: char
+  nameWithType: char
+  fullName: char
+  nameWithType.vb: Char
+  fullName.vb: Char
+  name.vb: Char

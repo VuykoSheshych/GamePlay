@@ -1,6 +1,6 @@
 using StackExchange.Redis;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <inheritdoc cref="IGameSearchService"/>
 public class GameSearchService(IConnectionMultiplexer redis) : IGameSearchService

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Player System | ChessGamePlayService </title>
+      <title>Player System | ChessGamePlay </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Player System | ChessGamePlayService ">
+      <meta name="title" content="Player System | ChessGamePlay ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/VuykoSheshych/GamePlayService/blob/release/0.1.0-preview-1/.docs/docs/player-system.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/VuykoSheshych/GamePlayService/blob/develop/.docs/docs/player-system.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -44,8 +44,8 @@
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
           <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="ChessGamePlayService">
-            ChessGamePlayService
+            <img id="logo" class="svg" src="../logo.svg" alt="ChessGamePlay">
+            ChessGamePlay
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
             <i class="bi bi-three-dots"></i>
@@ -89,7 +89,7 @@
 
 <p>The Player System handles the management of players in the chess game. This section explains how players are represented, how they interact with the game, and how the system tracks each player's activity.</p>
 <h2 id="player-representation">Player Representation</h2>
-<p>Players are represented as objects with key details such as their name, connection ID (for online play), and time reserve for each game. These details are encapsulated in the <a href="../api/GamePlayService.Dtos.PlayerInGameDto.html">PlayerInGameDto</a> record.</p>
+<p>Players are represented as objects with key details such as their name, connection ID (for online play), and time reserve for each game. These details are encapsulated in the <a href="../api/GamePlay.Dtos.PlayerInGameDto.html">PlayerInGameDto</a> record.</p>
 <pre><code class="lang-csharp">public record PlayerInGameDto(string Name, string ConnectionId, TimeSpan TimeReserve) { }
 </code></pre>
 <ul>
@@ -103,7 +103,7 @@
 <li><strong>White Player</strong>: The player who controls the white pieces and makes the first move.</li>
 <li><strong>Black Player</strong>: The player who controls the black pieces and moves second.</li>
 </ul>
-<p>The <a href="../api/GamePlayService.Services.GameSessionService.html">GameSession</a> class encapsulates both players:</p>
+<p>The <a href="../api/GamePlay.Services.GameSessionService.html">GameSession</a> class encapsulates both players:</p>
 <pre><code class="lang-csharp">public class GameSession
 {
     public Guid Id { get; set; } = Guid.NewGuid();
@@ -117,7 +117,7 @@
 </code></pre>
 <p>In this structure:</p>
 <ul>
-<li><strong>WhitePlayer</strong> and <strong>BlackPlayer</strong> represent the two participants in the game, encapsulated in the <a href="../api/GamePlayService.Dtos.PlayerInGameDto.html">PlayerInGameDto</a> records.</li>
+<li><strong>WhitePlayer</strong> and <strong>BlackPlayer</strong> represent the two participants in the game, encapsulated in the <a href="../api/GamePlay.Dtos.PlayerInGameDto.html">PlayerInGameDto</a> records.</li>
 <li>The <strong>GameSession</strong> keeps track of the entire game session, including moves made, messages exchanged, and the current state of the game board.</li>
 </ul>
 <h2 id="time-management">Time Management</h2>
@@ -127,10 +127,10 @@
 <p>The functionality of the different game modes has not yet been implemented. Currently, the games are played without time control.</p>
 </div>
 <h2 id="multiplayer-and-chat">Multiplayer and Chat</h2>
-<p>In a multiplayer game, players can interact through messages. These chat messages are stored in the <code>Messages</code> list of the <a href="../api/GamePlayService.Services.GameSessionService.html">GameSession</a>:</p>
+<p>In a multiplayer game, players can interact through messages. These chat messages are stored in the <code>Messages</code> list of the <a href="../api/GamePlay.Services.GameSessionService.html">GameSession</a>:</p>
 <pre><code class="lang-csharp">public List&lt;ChatMessageDto&gt; Messages { get; set; } = [];
 </code></pre>
-<p>Each message contains an author and the text of the message, as represented by the <a href="../api/GamePlayService.Dtos.ChatMessageDto.html">ChatMessageDto</a> record:</p>
+<p>Each message contains an author and the text of the message, as represented by the <a href="../api/GamePlay.Dtos.ChatMessageDto.html">ChatMessageDto</a> record:</p>
 <pre><code class="lang-csharp">public record ChatMessageDto(string Author, string Text) { }
 </code></pre>
 <p>This enables real-time communication between players during the game.</p>
@@ -140,7 +140,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/VuykoSheshych/GamePlayService/blob/release/0.1.0-preview-1/.docs/docs/player-system.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/VuykoSheshych/GamePlayService/blob/develop/.docs/docs/player-system.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

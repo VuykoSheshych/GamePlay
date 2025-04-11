@@ -1,9 +1,9 @@
 using System.Text.Json;
-using GamePlayService.Dtos;
-using GamePlayService.Models;
+using GamePlay.Dtos;
+using GamePlay.Models;
 using StackExchange.Redis;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <inheritdoc cref="IGameSessionService" />
 public class GameSessionService(IConnectionMultiplexer redis, IGameRecordService gameService) : IGameSessionService

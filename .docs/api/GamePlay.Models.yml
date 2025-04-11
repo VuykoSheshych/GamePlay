@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  id: GamePlay.Models
+  children:
+  - GamePlay.Models.BoardState
+  - GamePlay.Models.ChessPiece
+  - GamePlay.Models.GameRecord
+  - GamePlay.Models.GameSession
+  - GamePlay.Models.Move
+  langs:
+  - csharp
+  - vb
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  type: Namespace
+  assemblies:
+  - GamePlay
+references:
+- uid: GamePlay.Models.BoardState
+  commentId: T:GamePlay.Models.BoardState
+  parent: GamePlay.Models
+  href: GamePlay.Models.BoardState.html
+  name: BoardState
+  nameWithType: BoardState
+  fullName: GamePlay.Models.BoardState
+- uid: GamePlay.Models.ChessPiece
+  commentId: T:GamePlay.Models.ChessPiece
+  parent: GamePlay.Models
+  href: GamePlay.Models.ChessPiece.html
+  name: ChessPiece
+  nameWithType: ChessPiece
+  fullName: GamePlay.Models.ChessPiece
+- uid: GamePlay.Models.GameRecord
+  commentId: T:GamePlay.Models.GameRecord
+  parent: GamePlay.Models
+  href: GamePlay.Models.GameRecord.html
+  name: GameRecord
+  nameWithType: GameRecord
+  fullName: GamePlay.Models.GameRecord
+- uid: GamePlay.Models.GameSession
+  commentId: T:GamePlay.Models.GameSession
+  parent: GamePlay.Models
+  href: GamePlay.Models.GameSession.html
+  name: GameSession
+  nameWithType: GameSession
+  fullName: GamePlay.Models.GameSession
+- uid: GamePlay.Models.Move
+  commentId: T:GamePlay.Models.Move
+  href: GamePlay.Models.Move.html
+  name: Move
+  nameWithType: Move
+  fullName: GamePlay.Models.Move
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  href: GamePlay.html
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html

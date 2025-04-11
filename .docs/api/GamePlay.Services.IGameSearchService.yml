@@ -1,0 +1,442 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Services.IGameSearchService
+  commentId: T:GamePlay.Services.IGameSearchService
+  id: IGameSearchService
+  parent: GamePlay.Services
+  children:
+  - GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  - GamePlay.Services.IGameSearchService.FindPlayersForGame
+  - GamePlay.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  - GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IGameSearchService
+  nameWithType: IGameSearchService
+  fullName: GamePlay.Services.IGameSearchService
+  type: Interface
+  source:
+    remote:
+      path: Services/IGameSearchService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: IGameSearchService
+    path: ../Services/IGameSearchService.cs
+    startLine: 3
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: >-
+    Provides methods for managing the game search process, including adding and
+    				removing players from the search queue.
+  example: []
+  syntax:
+    content: public interface IGameSearchService
+    content.vb: Public Interface IGameSearchService
+- uid: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  commentId: M:GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(System.String,System.String)
+  id: AddPlayerToSearchQueue(System.String,System.String)
+  parent: GamePlay.Services.IGameSearchService
+  langs:
+  - csharp
+  - vb
+  name: AddPlayerToSearchQueue(string, string)
+  nameWithType: IGameSearchService.AddPlayerToSearchQueue(string, string)
+  fullName: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(string, string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSearchService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: AddPlayerToSearchQueue
+    path: ../Services/IGameSearchService.cs
+    startLine: 6
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Adds a player to the matchmaking queue.
+  example: []
+  syntax:
+    content: Task AddPlayerToSearchQueue(string playerName, string playerConnectionId)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player to be added.
+    - id: playerConnectionId
+      type: System.String
+      description: The connection ID of the player.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddPlayerToSearchQueue(playerName As String, playerConnectionId As String) As Task
+  overload: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue*
+  nameWithType.vb: IGameSearchService.AddPlayerToSearchQueue(String, String)
+  fullName.vb: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue(String, String)
+  name.vb: AddPlayerToSearchQueue(String, String)
+- uid: GamePlay.Services.IGameSearchService.FindPlayersForGame
+  commentId: M:GamePlay.Services.IGameSearchService.FindPlayersForGame
+  id: FindPlayersForGame
+  parent: GamePlay.Services.IGameSearchService
+  langs:
+  - csharp
+  - vb
+  name: FindPlayersForGame()
+  nameWithType: IGameSearchService.FindPlayersForGame()
+  fullName: GamePlay.Services.IGameSearchService.FindPlayersForGame()
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSearchService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: FindPlayersForGame
+    path: ../Services/IGameSearchService.cs
+    startLine: 9
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Attempts to find a pair of players for a game session.
+  example: []
+  syntax:
+    content: Task<List<(string name, string id)>?> FindPlayersForGame()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+      description: >-
+        A list containing two players with their connection IDs, or null if not enough
+        				players are available.
+    content.vb: Function FindPlayersForGame() As Task(Of List(Of (name As String, id As String)))
+  overload: GamePlay.Services.IGameSearchService.FindPlayersForGame*
+- uid: GamePlay.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  commentId: M:GamePlay.Services.IGameSearchService.GetPlayerConnectionId(System.String)
+  id: GetPlayerConnectionId(System.String)
+  parent: GamePlay.Services.IGameSearchService
+  langs:
+  - csharp
+  - vb
+  name: GetPlayerConnectionId(string)
+  nameWithType: IGameSearchService.GetPlayerConnectionId(string)
+  fullName: GamePlay.Services.IGameSearchService.GetPlayerConnectionId(string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSearchService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetPlayerConnectionId
+    path: ../Services/IGameSearchService.cs
+    startLine: 12
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Retrieves the connection ID of a player currently in the search queue.
+  example: []
+  syntax:
+    content: Task<string?> GetPlayerConnectionId(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player whose connection ID is being retrieved.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: The connection ID of the player, or null if the player is not in the queue.
+    content.vb: Function GetPlayerConnectionId(playerName As String) As Task(Of String)
+  overload: GamePlay.Services.IGameSearchService.GetPlayerConnectionId*
+  nameWithType.vb: IGameSearchService.GetPlayerConnectionId(String)
+  fullName.vb: GamePlay.Services.IGameSearchService.GetPlayerConnectionId(String)
+  name.vb: GetPlayerConnectionId(String)
+- uid: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  commentId: M:GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(System.String)
+  id: RemovePlayerFromSearchQueue(System.String)
+  parent: GamePlay.Services.IGameSearchService
+  langs:
+  - csharp
+  - vb
+  name: RemovePlayerFromSearchQueue(string)
+  nameWithType: IGameSearchService.RemovePlayerFromSearchQueue(string)
+  fullName: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSearchService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: RemovePlayerFromSearchQueue
+    path: ../Services/IGameSearchService.cs
+    startLine: 15
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Removes a player from the matchmaking queue.
+  example: []
+  syntax:
+    content: Task RemovePlayerFromSearchQueue(string playerName)
+    parameters:
+    - id: playerName
+      type: System.String
+      description: The name of the player to be removed.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function RemovePlayerFromSearchQueue(playerName As String) As Task
+  overload: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue*
+  nameWithType.vb: IGameSearchService.RemovePlayerFromSearchQueue(String)
+  fullName.vb: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue(String)
+  name.vb: RemovePlayerFromSearchQueue(String)
+references:
+- uid: GamePlay.Services
+  commentId: N:GamePlay.Services
+  href: GamePlay.html
+  name: GamePlay.Services
+  nameWithType: GamePlay.Services
+  fullName: GamePlay.Services
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+- uid: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue*
+  commentId: Overload:GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue
+  href: GamePlay.Services.IGameSearchService.html#GamePlay_Services_IGameSearchService_AddPlayerToSearchQueue_System_String_System_String_
+  name: AddPlayerToSearchQueue
+  nameWithType: IGameSearchService.AddPlayerToSearchQueue
+  fullName: GamePlay.Services.IGameSearchService.AddPlayerToSearchQueue
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: GamePlay.Services.IGameSearchService.FindPlayersForGame*
+  commentId: Overload:GamePlay.Services.IGameSearchService.FindPlayersForGame
+  href: GamePlay.Services.IGameSearchService.html#GamePlay_Services_IGameSearchService_FindPlayersForGame
+  name: FindPlayersForGame
+  nameWithType: IGameSearchService.FindPlayersForGame
+  fullName: GamePlay.Services.IGameSearchService.FindPlayersForGame
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<(string name, string id)>>
+  nameWithType: Task<List<(string name, string id)>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<(string name, string id)>>
+  nameWithType.vb: Task(Of List(Of (name As String, id As String)))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of (name As String, id As String)))
+  name.vb: Task(Of List(Of (name As String, id As String)))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: )
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: GamePlay.Services.IGameSearchService.GetPlayerConnectionId*
+  commentId: Overload:GamePlay.Services.IGameSearchService.GetPlayerConnectionId
+  href: GamePlay.Services.IGameSearchService.html#GamePlay_Services_IGameSearchService_GetPlayerConnectionId_System_String_
+  name: GetPlayerConnectionId
+  nameWithType: IGameSearchService.GetPlayerConnectionId
+  fullName: GamePlay.Services.IGameSearchService.GetPlayerConnectionId
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue*
+  commentId: Overload:GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue
+  href: GamePlay.Services.IGameSearchService.html#GamePlay_Services_IGameSearchService_RemovePlayerFromSearchQueue_System_String_
+  name: RemovePlayerFromSearchQueue
+  nameWithType: IGameSearchService.RemovePlayerFromSearchQueue
+  fullName: GamePlay.Services.IGameSearchService.RemovePlayerFromSearchQueue

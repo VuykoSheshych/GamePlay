@@ -1,0 +1,371 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Services.IGameRecordService
+  commentId: T:GamePlay.Services.IGameRecordService
+  id: IGameRecordService
+  parent: GamePlay.Services
+  children:
+  - GamePlay.Services.IGameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)
+  - GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync
+  - GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)
+  langs:
+  - csharp
+  - vb
+  name: IGameRecordService
+  nameWithType: IGameRecordService
+  fullName: GamePlay.Services.IGameRecordService
+  type: Interface
+  source:
+    remote:
+      path: Services/IGameRecordService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: IGameRecordService
+    path: ../Services/IGameRecordService.cs
+    startLine: 5
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Provides methods for managing game records in the database.
+  example: []
+  syntax:
+    content: public interface IGameRecordService
+    content.vb: Public Interface IGameRecordService
+- uid: GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)
+  commentId: M:GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)
+  id: GetGameRecordByIdAsync(System.Guid)
+  parent: GamePlay.Services.IGameRecordService
+  langs:
+  - csharp
+  - vb
+  name: GetGameRecordByIdAsync(Guid)
+  nameWithType: IGameRecordService.GetGameRecordByIdAsync(Guid)
+  fullName: GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameRecordService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetGameRecordByIdAsync
+    path: ../Services/IGameRecordService.cs
+    startLine: 8
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Retrieves a game record by its unique identifier.
+  example: []
+  syntax:
+    content: Task<GameRecord?> GetGameRecordByIdAsync(Guid gameId)
+    parameters:
+    - id: gameId
+      type: System.Guid
+      description: The unique identifier of the game record.
+    return:
+      type: System.Threading.Tasks.Task{GamePlay.Models.GameRecord}
+      description: The game record if found; otherwise, null.
+    content.vb: Function GetGameRecordByIdAsync(gameId As Guid) As Task(Of GameRecord)
+  overload: GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync*
+- uid: GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync
+  commentId: M:GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync
+  id: GetAllGameRecordsAsync
+  parent: GamePlay.Services.IGameRecordService
+  langs:
+  - csharp
+  - vb
+  name: GetAllGameRecordsAsync()
+  nameWithType: IGameRecordService.GetAllGameRecordsAsync()
+  fullName: GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync()
+  type: Method
+  source:
+    remote:
+      path: Services/IGameRecordService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetAllGameRecordsAsync
+    path: ../Services/IGameRecordService.cs
+    startLine: 11
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Retrieves all game records from the database.
+  example: []
+  syntax:
+    content: Task<List<GameRecord>?> GetAllGameRecordsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{GamePlay.Models.GameRecord}}
+      description: A list of all game records, or null if none are found.
+    content.vb: Function GetAllGameRecordsAsync() As Task(Of List(Of GameRecord))
+  overload: GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync*
+- uid: GamePlay.Services.IGameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)
+  commentId: M:GamePlay.Services.IGameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)
+  id: AddGameRecordAsync(GamePlay.Models.GameRecord)
+  parent: GamePlay.Services.IGameRecordService
+  langs:
+  - csharp
+  - vb
+  name: AddGameRecordAsync(GameRecord)
+  nameWithType: IGameRecordService.AddGameRecordAsync(GameRecord)
+  fullName: GamePlay.Services.IGameRecordService.AddGameRecordAsync(GamePlay.Models.GameRecord)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameRecordService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: AddGameRecordAsync
+    path: ../Services/IGameRecordService.cs
+    startLine: 14
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Adds a new game record to the database.
+  example: []
+  syntax:
+    content: Task AddGameRecordAsync(GameRecord gameRecord)
+    parameters:
+    - id: gameRecord
+      type: GamePlay.Models.GameRecord
+      description: The game record to add.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddGameRecordAsync(gameRecord As GameRecord) As Task
+  overload: GamePlay.Services.IGameRecordService.AddGameRecordAsync*
+references:
+- uid: GamePlay.Services
+  commentId: N:GamePlay.Services
+  href: GamePlay.html
+  name: GamePlay.Services
+  nameWithType: GamePlay.Services
+  fullName: GamePlay.Services
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+- uid: GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync*
+  commentId: Overload:GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync
+  href: GamePlay.Services.IGameRecordService.html#GamePlay_Services_IGameRecordService_GetGameRecordByIdAsync_System_Guid_
+  name: GetGameRecordByIdAsync
+  nameWithType: IGameRecordService.GetGameRecordByIdAsync
+  fullName: GamePlay.Services.IGameRecordService.GetGameRecordByIdAsync
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Threading.Tasks.Task{GamePlay.Models.GameRecord}
+  commentId: T:System.Threading.Tasks.Task{GamePlay.Models.GameRecord}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GameRecord>
+  nameWithType: Task<GameRecord>
+  fullName: System.Threading.Tasks.Task<GamePlay.Models.GameRecord>
+  nameWithType.vb: Task(Of GameRecord)
+  fullName.vb: System.Threading.Tasks.Task(Of GamePlay.Models.GameRecord)
+  name.vb: Task(Of GameRecord)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: GamePlay.Models.GameRecord
+    name: GameRecord
+    href: GamePlay.Models.GameRecord.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GamePlay.Models.GameRecord
+    name: GameRecord
+    href: GamePlay.Models.GameRecord.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync*
+  commentId: Overload:GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync
+  href: GamePlay.Services.IGameRecordService.html#GamePlay_Services_IGameRecordService_GetAllGameRecordsAsync
+  name: GetAllGameRecordsAsync
+  nameWithType: IGameRecordService.GetAllGameRecordsAsync
+  fullName: GamePlay.Services.IGameRecordService.GetAllGameRecordsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{GamePlay.Models.GameRecord}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{GamePlay.Models.GameRecord}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<GameRecord>>
+  nameWithType: Task<List<GameRecord>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<GamePlay.Models.GameRecord>>
+  nameWithType.vb: Task(Of List(Of GameRecord))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of GamePlay.Models.GameRecord))
+  name.vb: Task(Of List(Of GameRecord))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: GamePlay.Models.GameRecord
+    name: GameRecord
+    href: GamePlay.Models.GameRecord.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GamePlay.Models.GameRecord
+    name: GameRecord
+    href: GamePlay.Models.GameRecord.html
+  - name: )
+  - name: )
+- uid: GamePlay.Services.IGameRecordService.AddGameRecordAsync*
+  commentId: Overload:GamePlay.Services.IGameRecordService.AddGameRecordAsync
+  href: GamePlay.Services.IGameRecordService.html#GamePlay_Services_IGameRecordService_AddGameRecordAsync_GamePlay_Models_GameRecord_
+  name: AddGameRecordAsync
+  nameWithType: IGameRecordService.AddGameRecordAsync
+  fullName: GamePlay.Services.IGameRecordService.AddGameRecordAsync
+- uid: GamePlay.Models.GameRecord
+  commentId: T:GamePlay.Models.GameRecord
+  parent: GamePlay.Models
+  href: GamePlay.Models.GameRecord.html
+  name: GameRecord
+  nameWithType: GameRecord
+  fullName: GamePlay.Models.GameRecord
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  href: GamePlay.html
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html

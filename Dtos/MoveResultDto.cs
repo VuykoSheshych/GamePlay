@@ -1,4 +1,4 @@
-namespace GamePlayService.Dtos;
+namespace GamePlay.Dtos;
 
 /// <include file='.docs/xmldocs/DTOs.xml' path='doc/class/member[@name="MoveResultDto"]/*' />
 public record MoveResultDto(bool IsSuccess, string Message)

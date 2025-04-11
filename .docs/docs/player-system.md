@@ -9,7 +9,7 @@ The Player System handles the management of players in the chess game. This sect
 
 ## Player Representation
 
-Players are represented as objects with key details such as their name, connection ID (for online play), and time reserve for each game. These details are encapsulated in the [PlayerInGameDto](../api/GamePlayService.Dtos.PlayerInGameDto.yml) record.
+Players are represented as objects with key details such as their name, connection ID (for online play), and time reserve for each game. These details are encapsulated in the [PlayerInGameDto](../api/GamePlay.Dtos.PlayerInGameDto.yml) record.
 
 ```csharp
 public record PlayerInGameDto(string Name, string ConnectionId, TimeSpan TimeReserve) { }
@@ -26,7 +26,7 @@ In each game session, players are assigned a role based on their color:
 - **White Player**: The player who controls the white pieces and makes the first move.
 - **Black Player**: The player who controls the black pieces and moves second.
 
-The [GameSession](../api/GamePlayService.Services.GameSessionService.yml) class encapsulates both players:
+The [GameSession](../api/GamePlay.Services.GameSessionService.yml) class encapsulates both players:
 
 ```csharp
 public class GameSession
@@ -43,7 +43,7 @@ public class GameSession
 
 In this structure:
 
-- **WhitePlayer** and **BlackPlayer** represent the two participants in the game, encapsulated in the [PlayerInGameDto](../api/GamePlayService.Dtos.PlayerInGameDto.yml) records.
+- **WhitePlayer** and **BlackPlayer** represent the two participants in the game, encapsulated in the [PlayerInGameDto](../api/GamePlay.Dtos.PlayerInGameDto.yml) records.
 - The **GameSession** keeps track of the entire game session, including moves made, messages exchanged, and the current state of the game board.
 
 ## Time Management
@@ -55,13 +55,13 @@ Each player is given a time reserve, which is tracked separately. This time rese
 
 ## Multiplayer and Chat
 
-In a multiplayer game, players can interact through messages. These chat messages are stored in the `Messages` list of the [GameSession](../api/GamePlayService.Services.GameSessionService.yml):
+In a multiplayer game, players can interact through messages. These chat messages are stored in the `Messages` list of the [GameSession](../api/GamePlay.Services.GameSessionService.yml):
 
 ```csharp
 public List<ChatMessageDto> Messages { get; set; } = [];
 ```
 
-Each message contains an author and the text of the message, as represented by the [ChatMessageDto](../api/GamePlayService.Dtos.ChatMessageDto.yml) record:
+Each message contains an author and the text of the message, as represented by the [ChatMessageDto](../api/GamePlay.Dtos.ChatMessageDto.yml) record:
 
 ```csharp
 public record ChatMessageDto(string Author, string Text) { }

@@ -1,0 +1,718 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Services.IGameSessionService
+  commentId: T:GamePlay.Services.IGameSessionService
+  id: IGameSessionService
+  parent: GamePlay.Services
+  children:
+  - GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  - GamePlay.Services.IGameSessionService.GetGameSessionAsync(System.String)
+  - GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(System.String,System.String)
+  - GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)
+  - GamePlay.Services.IGameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)
+  - GamePlay.Services.IGameSessionService.TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)
+  langs:
+  - csharp
+  - vb
+  name: IGameSessionService
+  nameWithType: IGameSessionService
+  fullName: GamePlay.Services.IGameSessionService
+  type: Interface
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: IGameSessionService
+    path: ../Services/IGameSessionService.cs
+    startLine: 6
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: >-
+    Provides methods for managing game sessions, including creation, updates, and
+    				moves processing.
+  example: []
+  syntax:
+    content: public interface IGameSessionService
+    content.vb: Public Interface IGameSessionService
+- uid: GamePlay.Services.IGameSessionService.GetGameSessionAsync(System.String)
+  commentId: M:GamePlay.Services.IGameSessionService.GetGameSessionAsync(System.String)
+  id: GetGameSessionAsync(System.String)
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: GetGameSessionAsync(string)
+  nameWithType: IGameSessionService.GetGameSessionAsync(string)
+  fullName: GamePlay.Services.IGameSessionService.GetGameSessionAsync(string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: GetGameSessionAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 9
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Retrieves an active game session by its unique identifier.
+  example: []
+  syntax:
+    content: Task<GameSession?> GetGameSessionAsync(string gameId)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The unique identifier of the game session.
+    return:
+      type: System.Threading.Tasks.Task{GamePlay.Models.GameSession}
+      description: The game session if found; otherwise, null.
+    content.vb: Function GetGameSessionAsync(gameId As String) As Task(Of GameSession)
+  overload: GamePlay.Services.IGameSessionService.GetGameSessionAsync*
+  nameWithType.vb: IGameSessionService.GetGameSessionAsync(String)
+  fullName.vb: GamePlay.Services.IGameSessionService.GetGameSessionAsync(String)
+  name.vb: GetGameSessionAsync(String)
+- uid: GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  commentId: M:GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  id: CreateGameSessionAsync(System.Collections.Generic.List{System.ValueTuple{System.String,System.String}})
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: CreateGameSessionAsync(List<(string name, string id)>)
+  nameWithType: IGameSessionService.CreateGameSessionAsync(List<(string name, string id)>)
+  fullName: GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List<(string name, string id)>)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: CreateGameSessionAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 12
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Creates a new game session with the specified players.
+  example: []
+  syntax:
+    content: Task<Guid> CreateGameSessionAsync(List<(string name, string id)> players)
+    parameters:
+    - id: players
+      type: System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+      description: A list of player names and their connection IDs.
+    return:
+      type: System.Threading.Tasks.Task{System.Guid}
+      description: The unique identifier of the newly created game session.
+    content.vb: Function CreateGameSessionAsync(players As List(Of (name As String, id As String))) As Task(Of Guid)
+  overload: GamePlay.Services.IGameSessionService.CreateGameSessionAsync*
+  nameWithType.vb: IGameSessionService.CreateGameSessionAsync(List(Of (name As String, id As String)))
+  fullName.vb: GamePlay.Services.IGameSessionService.CreateGameSessionAsync(System.Collections.Generic.List(Of (name As String, id As String)))
+  name.vb: CreateGameSessionAsync(List(Of (name As String, id As String)))
+- uid: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(System.String,System.String)
+  commentId: M:GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(System.String,System.String)
+  id: RemoveGameSessionAsync(System.String,System.String)
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: RemoveGameSessionAsync(string, string)
+  nameWithType: IGameSessionService.RemoveGameSessionAsync(string, string)
+  fullName: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(string, string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: RemoveGameSessionAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 15
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Removes a completed or abandoned game session.
+  example: []
+  syntax:
+    content: Task RemoveGameSessionAsync(string gameId, string result)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The unique identifier of the game session to remove.
+    - id: result
+      type: System.String
+      description: >-
+        The final result of the game session (e.g., "1-0" for White win,
+        				"0-1" for Black win, "½-½" for draw).
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function RemoveGameSessionAsync(gameId As String, result As String) As Task
+  overload: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync*
+  nameWithType.vb: IGameSessionService.RemoveGameSessionAsync(String, String)
+  fullName.vb: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync(String, String)
+  name.vb: RemoveGameSessionAsync(String, String)
+- uid: GamePlay.Services.IGameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)
+  commentId: M:GamePlay.Services.IGameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)
+  id: SaveGameSessionAsync(GamePlay.Models.GameSession)
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: SaveGameSessionAsync(GameSession)
+  nameWithType: IGameSessionService.SaveGameSessionAsync(GameSession)
+  fullName: GamePlay.Services.IGameSessionService.SaveGameSessionAsync(GamePlay.Models.GameSession)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: SaveGameSessionAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 18
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Saves the current state of an active game session.
+  example: []
+  syntax:
+    content: Task SaveGameSessionAsync(GameSession gameSession)
+    parameters:
+    - id: gameSession
+      type: GamePlay.Models.GameSession
+      description: The game session to save.
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SaveGameSessionAsync(gameSession As GameSession) As Task
+  overload: GamePlay.Services.IGameSessionService.SaveGameSessionAsync*
+- uid: GamePlay.Services.IGameSessionService.TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)
+  commentId: M:GamePlay.Services.IGameSessionService.TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)
+  id: TryMakeMoveAsync(System.String,GamePlay.Dtos.MoveDto)
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: TryMakeMoveAsync(string, MoveDto)
+  nameWithType: IGameSessionService.TryMakeMoveAsync(string, MoveDto)
+  fullName: GamePlay.Services.IGameSessionService.TryMakeMoveAsync(string, GamePlay.Dtos.MoveDto)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: TryMakeMoveAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 21
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Processes a move attempt in an active game session.
+  example: []
+  syntax:
+    content: Task<MoveResultDto> TryMakeMoveAsync(string gameId, MoveDto moveDto)
+    parameters:
+    - id: gameId
+      type: System.String
+      description: The unique identifier of the game session.
+    - id: moveDto
+      type: GamePlay.Dtos.MoveDto
+      description: The move data containing details of the move.
+    return:
+      type: System.Threading.Tasks.Task{GamePlay.Dtos.MoveResultDto}
+      description: The result of the move attempt, indicating success or failure.
+    content.vb: Function TryMakeMoveAsync(gameId As String, moveDto As MoveDto) As Task(Of MoveResultDto)
+  overload: GamePlay.Services.IGameSessionService.TryMakeMoveAsync*
+  nameWithType.vb: IGameSessionService.TryMakeMoveAsync(String, MoveDto)
+  fullName.vb: GamePlay.Services.IGameSessionService.TryMakeMoveAsync(String, GamePlay.Dtos.MoveDto)
+  name.vb: TryMakeMoveAsync(String, MoveDto)
+- uid: GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)
+  commentId: M:GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)
+  id: SaveGameRecordAsync(GamePlay.Models.GameSession,System.String)
+  parent: GamePlay.Services.IGameSessionService
+  langs:
+  - csharp
+  - vb
+  name: SaveGameRecordAsync(GameSession, string)
+  nameWithType: IGameSessionService.SaveGameRecordAsync(GameSession, string)
+  fullName: GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession, string)
+  type: Method
+  source:
+    remote:
+      path: Services/IGameSessionService.cs
+      branch: develop
+      repo: https://github.com/VuykoSheshych/GamePlayService.git
+    id: SaveGameRecordAsync
+    path: ../Services/IGameSessionService.cs
+    startLine: 24
+  assemblies:
+  - GamePlay
+  namespace: GamePlay.Services
+  summary: Saves a completed game session as a historical record.
+  example: []
+  syntax:
+    content: Task SaveGameRecordAsync(GameSession gameSession, string result)
+    parameters:
+    - id: gameSession
+      type: GamePlay.Models.GameSession
+      description: The completed game session to save.
+    - id: result
+      type: System.String
+      description: >-
+        The final result of the game session (e.g., "1-0" for White win,
+        				"0-1" for Black win, "½-½" for draw).
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SaveGameRecordAsync(gameSession As GameSession, result As String) As Task
+  overload: GamePlay.Services.IGameSessionService.SaveGameRecordAsync*
+  nameWithType.vb: IGameSessionService.SaveGameRecordAsync(GameSession, String)
+  fullName.vb: GamePlay.Services.IGameSessionService.SaveGameRecordAsync(GamePlay.Models.GameSession, String)
+  name.vb: SaveGameRecordAsync(GameSession, String)
+references:
+- uid: GamePlay.Services
+  commentId: N:GamePlay.Services
+  href: GamePlay.html
+  name: GamePlay.Services
+  nameWithType: GamePlay.Services
+  fullName: GamePlay.Services
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Services
+    name: Services
+    href: GamePlay.Services.html
+- uid: GamePlay.Services.IGameSessionService.GetGameSessionAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.GetGameSessionAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_GetGameSessionAsync_System_String_
+  name: GetGameSessionAsync
+  nameWithType: IGameSessionService.GetGameSessionAsync
+  fullName: GamePlay.Services.IGameSessionService.GetGameSessionAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{GamePlay.Models.GameSession}
+  commentId: T:System.Threading.Tasks.Task{GamePlay.Models.GameSession}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<GameSession>
+  nameWithType: Task<GameSession>
+  fullName: System.Threading.Tasks.Task<GamePlay.Models.GameSession>
+  nameWithType.vb: Task(Of GameSession)
+  fullName.vb: System.Threading.Tasks.Task(Of GamePlay.Models.GameSession)
+  name.vb: Task(Of GameSession)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: GamePlay.Models.GameSession
+    name: GameSession
+    href: GamePlay.Models.GameSession.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GamePlay.Models.GameSession
+    name: GameSession
+    href: GamePlay.Models.GameSession.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: GamePlay.Services.IGameSessionService.CreateGameSessionAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.CreateGameSessionAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_CreateGameSessionAsync_System_Collections_Generic_List_System_ValueTuple_System_String_System_String___
+  name: CreateGameSessionAsync
+  nameWithType: IGameSessionService.CreateGameSessionAsync
+  fullName: GamePlay.Services.IGameSessionService.CreateGameSessionAsync
+- uid: System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+  commentId: T:System.Collections.Generic.List{System.ValueTuple{System.String,System.String}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<(string name, string id)>
+  nameWithType: List<(string name, string id)>
+  fullName: System.Collections.Generic.List<(string name, string id)>
+  nameWithType.vb: List(Of (name As String, id As String))
+  fullName.vb: System.Collections.Generic.List(Of (name As String, id As String))
+  name.vb: List(Of (name As String, id As String))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: )
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: (
+  - uid: System.ValueTuple{System.String,System.String}.name
+    name: name
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.name
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.ValueTuple{System.String,System.String}.id
+    name: id
+    href: https://learn.microsoft.com/dotnet/api/system.valuetuple-system.string,system.string-.id
+  - name: " "
+  - name: As
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Guid}
+  commentId: T:System.Threading.Tasks.Task{System.Guid}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Guid>
+  nameWithType: Task<Guid>
+  fullName: System.Threading.Tasks.Task<System.Guid>
+  nameWithType.vb: Task(Of Guid)
+  fullName.vb: System.Threading.Tasks.Task(Of System.Guid)
+  name.vb: Task(Of Guid)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.RemoveGameSessionAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_RemoveGameSessionAsync_System_String_System_String_
+  name: RemoveGameSessionAsync
+  nameWithType: IGameSessionService.RemoveGameSessionAsync
+  fullName: GamePlay.Services.IGameSessionService.RemoveGameSessionAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: GamePlay.Services.IGameSessionService.SaveGameSessionAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.SaveGameSessionAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_SaveGameSessionAsync_GamePlay_Models_GameSession_
+  name: SaveGameSessionAsync
+  nameWithType: IGameSessionService.SaveGameSessionAsync
+  fullName: GamePlay.Services.IGameSessionService.SaveGameSessionAsync
+- uid: GamePlay.Models.GameSession
+  commentId: T:GamePlay.Models.GameSession
+  parent: GamePlay.Models
+  href: GamePlay.Models.GameSession.html
+  name: GameSession
+  nameWithType: GameSession
+  fullName: GamePlay.Models.GameSession
+- uid: GamePlay.Models
+  commentId: N:GamePlay.Models
+  href: GamePlay.html
+  name: GamePlay.Models
+  nameWithType: GamePlay.Models
+  fullName: GamePlay.Models
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Models
+    name: Models
+    href: GamePlay.Models.html
+- uid: GamePlay.Services.IGameSessionService.TryMakeMoveAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.TryMakeMoveAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_TryMakeMoveAsync_System_String_GamePlay_Dtos_MoveDto_
+  name: TryMakeMoveAsync
+  nameWithType: IGameSessionService.TryMakeMoveAsync
+  fullName: GamePlay.Services.IGameSessionService.TryMakeMoveAsync
+- uid: GamePlay.Dtos.MoveDto
+  commentId: T:GamePlay.Dtos.MoveDto
+  parent: GamePlay.Dtos
+  href: GamePlay.Dtos.MoveDto.html
+  name: MoveDto
+  nameWithType: MoveDto
+  fullName: GamePlay.Dtos.MoveDto
+- uid: System.Threading.Tasks.Task{GamePlay.Dtos.MoveResultDto}
+  commentId: T:System.Threading.Tasks.Task{GamePlay.Dtos.MoveResultDto}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<MoveResultDto>
+  nameWithType: Task<MoveResultDto>
+  fullName: System.Threading.Tasks.Task<GamePlay.Dtos.MoveResultDto>
+  nameWithType.vb: Task(Of MoveResultDto)
+  fullName.vb: System.Threading.Tasks.Task(Of GamePlay.Dtos.MoveResultDto)
+  name.vb: Task(Of MoveResultDto)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: GamePlay.Dtos.MoveResultDto
+    name: MoveResultDto
+    href: GamePlay.Dtos.MoveResultDto.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: GamePlay.Dtos.MoveResultDto
+    name: MoveResultDto
+    href: GamePlay.Dtos.MoveResultDto.html
+  - name: )
+- uid: GamePlay.Dtos
+  commentId: N:GamePlay.Dtos
+  href: GamePlay.html
+  name: GamePlay.Dtos
+  nameWithType: GamePlay.Dtos
+  fullName: GamePlay.Dtos
+  spec.csharp:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+  spec.vb:
+  - uid: GamePlay
+    name: GamePlay
+    href: GamePlay.html
+  - name: .
+  - uid: GamePlay.Dtos
+    name: Dtos
+    href: GamePlay.Dtos.html
+- uid: GamePlay.Services.IGameSessionService.SaveGameRecordAsync*
+  commentId: Overload:GamePlay.Services.IGameSessionService.SaveGameRecordAsync
+  href: GamePlay.Services.IGameSessionService.html#GamePlay_Services_IGameSessionService_SaveGameRecordAsync_GamePlay_Models_GameSession_System_String_
+  name: SaveGameRecordAsync
+  nameWithType: IGameSessionService.SaveGameRecordAsync
+  fullName: GamePlay.Services.IGameSessionService.SaveGameRecordAsync

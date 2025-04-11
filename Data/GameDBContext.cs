@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using GamePlayService.Models;
+using GamePlay.Models;
 
-namespace GamePlayService.Data
+namespace GamePlay.Data
 {
 	/// <include file='.docs/xmldocs/DbContext.xml' path='doc/class/member[@name="GameDbContext"]/*' />
 	public class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)

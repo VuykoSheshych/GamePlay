@@ -1,8 +1,8 @@
-using GamePlayService.Dtos;
-using GamePlayService.Models;
-using GamePlayService.Models.Pieces;
+using GamePlay.Dtos;
+using GamePlay.Models;
+using GamePlay.Models.Pieces;
 
-namespace GamePlayService.Services;
+namespace GamePlay.Services;
 
 /// <include file='.docs/xmldocs/Services.xml' path='doc/class/member[@name="ChessValidator"]/*' />
 public static class ChessValidator

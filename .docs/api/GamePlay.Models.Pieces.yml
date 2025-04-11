@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: GamePlay.Models.Pieces
+  commentId: N:GamePlay.Models.Pieces
+  id: GamePlay.Models.Pieces
+  children:
+  - GamePlay.Models.Pieces.Bishop
+  - GamePlay.Models.Pieces.King
+  - GamePlay.Models.Pieces.Knight
+  - GamePlay.Models.Pieces.Pawn
+  - GamePlay.Models.Pieces.Queen
+  - GamePlay.Models.Pieces.Rook
+  langs:
+  - csharp
+  - vb
+  name: GamePlay.Models.Pieces
+  nameWithType: GamePlay.Models.Pieces
+  fullName: GamePlay.Models.Pieces
+  type: Namespace
+  assemblies:
+  - GamePlay
+references:
+- uid: GamePlay.Models.Pieces.Bishop
+  commentId: T:GamePlay.Models.Pieces.Bishop
+  href: GamePlay.Models.Pieces.Bishop.html
+  name: Bishop
+  nameWithType: Bishop
+  fullName: GamePlay.Models.Pieces.Bishop
+- uid: GamePlay.Models.Pieces.King
+  commentId: T:GamePlay.Models.Pieces.King
+  href: GamePlay.Models.Pieces.King.html
+  name: King
+  nameWithType: King
+  fullName: GamePlay.Models.Pieces.King
+- uid: GamePlay.Models.Pieces.Knight
+  commentId: T:GamePlay.Models.Pieces.Knight
+  href: GamePlay.Models.Pieces.Knight.html
+  name: Knight
+  nameWithType: Knight
+  fullName: GamePlay.Models.Pieces.Knight
+- uid: GamePlay.Models.Pieces.Pawn
+  commentId: T:GamePlay.Models.Pieces.Pawn
+  href: GamePlay.Models.Pieces.Pawn.html
+  name: Pawn
+  nameWithType: Pawn
+  fullName: GamePlay.Models.Pieces.Pawn
+- uid: GamePlay.Models.Pieces.Queen
+  commentId: T:GamePlay.Models.Pieces.Queen
+  href: GamePlay.Models.Pieces.Queen.html
+  name: Queen
+  nameWithType: Queen
+  fullName: GamePlay.Models.Pieces.Queen
+- uid: GamePlay.Models.Pieces.Rook
+  commentId: T:GamePlay.Models.Pieces.Rook
+  href: GamePlay.Models.Pieces.Rook.html
+  name: Rook
+  nameWithType: Rook
+  fullName: GamePlay.Models.Pieces.Rook

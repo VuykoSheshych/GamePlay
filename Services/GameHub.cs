@@ -1,3 +1,4 @@
+using System.Text.Json;
 using GamePlay.Dtos;
 using GamePlay.Models;
 using Microsoft.AspNetCore.SignalR;
@@ -30,7 +31,7 @@ public class GameHub(IGameSessionService gamesSessionService, IGameSearchService
 		}
 
 		await Clients.Group(gameId).SendAsync("GameFound", gameId);
-		await Clients.Group(gameId).SendAsync("ReceiveGameState", await _gameSessionService.GetGameSessionAsync(gameId));
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", JsonSerializer.Serialize(await _gameSessionService.GetGameSessionAsync(gameId)));
 	}
 
 	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.StartGameSearch"]/*' />

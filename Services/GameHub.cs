@@ -63,7 +63,7 @@ public class GameHub(IGameSessionService gamesSessionService, IGameSearchService
 		if (!moveResult.IsSuccess) return;
 
 		var updatedGameSession = await _gameSessionService.GetGameSessionAsync(gameId);
-		await Clients.Group(gameId).SendAsync("ReceiveGameState", updatedGameSession);
+		await Clients.Group(gameId).SendAsync("ReceiveGameState", JsonSerializer.Serialize(updatedGameSession));
 
 		if (moveResult.Message.EndsWith('#'))
 		{

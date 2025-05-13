@@ -1,5 +1,7 @@
 using System.Text.Json;
-using GamePlay.Dtos;
+using ChessShared.Dtos;
+using ChessShared.Enums;
+using ChessShared.Models;
 using GamePlay.Models;
 using StackExchange.Redis;
 
@@ -38,7 +40,7 @@ public class GameSessionService(IConnectionMultiplexer redis, IGameRecordService
 	}
 
 	/// <inheritdoc/>
-	public async Task RemoveGameSessionAsync(string gameId, string result)
+	public async Task RemoveGameSessionAsync(string gameId, GameResult result)
 	{
 		var game = await GetGameSessionAsync(gameId);
 
@@ -86,7 +88,7 @@ public class GameSessionService(IConnectionMultiplexer redis, IGameRecordService
 	}
 
 	/// <inheritdoc/>
-	public async Task SaveGameRecordAsync(GameSession gameSession, string result)
+	public async Task SaveGameRecordAsync(GameSession gameSession, GameResult result)
 	{
 		await _gameRecordService.AddGameRecordAsync(new GameRecord()
 		{

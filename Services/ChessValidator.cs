@@ -1,4 +1,5 @@
-using GamePlay.Dtos;
+using ChessShared.Dtos;
+using ChessShared.Enums;
 using GamePlay.Models;
 using GamePlay.Models.Pieces;
 
@@ -37,9 +38,9 @@ public static class ChessValidator
 
 		return MoveResultDto.Success(CreateMoveSanNotation(boardState, moveDto));
 	}
-	private static bool IsPlayerMakeMoveWithTheirPiece(string activeColor, char piece)
+	private static bool IsPlayerMakeMoveWithTheirPiece(PlayerColor activeColor, char piece)
 	{
-		if ((activeColor == "w" && char.IsLower(piece)) || (activeColor == "b" && char.IsUpper(piece)))
+		if ((activeColor == PlayerColor.White && char.IsLower(piece)) || (activeColor == PlayerColor.Black && char.IsUpper(piece)))
 		{
 			return false;
 		}
@@ -105,15 +106,15 @@ public static class ChessValidator
 		if (char.ToLower(piece) == 'p' && (toRow == 0 || toRow == 7))
 		{
 			moveNotation += "=Q";
-			//moveNotation += $"={moveDto.Promotion}"; // В майбутньому буде отримуватись фігура перетворення окремо
+			// moveNotation += $"={moveDto.Promotion}"; // В майбутньому буде отримуватись фігура перетворення окремо
 		}
 
 		// Перевірка шаху або мату
 		var simulatedBoard = new BoardState(boardState.FEN);
 		simulatedBoard.ApplyMove(moveDto);
-		if (IsKingInCheck(simulatedBoard, boardState.ActiveColor == "w" ? "b" : "w"))
+		if (IsKingInCheck(simulatedBoard, boardState.ActiveColor == PlayerColor.White ? PlayerColor.Black : PlayerColor.White))
 		{
-			if (IsCheckmate(simulatedBoard, boardState.ActiveColor == "w" ? "b" : "w"))
+			if (IsCheckmate(simulatedBoard, boardState.ActiveColor == PlayerColor.White ? PlayerColor.Black : PlayerColor.White))
 			{
 				moveNotation += "#";
 			}
@@ -153,12 +154,12 @@ public static class ChessValidator
 	}
 	private static bool IsCastlingValid(BoardState boardState, MoveDto moveDto)
 	{
-		string kingColor = boardState.ActiveColor;
+		var kingColor = boardState.ActiveColor;
 		bool isKingSide = moveDto.To == "g1" || moveDto.To == "g8";
 		bool isQueenSide = moveDto.To == "c1" || moveDto.To == "c8";
 
 		// 🔹 1. Перевіряємо, чи є право на рокіровку у FEN-нотації
-		string requiredRight = kingColor == "w"
+		string requiredRight = kingColor == PlayerColor.White
 			? (isKingSide ? "K" : "Q")
 			: (isKingSide ? "k" : "q");
 
@@ -177,7 +178,7 @@ public static class ChessValidator
 			? ["e1", "f1", "g1"]
 			: ["e1", "d1", "c1"];
 
-		if (kingColor == "b")
+		if (kingColor == PlayerColor.Black)
 			squaresToCheck = isKingSide
 				? ["e8", "f8", "g8"]
 				: ["e8", "d8", "c8"];
@@ -197,7 +198,7 @@ public static class ChessValidator
 		return moveDto.From == "e1" && (moveDto.To == "g1" || moveDto.To == "c1") ||  // Біла рокіровка
 			   moveDto.From == "e8" && (moveDto.To == "g8" || moveDto.To == "c8");    // Чорна рокіровка
 	}
-	private static bool IsKingInCheck(BoardState boardState, string kingColor)
+	private static bool IsKingInCheck(BoardState boardState, PlayerColor kingColor)
 	{
 		var kingPosition = FindKing(boardState, kingColor);
 		if (kingPosition == null) return false;
@@ -206,11 +207,11 @@ public static class ChessValidator
 		int kingCol = kingPosition.Value.col;
 
 		// Перевіряємо, чи атакують короля будь-які ворожі фігури
-		foreach (var piecePosition in boardState.GetAllPieces(kingColor == "w" ? "b" : "w"))
+		foreach (var piecePosition in boardState.GetAllPieces(kingColor == PlayerColor.White ? PlayerColor.Black : PlayerColor.White))
 		{
 			var (row, col) = piecePosition;
 			char pieceChar = boardState.Board[row, col];
-			ChessPiece? piece = CreateChessPiece(pieceChar, kingColor == "w" ? "b" : "w", $"{(char)(col + 'a')}{8 - row}");
+			ChessPiece? piece = CreateChessPiece(pieceChar, kingColor == PlayerColor.White ? PlayerColor.Black : PlayerColor.White, $"{(char)(col + 'a')}{8 - row}");
 
 			if (piece == null) continue;
 
@@ -222,7 +223,7 @@ public static class ChessValidator
 		}
 		return false;
 	}
-	private static bool IsCheckmate(BoardState boardState, string kingColor)
+	private static bool IsCheckmate(BoardState boardState, PlayerColor kingColor)
 	{
 		if (!IsKingInCheck(boardState, kingColor)) return false;
 
@@ -250,9 +251,9 @@ public static class ChessValidator
 
 		return true; // Якщо жоден хід не рятує короля, це мат
 	}
-	private static (int row, int col)? FindKing(BoardState boardState, string kingColor)
+	private static (int row, int col)? FindKing(BoardState boardState, PlayerColor kingColor)
 	{
-		char kingSymbol = kingColor == "w" ? 'K' : 'k';
+		char kingSymbol = kingColor == PlayerColor.White ? 'K' : 'k';
 
 		for (int row = 0; row < 8; row++)
 		{
@@ -264,7 +265,7 @@ public static class ChessValidator
 		}
 		return null;
 	}
-	private static ChessPiece? CreateChessPiece(char pieceType, string color, string position)
+	private static ChessPiece? CreateChessPiece(char pieceType, PlayerColor color, string position)
 	{
 		return char.ToLower(pieceType) switch
 		{

@@ -1,7 +1,9 @@
+using ChessShared.Enums;
+
 namespace GamePlay.Models.Pieces;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="Pawn"]/*' />
-public class Pawn(string color, string position) : ChessPiece(color, position)
+public class Pawn(PlayerColor color, string position) : ChessPiece(color, position)
 {
 	/// <inheritdoc/>
 	public override List<string> GetPossibleMoves(BoardState boardState)
@@ -9,8 +11,8 @@ public class Pawn(string color, string position) : ChessPiece(color, position)
 		List<string> moves = [];
 		var (row, col) = ConvertToBoardIndex(Position);
 
-		int direction = (Color == "w") ? -1 : 1;
-		int startRow = (Color == "w") ? 6 : 1;
+		int direction = (Color == PlayerColor.White) ? -1 : 1;
+		int startRow = (Color == PlayerColor.White) ? 6 : 1;
 
 		// Один крок вперед (тільки якщо клітинка пуста)
 		if (IsValidCell(row + direction, col) && boardState.Board[row + direction, col] == '\0')

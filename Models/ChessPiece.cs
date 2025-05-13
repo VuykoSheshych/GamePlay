@@ -1,10 +1,12 @@
+using ChessShared.Enums;
+
 namespace GamePlay.Models;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="ChessPiece"]/*' />
-public abstract class ChessPiece(string color, string position)
+public abstract class ChessPiece(PlayerColor color, string position)
 {
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="ChessPiece.Color"]/*' />
-	public string Color { get; set; } = color;
+	public PlayerColor Color { get; set; } = color;
 
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="ChessPiece.Position"]/*' />
 	public string Position { get; set; } = position;
@@ -34,6 +36,6 @@ public abstract class ChessPiece(string color, string position)
 		bool isWhitePiece = char.IsUpper(piece);
 		bool isBlackPiece = char.IsLower(piece);
 
-		return (Color == "w" && isBlackPiece) || (Color == "b" && isWhitePiece);
+		return (Color == PlayerColor.White && isBlackPiece) || (Color == PlayerColor.Black && isWhitePiece);
 	}
 }

@@ -1,7 +1,9 @@
+using ChessShared.Enums;
+
 namespace GamePlay.Models.Pieces;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="Bishop"]/*' />
-public class Bishop(string color, string position) : ChessPiece(color, position)
+public class Bishop(PlayerColor color, string position) : ChessPiece(color, position)
 {
 	/// <inheritdoc/>
 	public override List<string> GetPossibleMoves(BoardState boardState)

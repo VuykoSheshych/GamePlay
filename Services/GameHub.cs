@@ -1,5 +1,6 @@
 using System.Text.Json;
-using GamePlay.Dtos;
+using ChessShared.Dtos;
+using ChessShared.Enums;
 using GamePlay.Models;
 using Microsoft.AspNetCore.SignalR;
 
@@ -68,7 +69,7 @@ public class GameHub(IGameSessionService gamesSessionService, IGameSearchService
 		if (moveResult.Message.EndsWith('#'))
 		{
 			var activeColor = new BoardState(updatedGameSession!.CurrentFen).ActiveColor;
-			string looser = activeColor == "w" ? updatedGameSession.WhitePlayer.Name : updatedGameSession.BlackPlayer.Name;
+			string looser = activeColor == PlayerColor.White ? updatedGameSession.WhitePlayer.Name : updatedGameSession.BlackPlayer.Name;
 			await FinishGame(gameId, looser);
 		}
 		else if (moveResult.Message.Contains("½-½"))
@@ -90,13 +91,13 @@ public class GameHub(IGameSessionService gamesSessionService, IGameSearchService
 	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.FinishGame"]/*' />
 	public async Task FinishGame(string gameId, string looser)
 	{
-		string result = "½-½";
+		GameResult result = GameResult.Draw;
 		var gameSession = await _gameSessionService.GetGameSessionAsync(gameId);
 		if (gameSession != null)
 		{
-			if (looser == gameSession.BlackPlayer.Name) result = "1 0";
-			else if (looser == gameSession.WhitePlayer.Name) result = "0 1";
-			else result = "½-½";
+			if (looser == gameSession.BlackPlayer.Name) result = GameResult.WhiteWin;
+			else if (looser == gameSession.WhitePlayer.Name) result = GameResult.BlackWin;
+			else result = GameResult.Draw;
 
 			await Clients.Group(gameId).SendAsync("GameFinished", looser);
 			await Groups.RemoveFromGroupAsync(gameSession.BlackPlayer.ConnectionId, gameId);

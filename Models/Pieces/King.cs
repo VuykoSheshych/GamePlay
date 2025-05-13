@@ -1,7 +1,9 @@
+using ChessShared.Enums;
+
 namespace GamePlay.Models.Pieces;
 
 /// <include file='.docs/xmldocs/DomainModels.xml' path='doc/class/member[@name="King"]/*' />
-public class King(string color, string position) : ChessPiece(color, position)
+public class King(PlayerColor color, string position) : ChessPiece(color, position)
 {
 	/// <inheritdoc/>
 	public override List<string> GetPossibleMoves(BoardState boardState)
@@ -48,31 +50,31 @@ public class King(string color, string position) : ChessPiece(color, position)
 	private void AddCastlingMoves(BoardState boardState, List<string> moves)
 	{
 		// Перевіряємо, чи король ще має право на рокіровку
-		if ((Color == "w" && Position == "e1") || (Color == "b" && Position == "e8"))
+		if ((Color == PlayerColor.White && Position == "e1") || (Color == PlayerColor.Black && Position == "e8"))
 		{
-			bool canCastleKingside = Color == "w" ? boardState.CastlingRights.Contains('K') : boardState.CastlingRights.Contains('k');
-			bool canCastleQueenside = Color == "w" ? boardState.CastlingRights.Contains('Q') : boardState.CastlingRights.Contains('q');
+			bool canCastleKingside = Color == PlayerColor.White ? boardState.CastlingRights.Contains('K') : boardState.CastlingRights.Contains('k');
+			bool canCastleQueenside = Color == PlayerColor.White ? boardState.CastlingRights.Contains('Q') : boardState.CastlingRights.Contains('q');
 
 			if (canCastleKingside && IsKingsideCastlingPossible(boardState))
 			{
-				moves.Add(Color == "w" ? "g1" : "g8"); // Коротка рокіровка
+				moves.Add(Color == PlayerColor.White ? "g1" : "g8"); // Коротка рокіровка
 			}
 			if (canCastleQueenside && IsQueensideCastlingPossible(boardState))
 			{
-				moves.Add(Color == "w" ? "c1" : "c8"); // Довга рокіровка
+				moves.Add(Color == PlayerColor.White ? "c1" : "c8"); // Довга рокіровка
 			}
 		}
 	}
 	private bool IsKingsideCastlingPossible(BoardState boardState)
 	{
-		int rank = (Color == "w") ? 7 : 0;
+		int rank = (Color == PlayerColor.White) ? 7 : 0;
 
 		// Перевіряємо, чи клітинки між королем і турою порожні
 		return boardState.Board[rank, 5] == '\0' && boardState.Board[rank, 6] == '\0';
 	}
 	private bool IsQueensideCastlingPossible(BoardState boardState)
 	{
-		int rank = (Color == "w") ? 7 : 0;
+		int rank = (Color == PlayerColor.White) ? 7 : 0;
 
 		// Перевіряємо, чи клітинки між королем і турою порожні
 		return boardState.Board[rank, 1] == '\0' && boardState.Board[rank, 2] == '\0' && boardState.Board[rank, 3] == '\0';

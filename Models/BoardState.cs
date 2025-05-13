@@ -1,5 +1,6 @@
 using System.Text;
-using GamePlay.Dtos;
+using ChessShared.Dtos;
+using ChessShared.Enums;
 
 namespace GamePlay.Models;
 
@@ -10,7 +11,7 @@ public class BoardState
 	public char[,] Board { get; private set; } = new char[8, 8];
 
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.ActiveColor"]/*' />
-	public string ActiveColor { get; private set; } = "w";
+	public PlayerColor ActiveColor { get; private set; } = PlayerColor.White;
 
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.CastlingRights"]/*' />
 	public string CastlingRights { get; private set; } = "KQkq";
@@ -59,7 +60,7 @@ public class BoardState
 			}
 		}
 
-		ActiveColor = parts[1];
+		ActiveColor = parts[1] == "w" ? PlayerColor.White : PlayerColor.Black;
 		CastlingRights = parts[2];
 		EnPassant = parts[3];
 		HalfmoveClock = int.Parse(parts[4]);
@@ -99,9 +100,23 @@ public class BoardState
 			}
 		}
 
-		fenBuilder.Append($" {ActiveColor} {CastlingRights} {EnPassant} {HalfmoveClock} {FullmoveNumber}");
+		var colorForFEN = ActiveColor == PlayerColor.White ? "w" : "b";
+
+		fenBuilder.Append($" {colorForFEN} {CastlingRights} {EnPassant} {HalfmoveClock} {FullmoveNumber}");
 
 		return fenBuilder.ToString();
+	}
+
+	private static char ConvertPromotionPieceTypeToString(PromotionPieceType? piece)
+	{
+		return piece switch
+		{
+			PromotionPieceType.Queen => 'Q',
+			PromotionPieceType.Rook => 'R',
+			PromotionPieceType.Bishop => 'B',
+			PromotionPieceType.Knight => 'N',
+			_ => throw new ArgumentException("Invalid piece type")
+		};
 	}
 
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.ApplyMove"]/*' />
@@ -118,9 +133,9 @@ public class BoardState
 		}
 
 		// Обробка перетворення пішака
-		if (char.ToLower(piece) == 'p' && (toRank == 0 || toRank == 7) && !string.IsNullOrEmpty(move.Promotion))
+		if (char.ToLower(piece) == 'p' && (toRank == 0 || toRank == 7) && move.Promotion != null)
 		{
-			char promotedPiece = move.Promotion[0];
+			char promotedPiece = ConvertPromotionPieceTypeToString(move.Promotion);
 
 			if (char.IsLower(piece))
 				promotedPiece = char.ToLower(promotedPiece);
@@ -150,10 +165,10 @@ public class BoardState
 		if (piece == 'r' && move.From == "h8") CastlingRights = CastlingRights.Replace("k", "");
 		if (piece == 'r' && move.From == "a8") CastlingRights = CastlingRights.Replace("q", "");
 
-		ActiveColor = ActiveColor == "w" ? "b" : "w";
+		ActiveColor = ActiveColor == PlayerColor.White ? PlayerColor.Black : PlayerColor.White;
 
 		HalfmoveClock = (piece == 'p' || Board[toRank, toFile] != '\0') ? 0 : HalfmoveClock + 1;
-		if (ActiveColor == "w") FullmoveNumber++;
+		if (ActiveColor == PlayerColor.White) FullmoveNumber++;
 	}
 	private void HandleCastling(int rank, int toFile)
 	{
@@ -170,7 +185,7 @@ public class BoardState
 	}
 
 	/// <include file='.docs/xmldocs/DomainModels.xml' path='doc/method/member[@name="BoardState.GetAllPieces"]/*' />
-	public List<(int row, int col)> GetAllPieces(string color)
+	public List<(int row, int col)> GetAllPieces(PlayerColor color)
 	{
 		List<(int row, int col)> pieces = [];
 
@@ -185,7 +200,7 @@ public class BoardState
 				bool isWhitePiece = char.IsUpper(piece);
 				bool isBlackPiece = char.IsLower(piece);
 
-				if ((color == "w" && isWhitePiece) || (color == "b" && isBlackPiece))
+				if ((color == PlayerColor.White && isWhitePiece) || (color == PlayerColor.Black && isBlackPiece))
 				{
 					pieces.Add((row, col));
 				}

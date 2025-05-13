@@ -1,5 +1,6 @@
+using ChessShared.Enums;
+using ChessShared.Models;
 using GamePlay.Data;
-using GamePlay.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace GamePlay.Services;
@@ -15,7 +16,7 @@ public class GameRecordService(GameDbContext context) : IGameRecordService
 		{
 			gameRecord.Moves = [.. gameRecord.Moves
 					.OrderBy(m => m.MoveNumber)
-					.ThenBy(m => m.PlayerColor == "w" ? 0 : 1)];
+					.ThenBy(m => m.PlayerColor == PlayerColor.White ? 0 : 1)];
 		}
 		return gameRecord;
 	}

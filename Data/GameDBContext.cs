@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using GamePlay.Models;
+using ChessShared.Models;
 
 namespace GamePlay.Data
 {
@@ -11,5 +11,21 @@ namespace GamePlay.Data
 
 		/// <include file='.docs/xmldocs/DbContext.xml' path='doc/method/member[@name="GameDbContext.Moves"]/*' />
 		public DbSet<Move> Moves { get; set; }
+
+		/// <inheritdoc/>
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<GameRecord>()
+				.Property(g => g.Result)
+				.HasConversion<string>();
+
+			modelBuilder.Entity<Move>()
+				.Property(m => m.PlayerColor)
+				.HasConversion<string>();
+
+			modelBuilder.Entity<Move>()
+				.Property(m => m.Promotion)
+				.HasConversion<string>();
+		}
 	}
 }

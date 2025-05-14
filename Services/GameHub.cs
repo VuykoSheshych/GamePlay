@@ -81,11 +81,7 @@ public class GameHub(IGameSessionService gamesSessionService, IGameSearchService
 	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.SendMessage"]/*' />
 	public async Task SendMessage(string gameId, ChatMessageDto chatMessage)
 	{
-		var game = await _gameSessionService.GetGameSessionAsync(gameId);
-
-		game?.Messages.Add(chatMessage);
-
-		await Clients.Group(gameId).SendAsync("ReceiveGameState", game);
+		await Clients.Group(gameId).SendAsync("ReceiveMessage", chatMessage);
 	}
 
 	/// <include file='.docs/xmldocs/Services.xml' path='doc/method/member[@name="GameHub.FinishGame"]/*' />

@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using System.Text;
 using ChessShared.Dtos;
 using ChessShared.Enums;
@@ -133,9 +134,9 @@ public class BoardState
 		}
 
 		// Обробка перетворення пішака
-		if (char.ToLower(piece) == 'p' && (toRank == 0 || toRank == 7) && move.Promotion != null)
+		if (char.ToLower(piece) == 'p' && (toRank == 0 || toRank == 7))
 		{
-			char promotedPiece = ConvertPromotionPieceTypeToString(move.Promotion);
+			char promotedPiece = ConvertPromotionPieceTypeToString(PromotionPieceType.Queen); // За замовчуванням перетворюємо в ферзя
 
 			if (char.IsLower(piece))
 				promotedPiece = char.ToLower(promotedPiece);
@@ -147,6 +148,20 @@ public class BoardState
 		else
 		{
 			Board[toRank, toFile] = piece;
+		}
+
+		if (EnPassant == move.To)
+		{
+			if (piece == 'P')
+			{
+				// Якщо білий пішак з'їв чорного пішака
+				Board[toRank + 1, toFile] = '\0'; // Видаляємо чорного пішака
+			}
+			else if (piece == 'p')
+			{
+				// Якщо чорний пішак з'їв білого пішака
+				Board[toRank - 1, toFile] = '\0'; // Видаляємо білого пішака
+			}
 		}
 
 		Board[fromRank, fromFile] = '\0';

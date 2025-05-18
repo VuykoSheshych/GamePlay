@@ -83,7 +83,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapHub<GameHub>("/gameplay/gameHub");
+app.MapHub<GameHub>("/gameHub");
 app.MapHealthChecks("/health");
 
 app.Run();

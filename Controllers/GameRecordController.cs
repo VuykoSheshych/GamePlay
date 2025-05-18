@@ -5,7 +5,7 @@ namespace GamePlay.Controllers;
 
 /// <include file='.docs/xmldocs/Controllers.xml' path='doc/class/member[@name="GameRecordController"]/*' />
 [ApiController]
-[Route("gameplay/games")]
+[Route("games")]
 public class GameRecordController(IGameRecordService gameRecordService) : ControllerBase
 {
 	private readonly IGameRecordService _gameRecordService = gameRecordService;

@@ -66,12 +66,12 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
+}
 
-	// У випадку запуску в середовищі розробки, міграції в базі даних будуть застосовуватись автоматично  
-	using var scope = app.Services.CreateScope();
+using (var scope = app.Services.CreateScope())
+{
 	var dbContext = scope.ServiceProvider.GetRequiredService<GameDbContext>();
 	await dbContext.Database.MigrateAsync();
-	// When running in a development environment, database migrations will apply automatically
 }
 
 app.UseHttpsRedirection();
